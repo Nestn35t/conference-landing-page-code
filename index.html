@@ -9,12 +9,12 @@
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; color: #3a2a1a; background: #faf5f0; }
+        body { font-family: 'Inter', sans-serif; color: #222; background: #fff; }
         a { text-decoration: none; }
 
         /* Hero */
         .hub-hero {
-            background: linear-gradient(135deg, #3a2a1a 0%, #c37c41 60%, #3a2a1a 100%);
+            background: linear-gradient(135deg, #b42024 0%, #d4343a 50%, #931a1d 100%);
             color: #fff;
             text-align: center;
             padding: 4rem 1.5rem 3rem;
@@ -25,10 +25,10 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 50% 120%, rgba(195,124,65,0.3), transparent 70%);
+            background: radial-gradient(circle at 50% 120%, rgba(255,255,255,0.1), transparent 70%);
         }
         .hub-hero > * { position: relative; z-index: 1; }
-        .hub-logo { max-width: 300px; height: auto; margin-bottom: 1.5rem; }
+        .hub-logo { max-width: 440px; height: auto; margin-bottom: 1.5rem; }
         .hub-hero h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 0.75rem; letter-spacing: -0.5px; }
         .hub-hero p { font-size: 1.15rem; color: rgba(255,255,255,0.85); max-width: 640px; margin: 0 auto 2rem; line-height: 1.6; }
         .hub-hero-cta { display: inline-block; background: #b42024; color: #fff; padding: 14px 36px; border-radius: 8px; font-weight: 700; font-size: 1rem; transition: background 0.2s, transform 0.15s; }
@@ -48,26 +48,26 @@
             background: #fff;
             text-align: center;
             padding: 1.5rem 1rem;
-            border-right: 1px solid #f0e8df;
+            border-right: 1px solid #eee;
         }
         .hub-stat:first-child { border-radius: 12px 0 0 12px; }
         .hub-stat:last-child { border-radius: 0 12px 12px 0; border-right: none; }
         .hub-stat-num { font-size: 2rem; font-weight: 900; color: #b42024; display: block; }
-        .hub-stat-label { font-size: 0.75rem; color: #8a7a6a; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+        .hub-stat-label { font-size: 0.75rem; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
 
         /* Section */
         .hub-section { max-width: 1000px; margin: 0 auto; padding: 3.5rem 1.5rem; }
-        .hub-section h2 { font-size: 1.75rem; font-weight: 800; text-align: center; margin-bottom: 0.5rem; }
-        .hub-section .sub { font-size: 1rem; color: #8a7a6a; text-align: center; margin-bottom: 2.5rem; }
+        .hub-section h2 { font-size: 1.75rem; font-weight: 800; text-align: center; margin-bottom: 0.5rem; color: #b42024; }
+        .hub-section .sub { font-size: 1rem; color: #666; text-align: center; margin-bottom: 2.5rem; }
 
         /* About grid */
         .hub-about { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 1rem; }
-        .hub-about-text h3 { font-size: 1.25rem; font-weight: 700; color: #c37c41; margin-bottom: 0.75rem; }
-        .hub-about-text p { font-size: 0.95rem; color: #6b5b4a; line-height: 1.7; margin-bottom: 1rem; }
+        .hub-about-text h3 { font-size: 1.25rem; font-weight: 700; color: #b42024; margin-bottom: 0.75rem; }
+        .hub-about-text p { font-size: 0.95rem; color: #555; line-height: 1.7; margin-bottom: 1rem; }
         .hub-about-features { list-style: none; }
-        .hub-about-features li { padding: 6px 0 6px 24px; position: relative; font-size: 0.9rem; color: #6b5b4a; }
+        .hub-about-features li { padding: 6px 0 6px 24px; position: relative; font-size: 0.9rem; color: #555; }
         .hub-about-features li::before { content: "\2713"; position: absolute; left: 0; color: #b42024; font-weight: 700; }
-        .hub-about-img { width: 100%; border-radius: 16px; object-fit: cover; aspect-ratio: 4/3; box-shadow: 0 8px 30px rgba(58,42,26,0.1); }
+        .hub-about-img { width: 100%; border-radius: 16px; object-fit: cover; aspect-ratio: 4/3; box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
 
         /* Country cards */
         .hub-grid {
@@ -80,26 +80,26 @@
             border-radius: 16px;
             padding: 1.75rem 1.25rem;
             text-align: center;
-            box-shadow: 0 2px 12px rgba(58,42,26,0.08);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             transition: transform 0.2s, box-shadow 0.2s;
             border: 2px solid transparent;
             position: relative;
         }
-        .hub-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(58,42,26,0.12); }
+        .hub-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
         .hub-card--active { border-color: #b42024; }
         .hub-card--soon { opacity: 0.65; }
         .hub-card--soon:hover { opacity: 0.8; }
         .hub-badge { display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 10px; border-radius: 999px; margin-bottom: 0.75rem; }
         .hub-badge--available { background: #b42024; color: #fff; }
-        .hub-badge--soon { background: #e8e0d6; color: #8a7a6a; }
+        .hub-badge--soon { background: #eee; color: #888; }
         .hub-flag { font-size: 2.5rem; line-height: 1; margin-bottom: 0.5rem; }
         .hub-country { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.35rem; }
-        .hub-date { font-size: 0.85rem; font-weight: 600; color: #c37c41; margin-bottom: 0.15rem; }
-        .hub-venue { font-size: 0.8rem; color: #8a7a6a; margin-bottom: 1rem; }
+        .hub-date { font-size: 0.85rem; font-weight: 600; color: #b42024; margin-bottom: 0.15rem; }
+        .hub-venue { font-size: 0.8rem; color: #888; margin-bottom: 1rem; }
         .hub-btn { display: inline-block; padding: 10px 24px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; transition: all 0.2s; }
         .hub-btn--primary { background: #b42024; color: #fff; }
         .hub-btn--primary:hover { background: #931a1d; }
-        .hub-btn--disabled { background: #e8e0d6; color: #8a7a6a; cursor: default; pointer-events: none; }
+        .hub-btn--disabled { background: #eee; color: #888; cursor: default; pointer-events: none; }
 
         /* Topics */
         .hub-topics {
@@ -113,10 +113,10 @@
             border-radius: 12px;
             padding: 1.25rem;
             border-left: 3px solid #b42024;
-            box-shadow: 0 2px 8px rgba(58,42,26,0.06);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
-        .hub-topic h4 { font-size: 0.9rem; font-weight: 700; color: #3a2a1a; margin-bottom: 4px; }
-        .hub-topic p { font-size: 0.8rem; color: #8a7a6a; line-height: 1.5; }
+        .hub-topic h4 { font-size: 0.9rem; font-weight: 700; color: #222; margin-bottom: 4px; }
+        .hub-topic p { font-size: 0.8rem; color: #888; line-height: 1.5; }
 
         /* Endorsers */
         .hub-endorsers {
@@ -127,22 +127,22 @@
             flex-wrap: wrap;
             padding: 1rem 0;
         }
-        .hub-endorsers img { max-height: 60px; max-width: 160px; object-fit: contain; }
+        .hub-endorsers img { max-height: 100px; max-width: 240px; object-fit: contain; }
 
         /* CTA banner */
         .hub-cta-banner {
-            background: #3a2a1a;
+            background: #b42024;
             color: #fff;
             text-align: center;
             padding: 3rem 1.5rem;
         }
         .hub-cta-banner h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 0.75rem; }
         .hub-cta-banner p { color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; font-size: 1rem; }
-        .hub-cta-banner a { display: inline-block; background: #b42024; color: #fff; padding: 14px 36px; border-radius: 8px; font-weight: 700; transition: background 0.2s; }
-        .hub-cta-banner a:hover { background: #931a1d; }
+        .hub-cta-banner a { display: inline-block; background: #fff; color: #b42024; padding: 14px 36px; border-radius: 8px; font-weight: 700; transition: background 0.2s; }
+        .hub-cta-banner a:hover { background: #f5f5f5; }
 
         /* Footer */
-        .hub-footer { text-align: center; padding: 2rem 1.5rem; font-size: 0.8rem; color: #8a7a6a; background: #faf5f0; }
+        .hub-footer { text-align: center; padding: 2rem 1.5rem; font-size: 0.8rem; color: #888; background: #f9f9f9; }
 
         /* Responsive */
         @media (max-width: 900px) {

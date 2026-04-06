@@ -670,6 +670,11 @@ a:hover {
     border-color: var(--color-silver);
 }
 
+.tier-title.bronze {
+    color: #cd7f32;
+    border-color: #cd7f32;
+}
+
 .sponsor-logos {
     display: flex;
     justify-content: center;

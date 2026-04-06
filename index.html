@@ -64,7 +64,7 @@
         /* Country cards */
         .hub-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 1.25rem;
         }
         .hub-card {
@@ -138,7 +138,7 @@
 
         /* Responsive */
         @media (max-width: 900px) {
-            .hub-grid { grid-template-columns: repeat(2, 1fr); }
+            .hub-grid { grid-template-columns: repeat(3, 1fr); }
             .hub-topics { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 640px) {
@@ -221,6 +221,14 @@
             <h2 class="hub-country">Indonesia</h2>
             <p class="hub-date">26–27 August 2026</p>
             <p class="hub-venue">Jakarta</p>
+            <a class="hub-btn hub-btn--disabled">Coming Soon</a>
+        </div>
+        <div class="hub-card hub-card--soon">
+            <span class="hub-badge hub-badge--soon">Coming Soon</span>
+            <div class="hub-flag">&#x1F1FB;&#x1F1F3;</div>
+            <h2 class="hub-country">Vietnam</h2>
+            <p class="hub-date">15–16 September 2026</p>
+            <p class="hub-venue">TBA</p>
             <a class="hub-btn hub-btn--disabled">Coming Soon</a>
         </div>
         <div class="hub-card hub-card--soon">

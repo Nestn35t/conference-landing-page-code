@@ -562,69 +562,94 @@ a:hover {
 }
 
 .agenda-timeline {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .agenda-item {
-    display: flex;
-    gap: 24px;
-    padding: 20px 0;
-    border-bottom: 1px solid var(--color-border);
-}
-
-.agenda-item:last-child {
-    border-bottom: none;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 16px;
+    align-items: start;
 }
 
 .agenda-time {
-    min-width: 140px;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    color: var(--color-primary);
-    padding-top: 2px;
+    color: var(--color-accent);
+    padding-top: 14px;
+    text-align: right;
 }
 
-.agenda-details h4 {
-    font-size: 1.05rem;
-    font-weight: 700;
-    margin-bottom: 4px;
+.agenda-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.05);
 }
 
-.agenda-details p {
-    font-size: 0.875rem;
-    color: var(--color-text-light);
+.agenda-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
+    gap: 12px;
+}
+
+.agenda-session-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
 }
 
 .agenda-format {
-    display: inline-block;
+    flex-shrink: 0;
+    background: var(--color-bg-alt);
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    padding: 4px 10px;
+    border-radius: 999px;
     font-size: 0.7rem;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 50px;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 8px;
+    white-space: nowrap;
 }
 
 .agenda-format.keynote {
-    background: rgba(233,69,96,0.1);
+    background: rgba(180,32,36,0.08);
     color: var(--color-accent);
+    border-color: var(--color-accent);
 }
 
 .agenda-format.panel {
-    background: rgba(15,52,96,0.1);
+    background: rgba(195,124,65,0.1);
     color: var(--color-secondary);
+    border-color: var(--color-secondary);
 }
 
 .agenda-format.workshop {
-    background: rgba(201,168,76,0.15);
+    background: rgba(201,168,76,0.1);
     color: #9a7b2e;
+    border-color: #9a7b2e;
 }
 
 .agenda-format.networking {
-    background: rgba(100,200,130,0.15);
+    background: rgba(100,200,130,0.1);
     color: #2a8a4a;
+    border-color: #2a8a4a;
+}
+
+.agenda-session-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--color-text-light);
+    margin: 4px 0 0 0;
 }
 
 .agenda-download {
@@ -1619,12 +1644,12 @@ a:hover {
     }
 
     .agenda-item {
-        flex-direction: column;
-        gap: 8px;
+        grid-template-columns: 1fr;
     }
 
     .agenda-time {
-        min-width: unset;
+        text-align: left;
+        padding-top: 0;
     }
 
     .reg-pricing {

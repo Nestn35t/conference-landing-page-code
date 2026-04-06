@@ -434,15 +434,15 @@ a:hover {
 
 .speakers-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
     margin-bottom: 32px;
 }
 
 .speaker-card {
     background: var(--color-bg);
     border-radius: var(--radius-lg);
-    padding: 32px 24px;
+    padding: 24px 16px;
     text-align: center;
     transition: transform var(--transition), box-shadow var(--transition);
     box-shadow: var(--shadow-sm);
@@ -454,19 +454,21 @@ a:hover {
 }
 
 .speaker-photo-placeholder {
-    width: 120px;
-    height: 120px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--color-border), #d0d0d8);
-    margin: 0 auto 20px;
+    margin: 0 auto 16px;
 }
 
 .speaker-card img.speaker-photo {
-    width: 120px;
-    height: 120px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 0 auto 20px;
+    margin: 0 auto 16px;
+    border: 3px solid var(--color-bg-alt);
+    box-shadow: var(--shadow-sm);
 }
 
 .speaker-name {
@@ -675,6 +677,16 @@ a:hover {
     border-color: #cd7f32;
 }
 
+.tier-title.exhibitor {
+    color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+.tier-title.pavilion {
+    color: var(--color-text-light);
+    border-color: var(--color-text-light);
+}
+
 .sponsor-logos {
     display: flex;
     justify-content: center;
@@ -697,11 +709,15 @@ a:hover {
 }
 
 .sponsor-logos img {
-    max-height: 100px;
-    max-width: 220px;
+    max-height: 160px;
+    max-width: 280px;
     object-fit: contain;
     opacity: 1;
     transition: all var(--transition);
+}
+
+.sponsor-logos img:hover {
+    transform: scale(1.05);
 }
 
 .sponsor-cta {

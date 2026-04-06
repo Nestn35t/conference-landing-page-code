@@ -667,6 +667,69 @@ a:hover {
     color: var(--color-text-inverse);
 }
 
+.agenda-session-header {
+    background: var(--color-accent);
+    color: var(--color-text-inverse);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.session-header-row {
+    margin-top: 16px;
+}
+
+.session-header-row:first-child {
+    margin-top: 0;
+}
+
+.panel-card {
+    border-left: 3px solid var(--color-accent);
+}
+
+.private-card {
+    border-left: 3px solid var(--color-secondary);
+    background: var(--color-bg-alt);
+}
+
+.agenda-panelists {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--color-border);
+}
+
+.agenda-panelists h5 {
+    font-size: 0.85rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.agenda-panelists ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.agenda-panelists li {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    padding: 2px 0;
+}
+
+.agenda-panelists li strong {
+    color: var(--color-text);
+}
+
+.agenda-format.private {
+    background: rgba(195,124,65,0.1);
+    color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
 /* ---------- Sponsors ---------- */
 .sponsors {
     background: var(--color-bg-alt);

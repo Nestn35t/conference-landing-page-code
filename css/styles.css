@@ -4,17 +4,17 @@
 
 /* ---------- CSS Variables ---------- */
 :root {
-    --color-primary: #0d1b2a;
-    --color-accent: #00b4d8;
-    --color-accent-hover: #0096c7;
-    --color-secondary: #1b3a5c;
+    --color-primary: #1a1412;
+    --color-accent: #b42024;
+    --color-accent-hover: #931a1c;
+    --color-secondary: #c37c41;
     --color-gold: #c9a84c;
     --color-silver: #8e8e93;
-    --color-platinum: #1b2838;
+    --color-platinum: #1a1412;
     --color-bg: #ffffff;
-    --color-bg-alt: #f0f4f8;
-    --color-bg-dark: #0d1b2a;
-    --color-text: #0d1b2a;
+    --color-bg-alt: #faf5f0;
+    --color-bg-dark: #1a1412;
+    --color-text: #1a1412;
     --color-text-light: #5a6a7a;
     --color-text-inverse: #ffffff;
     --color-border: #d0d8e0;
@@ -151,7 +151,7 @@ a:hover {
     left: 0;
     right: 0;
     height: var(--nav-height);
-    background: rgba(13, 27, 42, 0.95);
+    background: rgba(26, 20, 18, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: background var(--transition);
@@ -245,7 +245,7 @@ a:hover {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(13,27,42,0.9) 0%, rgba(27,58,92,0.75) 50%, rgba(13,27,42,0.9) 100%);
+    background: rgba(26,20,18,0.85);
     z-index: 2;
 }
 
@@ -255,7 +255,7 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #0d1b2a 0%, #1b3a5c 50%, #0d1b2a 100%);
+    background: linear-gradient(135deg, #1a1412 0%, #c37c41 50%, #1a1412 100%);
     z-index: 1;
 }
 
@@ -1286,7 +1286,7 @@ a:hover {
 }
 
 .who-endorsed {
-    background: rgba(0,180,216,0.08);
+    background: rgba(180,32,36,0.08);
     border-radius: var(--radius);
     padding: 16px 20px;
 }

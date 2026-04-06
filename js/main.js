@@ -32,9 +32,9 @@
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', function () {
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(26, 26, 46, 0.98)';
+            navbar.style.background = 'rgba(26, 20, 18, 0.98)';
         } else {
-            navbar.style.background = 'rgba(26, 26, 46, 0.95)';
+            navbar.style.background = 'rgba(26, 20, 18, 0.95)';
         }
     });
 
@@ -70,7 +70,7 @@
     }
 
     // Default countdown — will be overridden by sheet data
-    startCountdown('2025-07-09T09:00:00+08:00');
+    startCountdown('2026-07-08T09:00:00+08:00');
 
     // ---- Agenda Day Tabs ----
     var agendaTabs = document.querySelectorAll('.agenda-tab');

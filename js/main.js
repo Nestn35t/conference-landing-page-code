@@ -70,7 +70,7 @@
     }
 
     // Default countdown — will be overridden by sheet data
-    startCountdown('2025-10-15T09:00:00+08:00');
+    startCountdown('2025-07-09T09:00:00+08:00');
 
     // ---- Agenda Day Tabs ----
     var agendaTabs = document.querySelectorAll('.agenda-tab');

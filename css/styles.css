@@ -1134,6 +1134,62 @@ a:hover {
     line-height: 1.7;
 }
 
+/* ---------- Video Section ---------- */
+.video-section {
+    background: var(--color-bg-dark);
+    padding: 64px 0;
+}
+
+.video-section .section-title {
+    color: var(--color-text-inverse);
+    margin-bottom: 32px;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-lg);
+}
+
+/* ---------- Registration Note ---------- */
+.reg-note {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* ---------- Endorsed By ---------- */
+.about-endorsed {
+    margin-top: 24px;
+}
+
+.about-endorsed h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--color-primary);
+}
+
+.about-endorsed p {
+    color: var(--color-text-light);
+}
+
 /* ---------- Contact ---------- */
 .contact {
     background: var(--color-bg-alt);

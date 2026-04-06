@@ -3,1051 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIBP Conference & Exhibition Malaysia 2026 | W Kuala Lumpur</title>
-    <meta name="description" content="Join 600+ senior executives at the AIBP Conference & Exhibition. 8–9 July 2026, W Kuala Lumpur. AI, Digital Transformation, Cybersecurity & ESG for ASEAN business leaders.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>AIBP Conference & Exhibition 2026 | ASEAN Innovation Business Platform</title>
+    <meta name="description" content="AIBP Conference & Exhibition 2026 across ASEAN — Malaysia, Thailand, Indonesia, Philippines. Select your destination.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf5f0;
+            color: #3a2a1a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hub-header {
+            text-align: center;
+            padding: 3rem 1.5rem 1rem;
+        }
+
+        .hub-logo {
+            max-width: 280px;
+            height: auto;
+            margin-bottom: 2rem;
+        }
+
+        .hub-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: #3a2a1a;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .hub-subtitle {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #c37c41;
+            margin-bottom: 0.5rem;
+        }
+
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 860px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            flex: 1;
+        }
+
+        .hub-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(58, 42, 26, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .hub-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(58, 42, 26, 0.12);
+        }
+
+        .hub-card--active {
+            border-color: #b42024;
+        }
+
+        .hub-card--coming-soon {
+            opacity: 0.7;
+        }
+
+        .hub-card--coming-soon:hover {
+            opacity: 0.85;
+        }
+
+        .hub-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .hub-badge--available {
+            background: #b42024;
+            color: #fff;
+        }
+
+        .hub-badge--soon {
+            background: #e8e0d6;
+            color: #8a7a6a;
+        }
+
+        .hub-flag {
+            font-size: 3rem;
+            line-height: 1;
+            margin-bottom: 0.75rem;
+        }
+
+        .hub-country {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #3a2a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .hub-date {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #c37c41;
+            margin-bottom: 0.25rem;
+        }
+
+        .hub-venue {
+            font-size: 0.875rem;
+            color: #8a7a6a;
+            margin-bottom: 1.25rem;
+        }
+
+        .hub-btn {
+            display: inline-block;
+            padding: 0.625rem 1.75rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+
+        .hub-btn--primary {
+            background: #b42024;
+            color: #fff;
+        }
+
+        .hub-btn--primary:hover {
+            background: #931a1d;
+            transform: scale(1.03);
+        }
+
+        .hub-btn--disabled {
+            background: #e8e0d6;
+            color: #8a7a6a;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .hub-footer {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            font-size: 0.8rem;
+            color: #8a7a6a;
+            margin-top: auto;
+        }
+
+        @media (max-width: 640px) {
+            .hub-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hub-title {
+                font-size: 1.6rem;
+            }
+
+            .hub-subtitle {
+                font-size: 1rem;
+            }
+
+            .hub-header {
+                padding: 2rem 1.5rem 0.5rem;
+            }
+
+            .hub-logo {
+                max-width: 220px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- Navigation -->
-<nav class="navbar" id="navbar">
-    <div class="container nav-container">
-        <a href="#" class="nav-logo">
-            <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/c89591f7-af5c-443b-9ce8-36f027609cf9/Secondary+Logo+-+AIBP+C%26E+Malaysia.png?content-type=image%2Fpng" alt="AIBP Conference & Exhibition Malaysia" class="nav-logo-img">
-        </a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="#about">About</a></li>
-            <li><a href="#speakers">Speakers</a></li>
-            <li><a href="#agenda">Agenda</a></li>
-            <li><a href="#sponsors">Sponsors</a></li>
-            <li><a href="#venue">Venue</a></li>
-            <li><a href="#register" class="nav-cta">Register Now</a></li>
-        </ul>
-    </div>
-</nav>
+    <header class="hub-header">
+        <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/c89591f7-af5c-443b-9ce8-36f027609cf9/Secondary+Logo+-+AIBP+C%26E+Malaysia.png?content-type=image%2Fpng" alt="AIBP Conference & Exhibition" class="hub-logo">
+        <h1 class="hub-title">AIBP Conference & Exhibition 2026</h1>
+        <p class="hub-subtitle">Select Your Conference &amp; Exhibition Destination</p>
+    </header>
 
-<!-- Hero Section -->
-<section class="hero" id="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-bg-placeholder">
-        <!-- Replace with venue photo or branded graphic of W Kuala Lumpur -->
-        <div class="hero-bg-text">VENUE PHOTO / BRANDED GRAPHIC</div>
-    </div>
-    <div class="container hero-content">
-        <div class="hero-badge">
-            <span class="badge-date" id="heroDate">8 – 9 July 2026</span>
-            <span class="badge-sep">|</span>
-            <span class="badge-location" id="heroCity">Kuala Lumpur, Malaysia</span>
-        </div>
-        <h1 class="hero-title" id="heroTitle">AIBP Conference & Exhibition</h1>
-        <p class="hero-edition" id="heroEdition">Malaysia 2026</p>
-        <p class="hero-headline" id="heroHeadline">Where ASEAN's C-Suite Leaders Converge to Scale AI, Digital Transformation & Innovation</p>
-        <p class="hero-venue" id="heroVenue">W Kuala Lumpur</p>
-        <div class="hero-ctas">
-            <a href="#register" class="btn btn-primary btn-lg">Register Now</a>
-            <a href="#agenda" class="btn btn-outline btn-lg" id="heroAgendaCta">View Agenda</a>
-        </div>
-        <div class="hero-countdown" id="heroCountdown">
-            <div class="countdown-item"><span class="countdown-num" id="countDays">--</span><span class="countdown-label">Days</span></div>
-            <div class="countdown-item"><span class="countdown-num" id="countHours">--</span><span class="countdown-label">Hours</span></div>
-            <div class="countdown-item"><span class="countdown-num" id="countMins">--</span><span class="countdown-label">Minutes</span></div>
-            <div class="countdown-item"><span class="countdown-num" id="countSecs">--</span><span class="countdown-label">Seconds</span></div>
-        </div>
-    </div>
-</section>
+    <main class="hub-grid">
 
-<!-- Video Highlight -->
-<section class="section video-section" id="video">
-    <div class="container">
-        <h2 class="section-title centered">See What to Expect</h2>
-        <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/rRjYRYI3zuo?autoplay=1&mute=1&loop=1&playlist=rRjYRYI3zuo&vq=hd1080&rel=0&modestbranding=1&controls=1" title="AIBP Conference & Exhibition Malaysia Highlights" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-    </div>
-</section>
-
-<!-- Why You Should Join -->
-<section class="section why-join" id="why-join">
-    <div class="container">
-        <h2 class="section-title centered">Why You Should Join</h2>
-        <p class="section-subtitle centered">ACCESS, ASSESS &amp; ADVOCATE local digital transformation journeys</p>
-        <div class="why-grid">
-            <div class="why-card">
-                <img class="why-image" src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/1662446705151-PW09Z1QCN8T6Q30HC1VZ/img216.jpg?format=750w" alt="AIBP Conference">
-                <h3>Curated for Decision Makers</h3>
-                <p>Each session is curated for a specific audience who are invited based on inputs by local stakeholders. This is not a general conference — it's designed for leaders who shape strategy.</p>
-            </div>
-            <div class="why-card">
-                <img class="why-image" src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/1662446705165-28QROIF920VFT402UM0T/img210.jpg?format=750w" alt="AIBP Conference">
-                <h3>Benchmark Your Digital Journey</h3>
-                <p>View presentations and showcased technologies that allow you to benchmark where your organisation is along the digital transformation journey, and identify practical next steps.</p>
-            </div>
-            <div class="why-card">
-                <img class="why-image" src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/1662446705198-M2KE7NPIY58DTH8VBB2U/img227.jpg?format=750w" alt="AIBP Conference">
-                <h3>Connect with Government & Enterprise Leaders</h3>
-                <p>Network with leaders from local ministries, multinational corporations, and key regional brands. The event is supported by local ministries to increase awareness and adoption of digitalisation.</p>
-            </div>
-            <div class="why-card">
-                <img class="why-image" src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/1662446705176-IFK5UZJ7DU01QUMQBOWY/img208.jpg?format=750w" alt="AIBP Conference">
-                <h3>Actionable Insights, Not Just Talks</h3>
-                <p>Discuss local digital initiatives and embrace innovative B2B technology solutions that enhance operational capabilities. Total attendance capped at 600 for meaningful networking.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Who Should Attend -->
-<section class="section who-attends" id="who-attends">
-    <div class="container">
-        <div class="who-grid">
-            <div class="who-image-side">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/1662446705204-MY6KP22CR0LCW8GGX3HV/img225.jpg?format=1000w" alt="AIBP Conference Audience">
-            </div>
-            <div class="who-content">
-                <h2 class="section-title">Who Should Attend</h2>
-                <p class="who-description">Local enterprises and government agencies form more than 70% of our attendees. Programs are designed specifically for them.</p>
-                <div class="who-roles">
-                    <div class="who-role">
-                        <h4>C-Suite Executives</h4>
-                        <p>CEOs, CTOs, CIOs, CISOs, CDOs, CFOs driving digital transformation strategy</p>
-                    </div>
-                    <div class="who-role">
-                        <h4>Directors & Heads of Department</h4>
-                        <p>VP Engineering, Head of AI, Head of Data, Head of Innovation, Head of Cybersecurity</p>
-                    </div>
-                    <div class="who-role">
-                        <h4>Government & Public Sector</h4>
-                        <p>Senior officials from ministries, regulatory bodies, and government-linked companies</p>
-                    </div>
-                    <div class="who-role">
-                        <h4>Industries</h4>
-                        <p>BFSI, Energy & Oil/Gas, Telecommunications, Manufacturing, Healthcare, Public Sector across ASEAN</p>
-                    </div>
-                </div>
-                <div class="who-endorsed">
-                    <p>Endorsed by <strong>CyberSecurity Malaysia</strong>, <strong>MIGHT</strong> &amp; <strong>MITI</strong> (Ministry of International Trade &amp; Industry)</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Stats Bar -->
-<section class="section stats-bar" id="stats">
-    <div class="container">
-        <div class="stats-grid">
-            <div class="stat-card">
-                <span class="stat-number" id="statAttendees">600</span>
-                <span class="stat-label">Attendees Over 2 Days</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" id="statCountries">10+</span>
-                <span class="stat-label">ASEAN Countries</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" id="statEditions">52</span>
-                <span class="stat-label">Editions & Counting</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" id="statSpeakers">64</span>
-                <span class="stat-label">Expert Speakers</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Local Government Agencies & Enterprises -->
-<section class="section local-gov" id="local-gov">
-    <div class="container">
-        <h2 class="section-title centered">Local Government Agencies & Enterprises</h2>
-        <p class="section-subtitle centered">Endorsed by local ministries to increase awareness of, and exposure to, the benefits of digitalisation</p>
-        <div class="local-gov-content">
-            <div class="local-gov-text">
-                <p>Endorsed by <strong>CyberSecurity Malaysia</strong> and the <strong>Malaysian Industry-Government Group for High Technology</strong>, the physical conference and exhibition will showcase digital initiatives by local government agencies and enterprises and innovative B2B Technology Solutions.</p>
-            </div>
-            <div class="local-gov-endorsers">
-                <h4>Endorsed by:</h4>
-                <div class="endorser-logos">
-                    <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/68fa1be0-92dc-40f5-a7cd-0de168f92948/Untitled+design+%2892%29.png?format=300w" alt="CyberSecurity Malaysia">
-                    <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/127970aa-2c97-4604-ae54-da8514ea26c7/LOGO+MITI+%28JATA%29_NEW2023-bi.png?format=300w" alt="MITI">
-                </div>
-                <h4>Supported by:</h4>
-                <div class="endorser-logos">
-                    <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/3ad2a4b7-608b-4555-aaea-90bc7c5eba1d/CyberSecurity+Malaysia.png?format=300w" alt="CyberSecurity Malaysia">
-                    <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/4add81ba-af60-4aa1-a537-ad76790c5e4c/MIGHT.png?format=300w" alt="MIGHT">
-                </div>
-                <h4>Local Government Agencies & Enterprises:</h4>
-                <div class="endorser-logos gov-logos-grid">
-                    <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/53f60d8a-9369-4db3-98c4-ee81626643b3/aeon.png?content-type=image%2Fpng" alt="AEON">
-                    <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/536d573b-bc75-4370-bdd3-039d3a936c7d/40.png" alt="CelcomDigi">
-                    <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/97e4b281-bf3c-4daf-9218-2f42cbddae0f/42.png" alt="Cyberview">
-                    <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/9258b4a8-0d74-434a-827e-95a24fee19bb/46.png" alt="Digital Nasional">
-                    <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/1fc83d2e-1c2b-4c32-8694-5fe9a630ae91/48.png" alt="JCorp">
-                    <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/ac84be46-ea68-4cfd-9f3f-2cfb8a91af71/49.png" alt="MCMC">
-                    <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/ae950f62-2784-4af5-b9d1-edf8b441dbd8/41.png" alt="PETRONAS">
-                    <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/300c6904-025b-4c73-9066-8b67d391413a/45.png" alt="Sarawak Energy">
-                    <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/951f1deb-b013-4045-86a7-4f4951fa65a4/43.png" alt="Setia">
-                    <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/03b9b161-ca83-4bb3-87d8-979110eb3ac6/44.png" alt="Tenaga Nasional">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Speakers -->
-<section class="section speakers" id="speakers">
-    <div class="container">
-        <h2 class="section-title centered">Featured Speakers</h2>
-        <p class="section-subtitle centered">Government leaders, industry pioneers, and domain experts from across ASEAN</p>
-        <div class="speakers-grid" id="speakersGrid">
-            <!-- Keynote Speakers -->
-            <div class="speaker-card">
-                <img class="speaker-photo" src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/8adc8828-1f98-46e0-a57e-60ea1348a637/NAIO%2C+Shamsul+Izhan+Abdul+Majid%2C+CEO.png?format=500w" alt="Shamsul Izhan Abdul Majid">
-                <h4 class="speaker-name">Shamsul Izhan Abdul Majid</h4>
-                <p class="speaker-title">Chief Executive Officer, National AI Office Malaysia (NAIO)</p>
-                <span class="speaker-type keynote">Keynote</span>
-            </div>
-            <div class="speaker-card">
-                <img class="speaker-photo" src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/d7899c4f-67f2-47ea-8ed6-d40ba062cbb2/TNB%2C+Datuk+Ir.+Megat+Jalaluddin%2C+President+_+Chief+Executive+Officer+%282%29.png?format=500w" alt="Datuk Ir. Megat Jalaluddin">
-                <h4 class="speaker-name">Datuk Ir. Megat Jalaluddin Megat Hassan</h4>
-                <p class="speaker-title">President / Chief Executive Officer</p>
-                <span class="speaker-type keynote">Keynote</span>
-            </div>
-            <!-- Panel Speakers -->
-            <div class="speaker-card">
-                <img class="speaker-photo" src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/07eb77cb-23bb-4256-8a91-0734ca02f558/PDSB%2C+Ts.+Shaharuddin+Hamid+Mustapha%2C+Chief+Executive+Officer.png?format=500w" alt="Shaharuddin Hamid Mustapha">
-                <h4 class="speaker-name">Shaharuddin Hamid Mustapha</h4>
-                <p class="speaker-title">Chief Executive Officer, PETRONAS Digital</p>
-                <span class="speaker-type panel">Panel</span>
-            </div>
-            <div class="speaker-card">
-                <img class="speaker-photo" src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/48e98365-fa48-49be-9545-d00655fb0c10/MIGHT%2C+Rushdi+Abdul+Rahim%2C+President+%26+Chief+Executive+Officer.png?format=500w" alt="Rushdi Abdul Rahim">
-                <h4 class="speaker-name">Rushdi Abdul Rahim</h4>
-                <p class="speaker-title">President & Chief Executive Officer</p>
-                <span class="speaker-type panel">Panel</span>
-            </div>
-            <div class="speaker-card">
-                <img class="speaker-photo" src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/bc8b6508-5cd7-455a-9fe0-02f106f8aa24/AmBank%2C+Dr.+Hon+Hock+Woon%2C+Head+of+AI+%282%29.png?format=500w" alt="Dr. Hon Hock Woon">
-                <h4 class="speaker-name">Dr. Hon Hock Woon</h4>
-                <p class="speaker-title">Head of AI</p>
-                <span class="speaker-type panel">Panel</span>
-            </div>
-            <div class="speaker-card">
-                <img class="speaker-photo" src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/c2f7f263-3335-42d7-9a5f-9d1aeadd1a0f/OCBC%2C+Dominic+Yew%2C+Chief+Information+Security+Officer.png?format=500w" alt="Dominic Yew">
-                <h4 class="speaker-name">Dominic Yew</h4>
-                <p class="speaker-title">Chief Information Security Officer</p>
-                <span class="speaker-type panel">Panel</span>
-            </div>
-            <div class="speaker-card">
-                <img class="speaker-photo" src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/fae1bc36-8ead-4e07-a279-d57c099cfa5b/Thomson+Hospital+Group%2C+G+Saravanan%2C+Group+CIO+%282%29.png?format=500w" alt="G Saravanan">
-                <h4 class="speaker-name">G Saravanan</h4>
-                <p class="speaker-title">Group Chief Information Officer</p>
-                <span class="speaker-type panel">Panel</span>
-            </div>
-            <div class="speaker-card">
-                <img class="speaker-photo" src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/8d34e670-b199-4465-a539-16ee2196831e/Komunidad%2C+Jed+Llanes%2C+Chief+Product+Officer.png?format=500w" alt="Jed Llanes">
-                <h4 class="speaker-name">Jed Llanes</h4>
-                <p class="speaker-title">Chief Product Officer</p>
-                <span class="speaker-type panel">Panel</span>
-            </div>
-            <div class="speaker-card">
-                <img class="speaker-photo" src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/3a504b47-9351-4051-a3da-d9141fa11ebc/PNB%2C+Aishah+Farha+Mohd+Raih%2C+CISO.png?format=500w" alt="Aishah Farha Mohd Raih">
-                <h4 class="speaker-name">Aishah Farha Mohd Raih</h4>
-                <p class="speaker-title">Chief Information Security Officer</p>
-                <span class="speaker-type panel">Panel</span>
-            </div>
-            <div class="speaker-card">
-                <img class="speaker-photo" src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/5f56c481-dc0f-4392-ba3c-1ca26b930d7c/PayNet%2C+Azleena+Idris%2C+Senior+Director%2C+Head+of+Strategy+%26+ESG+Office.png?format=500w" alt="Azleena Idris">
-                <h4 class="speaker-name">Azleena Idris</h4>
-                <p class="speaker-title">Senior Director, Head of Strategy & ESG Office</p>
-                <span class="speaker-type panel">Panel</span>
-            </div>
-            <div class="speaker-card">
-                <img class="speaker-photo" src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/0388386d-f617-40dc-9515-48417a3a1442/V-Key+Pte+Ltd%2C+Er+Chiang+Kai%2C+Chief+Technology+Officer+%282%29.png?format=500w" alt="Er Chiang Kai">
-                <h4 class="speaker-name">Er Chiang Kai</h4>
-                <p class="speaker-title">Chief Technology Officer</p>
-                <span class="speaker-type panel">Panel</span>
-            </div>
-            <div class="speaker-card">
-                <img class="speaker-photo" src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/976e82b9-6b94-4ae1-83c0-6c73af8f7d51/Softscheck%2C+Tyler+Tang%2C+Director+of+Secure+Design+%282%29.png?format=500w" alt="Tyler Tang">
-                <h4 class="speaker-name">Tyler Tang</h4>
-                <p class="speaker-title">Director of Secure Design</p>
-                <span class="speaker-type panel">Panel</span>
-            </div>
-        </div>
-        <p class="speakers-more centered">+ 52 more speakers across both days</p>
-    </div>
-</section>
-
-<!-- Agenda -->
-<section class="section agenda" id="agenda">
-    <div class="container">
-        <h2 class="section-title centered">Agenda</h2>
-        <p class="section-subtitle centered">Two days of keynotes, panels, and executive networking</p>
-        <div class="agenda-tabs">
-            <button class="agenda-tab active" data-day="1">Day 1 — <span id="agendaDay1Date">8 Jul</span></button>
-            <button class="agenda-tab" data-day="2">Day 2 — <span id="agendaDay2Date">9 Jul</span></button>
-        </div>
-        <div class="agenda-timeline" id="agendaDay1">
-            <!-- SESSION 1 -->
-            <div class="agenda-item session-header-row">
-                <div class="agenda-time"></div>
-                <div class="agenda-session-header">SESSION 1: ECONOMICS OF AI TRANSFORMATION</div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">08:00</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Breakfast &amp; Networking</h3>
-                        <span class="agenda-format networking">Networking</span>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">09:00</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Welcome Address</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">09:20</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Malaysia Enterprise Innovation Awards Presentation</h3>
-                    </div>
-                    <p class="agenda-session-desc">The Enterprise Innovation Awards give recognition to enterprises that have embarked on digital transformation initiatives in their organizations.</p>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">09:30</div>
-                <div class="agenda-card panel-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Keynote Panel: The Economics of Enterprise AI</h3>
-                        <span class="agenda-format panel">Panel</span>
-                    </div>
-                    <p class="agenda-session-desc">Malaysia's next phase of AI adoption will be shaped by economics as much as innovation. This keynote examines how enterprises are scaling AI with financial discipline, balancing capability, cost, and long-term value.</p>
-                    <div class="agenda-panelists">
-                        <h5>Invited Panelists:</h5>
-                        <ul>
-                            <li><strong>Raja Teh Maimunah</strong>, Group Chief Executive Officer, Bank Islam</li>
-                            <li><strong>Dr. Siew Chan Cheong</strong>, Chief Strategy &amp; Transformation Officer, Maybank</li>
-                            <li><strong>Shamsul Majid</strong>, Chief Executive Officer, National Artificial Intelligence Office (NAIO)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">10:15</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Networking Break</h3>
-                        <span class="agenda-format networking">Networking</span>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">10:30</div>
-                <div class="agenda-card private-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Private Roundtable: Strategic AI &amp; IT Investments: Driving Business Resilience</h3>
-                        <span class="agenda-format private">Private</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SESSION 2 -->
-            <div class="agenda-item session-header-row">
-                <div class="agenda-time"></div>
-                <div class="agenda-session-header">SESSION 2: DATA AMBITION TO DATA CONTROL</div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">11:30</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Data Readiness Is the Real AI Readiness</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">11:45</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Breaking the Silo: Making Enterprise Data Usable at Scale</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">12:00</div>
-                <div class="agenda-card panel-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Panel: Who Owns the Data When Everyone Needs It?</h3>
-                        <span class="agenda-format panel">Panel</span>
-                    </div>
-                    <p class="agenda-session-desc">As AI initiatives expand across organisations, data is no longer confined to individual teams or functions. This panel explores how Malaysian enterprises are redefining data ownership, access, and accountability.</p>
-                    <div class="agenda-panelists">
-                        <h5>Invited Panelists:</h5>
-                        <ul>
-                            <li><strong>May Ching Ng</strong>, Chief Information Officer, Maxis</li>
-                            <li><strong>Vincent Tan</strong>, Chief Data &amp; Analytics Officer, RHB</li>
-                            <li><strong>Yew Choong Chew</strong>, Chief Data Officer, Ambank</li>
-                            <li><strong>Pedro Uria-Recio</strong>, Chief Data and AI Officer, CIMB Group</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">12:45</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Networking Lunch</h3>
-                        <span class="agenda-format networking">Networking</span>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">12:45</div>
-                <div class="agenda-card private-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Private Luncheon: From Productivity to Profit: The ROI Playbook for Long-Term GenAI Success</h3>
-                        <span class="agenda-format private">Private</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SESSION 3 -->
-            <div class="agenda-item session-header-row">
-                <div class="agenda-time"></div>
-                <div class="agenda-session-header">SESSION 3: GOVERNING AI WITHOUT SLOWING IT DOWN</div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">14:00</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">The AIBP Gauntlet</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">14:05</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">From Responsible AI to Operational Accountability</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">14:20</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Designing AI Governance That Scales Across Business Units</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">14:35</div>
-                <div class="agenda-card panel-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Panel: How Much Oversight Is Enough as AI Scales Across the Enterprise?</h3>
-                        <span class="agenda-format panel">Panel</span>
-                    </div>
-                    <p class="agenda-session-desc">As AI systems move from support tools to decision-shaping capabilities, enterprises face a critical question: how much control is necessary, and where should it sit?</p>
-                    <div class="agenda-panelists">
-                        <h5>Invited Panelists:</h5>
-                        <ul>
-                            <li><strong>Ts. Jacky Cheong</strong>, Chief Data Officer, AEON Credit Service</li>
-                            <li><strong>Aishah Farha Mohd Raih</strong>, Chief Information Security Officer, Permodalan Nasional Berhad</li>
-                            <li><strong>Foo Yeong Jin</strong>, Chief Risk Officer, TNG Digital</li>
-                            <li><strong>Jasmine Goh</strong>, Head, Digital Security, EPF Malaysia</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">15:15</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Networking Break</h3>
-                        <span class="agenda-format networking">Networking</span>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">15:15</div>
-                <div class="agenda-card private-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Private Workshop: Strengthening Malaysia's Data Governance: From Visibility to Control</h3>
-                        <span class="agenda-format private">Private</span>
-                    </div>
-                    <p class="agenda-session-desc">Hosted by Chris Farrelly, Vice President APAC, Concentric AI</p>
-                </div>
-            </div>
-
-            <!-- SESSION 4 -->
-            <div class="agenda-item session-header-row">
-                <div class="agenda-time"></div>
-                <div class="agenda-session-header">SESSION 4: THE ENTERPRISE AI REALITY CHECK</div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">15:55</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Lucky Draw 1</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">16:15</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Why AI Pilots Don't Survive Contact with the Enterprise</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">16:30</div>
-                <div class="agenda-card panel-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Panel: What Actually Breaks When AI Moves from Teams to the Enterprise?</h3>
-                        <span class="agenda-format panel">Panel</span>
-                    </div>
-                    <p class="agenda-session-desc">As AI conversations mature, the gap between ambition and execution is becoming clearer. Through live audience input and guided interpretation, participants will see where Malaysian enterprises truly stand.</p>
-                    <div class="agenda-panelists">
-                        <h5>Invited Panelists:</h5>
-                        <ul>
-                            <li><strong>Christine Yong</strong>, Head of Digital, Tenaga Nasional Berhad</li>
-                            <li><strong>Muzamir Omar</strong>, Chief Innovation &amp; Digital Officer, Bank Rakyat Malaysia</li>
-                            <li><strong>John Lim</strong>, Chief Digital Officer, Gamuda</li>
-                            <li><strong>Hasniza Mohamed</strong>, Deputy Group Technology &amp; Transformation Officer, AlBukhary Group of Companies</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">17:15</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">AI STARTUP Technology Showcase</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">17:35</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Lucky Draw 2</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">17:45</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">End of Day 1</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="agenda-timeline hidden" id="agendaDay2">
-            <!-- SESSION 5 -->
-            <div class="agenda-item session-header-row">
-                <div class="agenda-time"></div>
-                <div class="agenda-session-header">SESSION 5: TALENT, TRUST, AND THE HUMAN SIDE OF AI ADOPTION</div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">08:00</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Breakfast Networking</h3>
-                        <span class="agenda-format networking">Networking</span>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">09:00</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">AIBP Day 1 Recap</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">09:15</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Why AI Fails When People Don't Trust the System</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">09:30</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Redesigning Roles, Accountability, and Decision Authority</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">09:45</div>
-                <div class="agenda-card panel-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Panel: How Leaders Keep Organisations Aligned as AI Changes How Decisions Are Made</h3>
-                        <span class="agenda-format panel">Panel</span>
-                    </div>
-                    <p class="agenda-session-desc">As AI becomes embedded in everyday workflows, it is quietly reshaping how decisions are triggered, prioritised, and executed across organisations.</p>
-                    <div class="agenda-panelists">
-                        <h5>Invited Panelists:</h5>
-                        <ul>
-                            <li><strong>Rushdi Abdul Rahim</strong>, President and Chief Executive Officer, Malaysian Industry-Government Group for High Technology (MIGHT)</li>
-                            <li><strong>Najma Nooreldin</strong>, Chief Talent Officer, Johor Corporation</li>
-                            <li><strong>Shima Mohd Zahid</strong>, Group Chief Human Capital Officer, Maybank</li>
-                            <li><strong>Nadia Tan Abdullah</strong>, Chief Human Capital Officer, Malaysia Airports</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">10:30</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Networking Break</h3>
-                        <span class="agenda-format networking">Networking</span>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">10:30</div>
-                <div class="agenda-card private-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Private Workshop: Securing the Backbone: Cyber Resilience for Critical Infrastructure</h3>
-                        <span class="agenda-format private">Private</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SESSION 6 -->
-            <div class="agenda-item session-header-row">
-                <div class="agenda-time"></div>
-                <div class="agenda-session-header">SESSION 6: CYBER RISK IN AN AI-DRIVEN ENTERPRISE</div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">11:30</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">How AI Changes the Threat Model for Enterprises</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">11:40</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">From Tool Sprawl to Resilience: Rethinking Cyber Architecture</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">11:50</div>
-                <div class="agenda-card panel-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Panel: Is Your Cyber Strategy Designed for an AI-First Enterprise?</h3>
-                        <span class="agenda-format panel">Panel</span>
-                    </div>
-                    <p class="agenda-session-desc">As AI accelerates decision-making and introduces new forms of automation, the nature of cyber risk is changing.</p>
-                    <div class="agenda-panelists">
-                        <h5>Invited Panelists:</h5>
-                        <ul>
-                            <li><strong>Malini Kanagaramoorthy</strong>, Chief Information Security Officer, AmBank Group</li>
-                            <li><strong>Eddie Hau</strong>, Chief Information Security Officer, Sunway</li>
-                            <li><strong>Dr. Amir Samad</strong>, Head of Cyber Security, PETRONAS</li>
-                            <li><strong>Nasrin Abg Omar</strong>, Head (Cyber Security), Tenaga Nasional Berhad (TNB)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">12:45</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Networking Lunch</h3>
-                        <span class="agenda-format networking">Networking</span>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">12:45</div>
-                <div class="agenda-card private-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Private Luncheon: AI in Cyber Security and Risk Management</h3>
-                        <span class="agenda-format private">Private</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SESSION 7 -->
-            <div class="agenda-item session-header-row">
-                <div class="agenda-time"></div>
-                <div class="agenda-session-header">SESSION 7: WHEN AI ACTS ON YOUR BEHALF</div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">14:00</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Kahoot! ASEAN Knowledge Showdown 2</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">14:10</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Lucky Draw 2</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">14:15</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">From Decision Support to Decision Execution: What Changes When AI Acts</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">14:30</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Designing Kill Switches, Escalation Paths, and Guardrails for AI Agents</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">14:45</div>
-                <div class="agenda-card panel-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Panel: If an AI Agent Makes the Wrong Call, Who Owns the Outcome?</h3>
-                        <span class="agenda-format panel">Panel</span>
-                    </div>
-                    <p class="agenda-session-desc">As enterprises deploy AI systems capable of initiating actions, escalating issues, and influencing outcomes without waiting for human approval, accountability becomes increasingly complex.</p>
-                    <div class="agenda-panelists">
-                        <h5>Invited Panelists:</h5>
-                        <ul>
-                            <li><strong>Nili Shayrina Saat</strong>, Group Chief Risk Officer, IHH Healthcare</li>
-                            <li><strong>Tay Gim Soon</strong>, Chief Information Officer, Bank Negara Malaysia</li>
-                            <li><strong>Ts. Shaharuddin Hamid Mustapha</strong>, Chief Executive Officer, PETRONAS Digital Sdn Bhd (PDSB)</li>
-                            <li><strong>Abid Abdul Adam</strong>, Group Chief Risk and Compliance Officer, Axiata Group</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">15:15</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Technology Showcase</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">16:15</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">Lucky Draw 3</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-time">16:30</div>
-                <div class="agenda-card">
-                    <div class="agenda-card-header">
-                        <h3 class="agenda-session-title">End of Conference</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="agenda-download">
-            <a href="#" class="btn btn-outline" id="agendaPdfLink">Download Full Agenda (PDF)</a>
-        </div>
-    </div>
-</section>
-
-<!-- Sponsors & Partners -->
-<section class="section sponsors" id="sponsors">
-    <div class="container">
-        <h2 class="section-title centered">Sponsors & Partners</h2>
-        <p class="section-subtitle centered">Endorsed by CyberSecurity Malaysia, MIGHT & MITI</p>
-        <div class="sponsor-tier">
-            <h3 class="tier-title gold">Gold Sponsors</h3>
-            <div class="sponsor-logos" id="goldSponsors">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/f5021797-e86d-429a-bbaa-8cec9d6448cd/Concentric+AI+Logo.png?format=500w" alt="Concentric AI" title="Concentric AI">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/939dd7ae-a635-4036-812c-eaec757810e8/2025+C%26E+MY+Gold+Sponsor+HCLTech.png?format=500w" alt="HCLTech" title="HCLTech">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/565ad0f1-658d-4d71-9b85-3b402c1ec39e/2025+C%26E+MY+Gold+Sponsor+Tricentis.png?format=500w" alt="Tricentis" title="Tricentis">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/f09c820e-b6b9-4d19-be9f-c61bc756e60e/Tenable+Logo.png?format=500w" alt="Tenable" title="Tenable">
-            </div>
-        </div>
-        <div class="sponsor-tier">
-            <h3 class="tier-title silver">Silver Sponsors</h3>
-            <div class="sponsor-logos" id="silverSponsors">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/14681459-8ccf-49c7-8f85-5b33d0e091a8/2025+C%26E+MY+Silver+Sponsor+PureStorage.png?format=500w" alt="Pure Storage" title="Pure Storage">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/1444fb1e-7934-480f-9a2d-565481d67114/2025+C%26E+MY+Silver+Sponsor+AvePoint.png?format=500w" alt="AvePoint" title="AvePoint">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/c360f170-55f6-4cb1-a117-7ddc8faf1e12/2025+C%26E+MY+Silver+Sponsor+Fortinet.png?format=500w" alt="Fortinet" title="Fortinet">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/f7bae396-e78c-453f-9112-6dbb1927d649/2025+C%26E+MY+Silver+Sponsor+Softscheck.png?format=500w" alt="Softscheck" title="Softscheck">
-            </div>
-        </div>
-        <div class="sponsor-tier">
-            <h3 class="tier-title bronze">Bronze Sponsors</h3>
-            <div class="sponsor-logos" id="bronzeSponsors">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/91b8bb41-ab8c-441d-8e68-f6a86ae1bdd0/2025+C%26E+MY+Bronze+Sponsor+Kaspersky.png?format=500w" alt="Kaspersky" title="Kaspersky">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/4294eed0-cd83-4645-a6de-fbb622f9ead8/2025+C%26E+MY+Bronze+Sponsor+Progress.png?format=500w" alt="Progress" title="Progress">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/1f734e40-9878-432b-a80f-305099d66e90/2025+C%26E+MY+Bronze+Sponsor+VKey.png?format=500w" alt="V-Key" title="V-Key">
-            </div>
-        </div>
-        <div class="sponsor-tier">
-            <h3 class="tier-title exhibitor">Exhibitors</h3>
-            <div class="sponsor-logos" id="exhibitorSponsors">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/184e2b07-89db-43b4-9e76-d6450b06980c/2025+C%26E+MY+Exhibitor+2Stallions.png?format=500w" alt="2Stallions" title="2Stallions">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/35fff1dd-5cd9-4c50-81d5-51342d0f71a7/2025+C%26E+MY+Exhibitor+Bitdeer.png?format=500w" alt="Bitdeer" title="Bitdeer">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/15125458-6151-4637-a786-200063eb74d2/2025+C%26E+MY+Exhibitor+GECO.png?format=500w" alt="GECO" title="GECO">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/cc51341f-9d9c-41ef-90dd-bbbdaf170c4e/2025+C%26E+MY+Exhibitor+Kloudynet.png?format=500w" alt="Kloudynet" title="Kloudynet">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/c48d16db-ae23-42b2-bfd0-606d7a8e6d81/2025+C%26E+MY+Exhibitor+mimin.png?format=500w" alt="Mimin" title="Mimin">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/206d6e89-ba1a-4997-972b-bc3d31f16d62/2025+C%26E+MY+Exhibitor+PNPSecure.png?format=500w" alt="PNPSecure" title="PNPSecure">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/b3584148-3e46-403a-b211-6b4a38eeca82/2025+C%26E+MY+Exhibitor+Secui.png?format=500w" alt="Secui" title="Secui">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/0baffe91-4d57-4d5c-9947-dded8a9bb6a9/2025+C%26E+MY+Exhibitor+Xaltius.png?format=500w" alt="Xaltius" title="Xaltius">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/5a6c90b2-86c1-4dac-af5e-55bc8c0c01ee/2025+C%26E+MY+Exhibitor+MonitorApp.png?format=500w" alt="MonitorApp" title="MonitorApp">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/0b3a32a5-9fd6-403d-bc68-c9c36a2177d5/2025+C%26E+MY+Exhibitor+Easishare.png?format=500w" alt="Easishare" title="Easishare">
-            </div>
-        </div>
-        <div class="sponsor-tier">
-            <h3 class="tier-title pavilion">Pavilion Hosts</h3>
-            <div class="sponsor-logos" id="pavilionSponsors">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/2f77bdbb-c554-4264-886b-b1b03ec64d94/2025+C%26E+MY+PV+Host+KOFCA.png?format=500w" alt="KOFCA" title="KOFCA">
-                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/faae4b40-49e9-46ac-bba8-50188d30df3e/2025+C%26E+MY+PV+Host+SGTech.png?format=500w" alt="SGTech" title="SGTech">
-            </div>
-        </div>
-        <div class="sponsor-cta">
-            <p>Interested in sponsoring or exhibiting?</p>
-            <a href="mailto:aibp@industry-platform.com" class="btn btn-outline">Become a Sponsor</a>
-        </div>
-    </div>
-</section>
-
-<!-- Registration -->
-<section class="section registration" id="register">
-    <div class="container">
-        <div class="reg-grid">
-            <div class="reg-info">
-                <h2 class="section-title">Register Your Interest</h2>
-                <p>Join 600 senior executives, government leaders, and innovators shaping the future of AI and digital transformation across ASEAN.</p>
-                <div class="reg-free-badge">
-                    <span>Complimentary Attendance</span>
-                </div>
-                <p class="reg-note">This is a closed-door, invitation-based event. Please await your confirmation email before making travel arrangements.</p>
-                <ul class="reg-benefits">
-                    <li>Complimentary access to all keynotes, panels & exhibitions</li>
-                    <li>Executive networking sessions & roundtables</li>
-                    <li>Complimentary lunch & refreshments both days</li>
-                    <li>Evening cocktail reception (Day 1)</li>
-                    <li>Connect with 64 speakers and 600 delegates</li>
-                    <li>HRDCorp Claimable for Malaysian companies</li>
-                </ul>
-            </div>
-            <div class="reg-form-container">
-                <div class="zoho-form-wrapper" id="zohoFormWrapper">
-                    <iframe aria-label='Register your interest to attend' frameborder="0" style="height:1700px;width:100%;border:none;" src='https://forms.zohopublic.com/industryplatformpteltd/form/AIBPCE2024Attend/formperma/WSesoGd23NHfz0JwUSvGZ8aeORQOGybAxcnFIukTgwg'></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Social Proof -->
-<section class="section social-proof" id="social-proof">
-    <div class="container">
-        <h2 class="section-title centered">Trusted by Industry Leaders</h2>
-
-        <div class="proof-attendee-logos">
-            <h3 class="proof-subtitle">Past Attendees From</h3>
-            <div class="attendee-logos-grid" id="attendeeLogos">
-                <!-- Replace with actual company logos -->
-                <div class="attendee-logo-placeholder">Company Logo</div>
-                <div class="attendee-logo-placeholder">Company Logo</div>
-                <div class="attendee-logo-placeholder">Company Logo</div>
-                <div class="attendee-logo-placeholder">Company Logo</div>
-                <div class="attendee-logo-placeholder">Company Logo</div>
-                <div class="attendee-logo-placeholder">Company Logo</div>
-                <div class="attendee-logo-placeholder">Company Logo</div>
-                <div class="attendee-logo-placeholder">Company Logo</div>
-            </div>
+        <div class="hub-card hub-card--active">
+            <span class="hub-badge hub-badge--available">Available Now</span>
+            <div class="hub-flag">🇲🇾</div>
+            <h2 class="hub-country">Malaysia</h2>
+            <p class="hub-date">8–9 July 2026</p>
+            <p class="hub-venue">W Kuala Lumpur</p>
+            <a href="malaysia.html" class="hub-btn hub-btn--primary">View Details</a>
         </div>
 
-        <div class="proof-testimonials">
-            <h3 class="proof-subtitle">What Attendees Say</h3>
-            <div class="testimonials-grid" id="testimonialsGrid">
-                <div class="testimonial-card">
-                    <p class="testimonial-quote">"The curation of attendees is what sets AIBP apart. Every conversation I had was with a decision-maker who understood the challenges of scaling AI in our industry."</p>
-                    <div class="testimonial-author">
-                        <div>
-                            <strong>Ahmad Razali</strong>
-                            <span>Chief Digital Officer, Malaysian Financial Institution</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-quote">"AIBP gave us direct access to government stakeholders and enterprise leaders. We closed two partnerships within a month of attending."</p>
-                    <div class="testimonial-author">
-                        <div>
-                            <strong>Sarah Chen</strong>
-                            <span>VP of Strategic Partnerships, Regional Technology Firm</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-quote">"As a government agency, benchmarking our digital transformation against industry leaders was invaluable. The closed-door format ensured quality discussions."</p>
-                    <div class="testimonial-author">
-                        <div>
-                            <strong>Dr. Farah Nadia</strong>
-                            <span>Director of Digital Strategy, Government Agency</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="hub-card hub-card--coming-soon">
+            <span class="hub-badge hub-badge--soon">Coming Soon</span>
+            <div class="hub-flag">🇹🇭</div>
+            <h2 class="hub-country">Thailand</h2>
+            <p class="hub-date">29–30 July 2026</p>
+            <p class="hub-venue">Bangkok</p>
+            <a href="#" class="hub-btn hub-btn--disabled">Coming Soon</a>
         </div>
 
-        <div class="proof-press">
-            <h3 class="proof-subtitle">As Featured In</h3>
-            <div class="press-logos" id="pressLogos">
-                <!-- Replace with actual press logos -->
-                <div class="press-logo-placeholder">Press Logo</div>
-                <div class="press-logo-placeholder">Press Logo</div>
-                <div class="press-logo-placeholder">Press Logo</div>
-                <div class="press-logo-placeholder">Press Logo</div>
-            </div>
+        <div class="hub-card hub-card--coming-soon">
+            <span class="hub-badge hub-badge--soon">Coming Soon</span>
+            <div class="hub-flag">🇮🇩</div>
+            <h2 class="hub-country">Indonesia</h2>
+            <p class="hub-date">26–27 August 2026</p>
+            <p class="hub-venue">Jakarta</p>
+            <a href="#" class="hub-btn hub-btn--disabled">Coming Soon</a>
         </div>
 
-        <div class="proof-gallery">
-            <h3 class="proof-subtitle">Highlights from Previous Editions</h3>
-            <div class="gallery-grid" id="galleryGrid">
-                <img src="https://live.staticflickr.com/65535/53985719257_8c9c83300a_c.jpg" alt="AIBP C&E Malaysia 47th Edition">
-                <img src="https://live.staticflickr.com/65535/53986929774_d4a7edfe1f_c.jpg" alt="AIBP C&E Malaysia 47th Edition">
-                <img src="https://live.staticflickr.com/65535/53987048075_9599131af9_c.jpg" alt="AIBP C&E Malaysia 47th Edition">
-                <img src="https://live.staticflickr.com/65535/53986859243_e6b7816e2c_c.jpg" alt="AIBP C&E Malaysia 47th Edition">
-                <img src="https://live.staticflickr.com/65535/53985737172_3dca5c163d_c.jpg" alt="AIBP C&E Malaysia 47th Edition">
-                <img src="https://live.staticflickr.com/65535/53987072235_3ef28199ec_c.jpg" alt="AIBP C&E Malaysia 47th Edition">
-            </div>
+        <div class="hub-card hub-card--coming-soon">
+            <span class="hub-badge hub-badge--soon">Coming Soon</span>
+            <div class="hub-flag">🇵🇭</div>
+            <h2 class="hub-country">Philippines</h2>
+            <p class="hub-date">23–24 September 2026</p>
+            <p class="hub-venue">Manila</p>
+            <a href="#" class="hub-btn hub-btn--disabled">Coming Soon</a>
         </div>
-    </div>
-</section>
 
-<!-- Practical Info / Venue -->
-<section class="section venue-info" id="venue">
-    <div class="container">
-        <h2 class="section-title centered">Practical Information</h2>
-        <div class="venue-grid">
-            <div class="venue-details">
-                <div class="venue-card">
-                    <h3>Venue</h3>
-                    <p class="venue-name" id="venueName">W Kuala Lumpur</p>
-                    <p class="venue-address" id="venueAddress">No. 121, Jalan Ampang, 50450 Kuala Lumpur, Malaysia</p>
-                </div>
-            </div>
-            <div class="venue-map">
-                <div class="map-placeholder" id="venueMap">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.7863071655375!2d101.71355!3d3.1534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc362a84461b7d%3A0xdfee8be21f9e6c0!2sW%20Kuala%20Lumpur!5e0!3m2!1sen!2smy!4v1700000000000!5m2!1sen!2smy" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </main>
 
-<!-- FAQ -->
-<section class="section faq" id="faq">
-    <div class="container">
-        <h2 class="section-title centered">Frequently Asked Questions</h2>
-        <div class="faq-list" id="faqList">
-            <div class="faq-item">
-                <button class="faq-question">Is this an open or closed-door event?</button>
-                <div class="faq-answer"><p>AIBP C&amp;E is a private, closed-door event. Each session is curated for a specific audience who are invited to attend based on inputs by our local stakeholders. Please await your confirmation email before making any travel arrangements.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">Who should attend this event?</button>
-                <div class="faq-answer"><p>The event is designed for C-Suite executives, Directors, and Heads of Department from local enterprises and government agencies across Malaysia and ASEAN. Local enterprises and government agencies form more than 70% of attendees.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">Is the event free to attend?</button>
-                <div class="faq-answer"><p>Complimentary delegate passes are available. The conference is also HRDCorp Claimable for Malaysian companies incorporated in Malaysia.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">What is ACCESS, ASSESS &amp; ADVOCATE?</button>
-                <div class="faq-answer"><p>Held annually since 2013, AIBP C&amp;E Malaysia is designed for local enterprises and government agencies to ACCESS innovative B2B technology solutions, ASSESS where they are on their digital transformation journey, and ADVOCATE local digital transformation initiatives.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">How can my company sponsor or exhibit?</button>
-                <div class="faq-answer"><p>Exhibiting company and sponsor numbers are capped to ensure an optimal mix of participants. Contact <a href="mailto:aibp@industry-platform.com">aibp@industry-platform.com</a> for sponsorship and exhibition packages.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">How do I get an invitation letter for my visa?</button>
-                <div class="faq-answer"><p>After completing your registration, email <a href="mailto:aibp@industry-platform.com">aibp@industry-platform.com</a> with your full name and passport details. We will issue the letter within 3 business days.</p></div>
-            </div>
-        </div>
-    </div>
-</section>
+    <footer class="hub-footer">
+        &copy; 2026 ASEAN Innovation Business Platform
+    </footer>
 
-<!-- Contact -->
-<section class="section contact" id="contact">
-    <div class="container">
-        <div class="contact-grid">
-            <div class="contact-item">
-                <h3>General Enquiries</h3>
-                <a href="mailto:aibp@industry-platform.com" id="contactGeneral">aibp@industry-platform.com</a>
-            </div>
-            <div class="contact-item">
-                <h3>Sponsorship & Exhibition</h3>
-                <a href="mailto:aibp@industry-platform.com" id="contactSponsor">aibp@industry-platform.com</a>
-            </div>
-            <div class="contact-item">
-                <h3>Registration Support</h3>
-                <a href="mailto:aibp@industry-platform.com" id="contactRegister">aibp@industry-platform.com</a>
-            </div>
-            <div class="contact-item">
-                <h3>Visa Assistance</h3>
-                <a href="mailto:aibp@industry-platform.com" id="contactVisa">aibp@industry-platform.com</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/c89591f7-af5c-443b-9ce8-36f027609cf9/Secondary+Logo+-+AIBP+C%26E+Malaysia.png?content-type=image%2Fpng" alt="AIBP" class="footer-logo-img">
-                <p>&copy; 2026 ASEAN Innovation Business Platform. All rights reserved.</p>
-            </div>
-            <div class="footer-links">
-                <a href="#about">About</a>
-                <a href="#speakers">Speakers</a>
-                <a href="#agenda">Agenda</a>
-                <a href="#sponsors">Sponsors</a>
-                <a href="#venue">Venue</a>
-                <a href="#register">Register</a>
-            </div>
-            <div class="footer-social">
-                <a href="#" id="socialLinkedin" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="#" id="socialTwitter" target="_blank" rel="noopener">Twitter</a>
-                <a href="#" id="socialFacebook" target="_blank" rel="noopener">Facebook</a>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<script src="js/main.js"></script>
 </body>
 </html>

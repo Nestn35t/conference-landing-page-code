@@ -4,245 +4,282 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIBP Conference & Exhibition 2026 | ASEAN Innovation Business Platform</title>
-    <meta name="description" content="AIBP Conference & Exhibition 2026 across ASEAN — Malaysia, Thailand, Indonesia, Philippines. Select your destination.">
+    <meta name="description" content="AIBP Conference & Exhibition 2026 across ASEAN — Malaysia, Thailand, Indonesia, Philippines. Join 600+ C-suite executives shaping digital transformation.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: #3a2a1a; background: #faf5f0; }
+        a { text-decoration: none; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #faf5f0;
-            color: #3a2a1a;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .hub-header {
+        /* Hero */
+        .hub-hero {
+            background: linear-gradient(135deg, #3a2a1a 0%, #c37c41 60%, #3a2a1a 100%);
+            color: #fff;
             text-align: center;
-            padding: 3rem 1.5rem 1rem;
+            padding: 4rem 1.5rem 3rem;
+            position: relative;
+            overflow: hidden;
         }
-
-        .hub-logo {
-            max-width: 280px;
-            height: auto;
-            margin-bottom: 2rem;
+        .hub-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 120%, rgba(195,124,65,0.3), transparent 70%);
         }
+        .hub-hero > * { position: relative; z-index: 1; }
+        .hub-logo { max-width: 300px; height: auto; margin-bottom: 1.5rem; }
+        .hub-hero h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 0.75rem; letter-spacing: -0.5px; }
+        .hub-hero p { font-size: 1.15rem; color: rgba(255,255,255,0.85); max-width: 640px; margin: 0 auto 2rem; line-height: 1.6; }
+        .hub-hero-cta { display: inline-block; background: #b42024; color: #fff; padding: 14px 36px; border-radius: 8px; font-weight: 700; font-size: 1rem; transition: background 0.2s, transform 0.15s; }
+        .hub-hero-cta:hover { background: #931a1d; transform: translateY(-2px); }
 
-        .hub-title {
-            font-size: 2.25rem;
-            font-weight: 800;
-            color: #3a2a1a;
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
+        /* Stats */
+        .hub-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            max-width: 900px;
+            margin: -2rem auto 0;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 2;
         }
-
-        .hub-subtitle {
-            font-size: 1.125rem;
-            font-weight: 500;
-            color: #c37c41;
-            margin-bottom: 0.5rem;
+        .hub-stat {
+            background: #fff;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            border-right: 1px solid #f0e8df;
         }
+        .hub-stat:first-child { border-radius: 12px 0 0 12px; }
+        .hub-stat:last-child { border-radius: 0 12px 12px 0; border-right: none; }
+        .hub-stat-num { font-size: 2rem; font-weight: 900; color: #b42024; display: block; }
+        .hub-stat-label { font-size: 0.75rem; color: #8a7a6a; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
 
+        /* Section */
+        .hub-section { max-width: 1000px; margin: 0 auto; padding: 3.5rem 1.5rem; }
+        .hub-section h2 { font-size: 1.75rem; font-weight: 800; text-align: center; margin-bottom: 0.5rem; }
+        .hub-section .sub { font-size: 1rem; color: #8a7a6a; text-align: center; margin-bottom: 2.5rem; }
+
+        /* About grid */
+        .hub-about { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 1rem; }
+        .hub-about-text h3 { font-size: 1.25rem; font-weight: 700; color: #c37c41; margin-bottom: 0.75rem; }
+        .hub-about-text p { font-size: 0.95rem; color: #6b5b4a; line-height: 1.7; margin-bottom: 1rem; }
+        .hub-about-features { list-style: none; }
+        .hub-about-features li { padding: 6px 0 6px 24px; position: relative; font-size: 0.9rem; color: #6b5b4a; }
+        .hub-about-features li::before { content: "\2713"; position: absolute; left: 0; color: #b42024; font-weight: 700; }
+        .hub-about-img { width: 100%; border-radius: 16px; object-fit: cover; aspect-ratio: 4/3; box-shadow: 0 8px 30px rgba(58,42,26,0.1); }
+
+        /* Country cards */
         .hub-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            max-width: 860px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-            flex: 1;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
         }
-
         .hub-card {
             background: #fff;
             border-radius: 16px;
-            padding: 2rem 1.5rem;
+            padding: 1.75rem 1.25rem;
             text-align: center;
-            box-shadow: 0 2px 12px rgba(58, 42, 26, 0.08);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(58,42,26,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
             border: 2px solid transparent;
+            position: relative;
         }
+        .hub-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(58,42,26,0.12); }
+        .hub-card--active { border-color: #b42024; }
+        .hub-card--soon { opacity: 0.65; }
+        .hub-card--soon:hover { opacity: 0.8; }
+        .hub-badge { display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 10px; border-radius: 999px; margin-bottom: 0.75rem; }
+        .hub-badge--available { background: #b42024; color: #fff; }
+        .hub-badge--soon { background: #e8e0d6; color: #8a7a6a; }
+        .hub-flag { font-size: 2.5rem; line-height: 1; margin-bottom: 0.5rem; }
+        .hub-country { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.35rem; }
+        .hub-date { font-size: 0.85rem; font-weight: 600; color: #c37c41; margin-bottom: 0.15rem; }
+        .hub-venue { font-size: 0.8rem; color: #8a7a6a; margin-bottom: 1rem; }
+        .hub-btn { display: inline-block; padding: 10px 24px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; transition: all 0.2s; }
+        .hub-btn--primary { background: #b42024; color: #fff; }
+        .hub-btn--primary:hover { background: #931a1d; }
+        .hub-btn--disabled { background: #e8e0d6; color: #8a7a6a; cursor: default; pointer-events: none; }
 
-        .hub-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(58, 42, 26, 0.12);
+        /* Topics */
+        .hub-topics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 0.5rem;
         }
-
-        .hub-card--active {
-            border-color: #b42024;
+        .hub-topic {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.25rem;
+            border-left: 3px solid #b42024;
+            box-shadow: 0 2px 8px rgba(58,42,26,0.06);
         }
+        .hub-topic h4 { font-size: 0.9rem; font-weight: 700; color: #3a2a1a; margin-bottom: 4px; }
+        .hub-topic p { font-size: 0.8rem; color: #8a7a6a; line-height: 1.5; }
 
-        .hub-card--coming-soon {
-            opacity: 0.7;
+        /* Endorsers */
+        .hub-endorsers {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            padding: 1rem 0;
         }
+        .hub-endorsers img { max-height: 60px; max-width: 160px; object-fit: contain; }
 
-        .hub-card--coming-soon:hover {
-            opacity: 0.85;
-        }
-
-        .hub-badge {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 0.25rem 0.75rem;
-            border-radius: 999px;
-            margin-bottom: 1rem;
-        }
-
-        .hub-badge--available {
-            background: #b42024;
+        /* CTA banner */
+        .hub-cta-banner {
+            background: #3a2a1a;
             color: #fff;
-        }
-
-        .hub-badge--soon {
-            background: #e8e0d6;
-            color: #8a7a6a;
-        }
-
-        .hub-flag {
-            font-size: 3rem;
-            line-height: 1;
-            margin-bottom: 0.75rem;
-        }
-
-        .hub-country {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: #3a2a1a;
-            margin-bottom: 0.5rem;
-        }
-
-        .hub-date {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #c37c41;
-            margin-bottom: 0.25rem;
-        }
-
-        .hub-venue {
-            font-size: 0.875rem;
-            color: #8a7a6a;
-            margin-bottom: 1.25rem;
-        }
-
-        .hub-btn {
-            display: inline-block;
-            padding: 0.625rem 1.75rem;
-            border-radius: 8px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background 0.2s ease, transform 0.1s ease;
-        }
-
-        .hub-btn--primary {
-            background: #b42024;
-            color: #fff;
-        }
-
-        .hub-btn--primary:hover {
-            background: #931a1d;
-            transform: scale(1.03);
-        }
-
-        .hub-btn--disabled {
-            background: #e8e0d6;
-            color: #8a7a6a;
-            cursor: default;
-            pointer-events: none;
-        }
-
-        .hub-footer {
             text-align: center;
-            padding: 2rem 1.5rem;
-            font-size: 0.8rem;
-            color: #8a7a6a;
-            margin-top: auto;
+            padding: 3rem 1.5rem;
         }
+        .hub-cta-banner h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 0.75rem; }
+        .hub-cta-banner p { color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; font-size: 1rem; }
+        .hub-cta-banner a { display: inline-block; background: #b42024; color: #fff; padding: 14px 36px; border-radius: 8px; font-weight: 700; transition: background 0.2s; }
+        .hub-cta-banner a:hover { background: #931a1d; }
 
+        /* Footer */
+        .hub-footer { text-align: center; padding: 2rem 1.5rem; font-size: 0.8rem; color: #8a7a6a; background: #faf5f0; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hub-grid { grid-template-columns: repeat(2, 1fr); }
+            .hub-topics { grid-template-columns: 1fr 1fr; }
+        }
         @media (max-width: 640px) {
-            .hub-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hub-title {
-                font-size: 1.6rem;
-            }
-
-            .hub-subtitle {
-                font-size: 1rem;
-            }
-
-            .hub-header {
-                padding: 2rem 1.5rem 0.5rem;
-            }
-
-            .hub-logo {
-                max-width: 220px;
-            }
+            .hub-hero h1 { font-size: 1.75rem; }
+            .hub-hero p { font-size: 1rem; }
+            .hub-stats { grid-template-columns: repeat(2, 1fr); }
+            .hub-stat:nth-child(2) { border-radius: 0 12px 0 0; border-right: none; }
+            .hub-stat:nth-child(1) { border-radius: 12px 0 0 0; }
+            .hub-stat:nth-child(3) { border-radius: 0 0 0 12px; }
+            .hub-stat:nth-child(4) { border-radius: 0 0 12px 0; }
+            .hub-grid { grid-template-columns: 1fr; }
+            .hub-topics { grid-template-columns: 1fr; }
+            .hub-about { grid-template-columns: 1fr; }
+            .hub-logo { max-width: 220px; }
         }
     </style>
 </head>
 <body>
 
-    <header class="hub-header">
-        <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/c89591f7-af5c-443b-9ce8-36f027609cf9/Secondary+Logo+-+AIBP+C%26E+Malaysia.png?content-type=image%2Fpng" alt="AIBP Conference & Exhibition" class="hub-logo">
-        <h1 class="hub-title">AIBP Conference & Exhibition 2026</h1>
-        <p class="hub-subtitle">Select Your Conference &amp; Exhibition Destination</p>
-    </header>
+<!-- Hero -->
+<section class="hub-hero">
+    <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/1716539968465-AG33I78VY2N3EPY2H12P/AIBP+Conference+%26+Exhibition+Logo.png?content-type=image%2Fpng" alt="AIBP Conference & Exhibition" class="hub-logo">
+    <h1>Conference & Exhibition 2026</h1>
+    <p>Southeast Asia's premier closed-door conference for C-suite executives, government leaders, and enterprise innovators driving AI and digital transformation across ASEAN.</p>
+    <a href="#destinations" class="hub-hero-cta">Select Your Destination</a>
+</section>
 
-    <main class="hub-grid">
+<!-- Stats -->
+<div class="hub-stats">
+    <div class="hub-stat"><span class="hub-stat-num">52</span><span class="hub-stat-label">Editions Since 2013</span></div>
+    <div class="hub-stat"><span class="hub-stat-num">600</span><span class="hub-stat-label">Attendees Per Event</span></div>
+    <div class="hub-stat"><span class="hub-stat-num">4</span><span class="hub-stat-label">ASEAN Countries</span></div>
+    <div class="hub-stat"><span class="hub-stat-num">75%</span><span class="hub-stat-label">Enterprise & Gov</span></div>
+</div>
 
+<!-- About -->
+<section class="hub-section">
+    <h2>ACCESS, ASSESS & ADVOCATE</h2>
+    <p class="sub">Held annually since 2013 across Southeast Asia</p>
+    <div class="hub-about">
+        <div class="hub-about-text">
+            <h3>Why AIBP C&E?</h3>
+            <p>Each AIBP Conference & Exhibition is a private, closed-door event designed for local enterprises and government agencies to access innovative B2B technology solutions, assess where they are on their digital transformation journey, and advocate local digital transformation initiatives.</p>
+            <ul class="hub-about-features">
+                <li>Curated sessions with local government & enterprise stakeholders</li>
+                <li>40+ B2B technology solutions showcased per event</li>
+                <li>Private roundtables, workshops & executive luncheons</li>
+                <li>Endorsed by local ministries & cybersecurity agencies</li>
+                <li>HRDCorp Claimable (Malaysia)</li>
+            </ul>
+        </div>
+        <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/1662446705204-MY6KP22CR0LCW8GGX3HV/img225.jpg?format=750w" alt="AIBP Conference" class="hub-about-img">
+    </div>
+</section>
+
+<!-- Destinations -->
+<section class="hub-section" id="destinations">
+    <h2>2026 Conference Destinations</h2>
+    <p class="sub">Select your country to view the full agenda, speakers, and registration</p>
+    <div class="hub-grid">
         <div class="hub-card hub-card--active">
             <span class="hub-badge hub-badge--available">Available Now</span>
-            <div class="hub-flag">🇲🇾</div>
+            <div class="hub-flag">&#x1F1F2;&#x1F1FE;</div>
             <h2 class="hub-country">Malaysia</h2>
             <p class="hub-date">8–9 July 2026</p>
             <p class="hub-venue">W Kuala Lumpur</p>
             <a href="malaysia.html" class="hub-btn hub-btn--primary">View Details</a>
         </div>
-
-        <div class="hub-card hub-card--coming-soon">
+        <div class="hub-card hub-card--soon">
             <span class="hub-badge hub-badge--soon">Coming Soon</span>
-            <div class="hub-flag">🇹🇭</div>
+            <div class="hub-flag">&#x1F1F9;&#x1F1ED;</div>
             <h2 class="hub-country">Thailand</h2>
             <p class="hub-date">29–30 July 2026</p>
             <p class="hub-venue">Bangkok</p>
-            <a href="#" class="hub-btn hub-btn--disabled">Coming Soon</a>
+            <a class="hub-btn hub-btn--disabled">Coming Soon</a>
         </div>
-
-        <div class="hub-card hub-card--coming-soon">
+        <div class="hub-card hub-card--soon">
             <span class="hub-badge hub-badge--soon">Coming Soon</span>
-            <div class="hub-flag">🇮🇩</div>
+            <div class="hub-flag">&#x1F1EE;&#x1F1E9;</div>
             <h2 class="hub-country">Indonesia</h2>
             <p class="hub-date">26–27 August 2026</p>
             <p class="hub-venue">Jakarta</p>
-            <a href="#" class="hub-btn hub-btn--disabled">Coming Soon</a>
+            <a class="hub-btn hub-btn--disabled">Coming Soon</a>
         </div>
-
-        <div class="hub-card hub-card--coming-soon">
+        <div class="hub-card hub-card--soon">
             <span class="hub-badge hub-badge--soon">Coming Soon</span>
-            <div class="hub-flag">🇵🇭</div>
+            <div class="hub-flag">&#x1F1F5;&#x1F1ED;</div>
             <h2 class="hub-country">Philippines</h2>
             <p class="hub-date">23–24 September 2026</p>
             <p class="hub-venue">Manila</p>
-            <a href="#" class="hub-btn hub-btn--disabled">Coming Soon</a>
+            <a class="hub-btn hub-btn--disabled">Coming Soon</a>
         </div>
+    </div>
+</section>
 
-    </main>
+<!-- Discussion Topics -->
+<section class="hub-section" style="background:#fff; max-width:100%; padding: 3.5rem 1.5rem;">
+    <div style="max-width:1000px; margin:0 auto;">
+        <h2>2026 Discussion Topics</h2>
+        <p class="sub">Key themes explored across all four ASEAN conferences</p>
+        <div class="hub-topics">
+            <div class="hub-topic"><h4>Economics of AI Transformation</h4><p>Scaling AI with financial discipline — balancing capability, cost, and long-term value</p></div>
+            <div class="hub-topic"><h4>Data Ambition to Data Control</h4><p>Redefining data ownership, access, and governance as AI initiatives expand</p></div>
+            <div class="hub-topic"><h4>Governing AI Without Slowing It Down</h4><p>Calibrating oversight across operations, risk management, and customer-facing processes</p></div>
+            <div class="hub-topic"><h4>The Enterprise AI Reality Check</h4><p>Closing the gap between AI ambition and enterprise-wide execution</p></div>
+            <div class="hub-topic"><h4>Talent, Trust & the Human Side</h4><p>Redesigning roles, accountability, and decision authority as AI reshapes workflows</p></div>
+            <div class="hub-topic"><h4>Cyber Risk in AI-Driven Enterprises</h4><p>Evolving threat models, resilience planning, and cyber strategy for AI-first enterprises</p></div>
+        </div>
+    </div>
+</section>
 
-    <footer class="hub-footer">
-        &copy; 2026 ASEAN Innovation Business Platform
-    </footer>
+<!-- Endorsed -->
+<section class="hub-section">
+    <h2>Endorsed By</h2>
+    <p class="sub">Supported by government ministries and cybersecurity agencies across ASEAN</p>
+    <div class="hub-endorsers">
+        <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/3ad2a4b7-608b-4555-aaea-90bc7c5eba1d/CyberSecurity+Malaysia.png?format=300w" alt="CyberSecurity Malaysia">
+        <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/127970aa-2c97-4604-ae54-da8514ea26c7/LOGO+MITI+%28JATA%29_NEW2023-bi.png?format=300w" alt="MITI">
+        <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/4add81ba-af60-4aa1-a537-ad76790c5e4c/MIGHT.png?format=300w" alt="MIGHT">
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="hub-cta-banner">
+    <h2>Ready to Join Southeast Asia's Top C-Suite Conference?</h2>
+    <p>Complimentary attendance for qualified executives. Register your interest today.</p>
+    <a href="#destinations">Select Your Destination</a>
+</section>
+
+<!-- Footer -->
+<footer class="hub-footer">
+    &copy; 2026 ASEAN Innovation Business Platform. All rights reserved.
+</footer>
 
 </body>
 </html>

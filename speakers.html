@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="css/styles.css">
     <style>
     /* === PAGE-SPECIFIC STYLES === */
-    .speakers-hero{position:relative;background:linear-gradient(135deg,var(--color-bg-dark) 0%,#1a1a1a 60%,#333 100%);color:var(--color-text-inverse);padding:140px 0 80px;text-align:center;overflow:hidden}
-    .speakers-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(180,32,36,.15) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(180,32,36,.1) 0%,transparent 50%);pointer-events:none}
+    .speakers-hero{position:relative;background:linear-gradient(135deg,#b42024 0%,#8c1418 60%,#b42024 100%);color:var(--color-text-inverse);padding:140px 0 80px;text-align:center;overflow:hidden}
+    .speakers-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(255,255,255,.08) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(255,255,255,.05) 0%,transparent 50%);pointer-events:none}
     .speakers-hero .container{position:relative;z-index:1}
     .speakers-hero h1{font-size:3.5rem;font-weight:900;margin-bottom:12px}
     .speakers-hero .hero-subtitle{font-size:1.25rem;color:var(--color-accent);font-weight:600;margin-bottom:16px;text-transform:uppercase;letter-spacing:2px}
@@ -38,7 +38,7 @@
     .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
     .video-item{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius-lg);box-shadow:var(--shadow-md)}
     .video-item iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
-    .podcast-section{background:var(--color-bg-dark);padding:80px 0}
+    .podcast-section{background:#2d2d2d;padding:80px 0}
     .podcast-section .section-title{color:var(--color-text-inverse)}
     .podcast-section .section-subtitle{color:rgba(255,255,255,.7)}
     /* Filters */
@@ -174,55 +174,26 @@
             <div class="benefit-card"><div class="benefit-icon">&#x1F3AF;</div><h3>Address ASEAN's Top Decision Makers</h3><p>Present to 600 senior executives, ministers, and enterprise leaders per event. 75% of attendees are from local enterprises and government agencies.</p></div>
             <div class="benefit-card"><div class="benefit-icon">&#x1F3DB;</div><h3>Government-Endorsed Platform</h3><p>Our events are endorsed by local ministries including MITI (Malaysia), ensuring high-calibre, invitation-only audiences of real decision makers.</p></div>
             <div class="benefit-card"><div class="benefit-icon">&#x2708;</div><h3>Complimentary Speaker Package</h3><p>Selected speakers receive complimentary airfare, hotel accommodation, 2 delegate passes, and exclusive access to the Innovation Retreat.</p></div>
-            <div class="benefit-card">
-                <div class="benefit-icon">&#x1F3D6;</div>
-                <h3>Exclusive Innovation Retreat</h3>
-                <p>Join fellow speakers for a private retreat experience — network with advisory board members and C-suite peers in an intimate setting.</p>
-                <div class="cleverstory-wrap">
-                    <div id="recap">
-                        <div class="cleverstory__live_element" data-live-element="https://aibp.iotbusiness-platform.com/embedded/6971c6021e548b1afba6850f" data-id="6971c6021e548b1afba6850f" data-width="100%" data-height="815px">
-                            <div id="page-6971c6021e548b1afba6850f" style="display: none;"></div>
-                        </div>
-                        <script>!function(){var t=window,e=t.Cleverstory;if("function"==typeof e)e();else{var a=document,n=function(){var t=a.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://editor.cleverstory.io/scripts/embed_page.min.js";var e=a.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)};t.attachEvent?t.attachEvent("onload",n):t.addEventListener("load",n,!1)}}();// === RENDER SPEAKERS ===
-function renderSpeakers(){
-var t=document.getElementById("filterType").value;
-var sc=document.getElementById("filterSector").value;
-var f=speakers.filter(function(sp){
-var ok=true;
-if(t)ok=ok&&sp.type===t;
-if(sc)ok=ok&&sp.sector===sc;
-return ok;
-});
-document.getElementById("filterCount").textContent="Showing "+f.length+" of "+speakers.length+" speakers";
-var g=document.getElementById("speakersGallery");
-g.innerHTML=f.map(function(sp){
-var tc=sp.type==="Keynote"?"keynote":"panel";
-var rc=sp.role==="Presenter"?"presenter":"panelist";
-return '<div class="sp-card">'+
-'<img src="'+sp.photo+'" alt="'+sp.name+'" loading="lazy">'+
-'<div class="sp-name">'+sp.name+'</div>'+
-'<div class="sp-title">'+sp.title+", "+sp.company+'</div>'+
-'<div class="sp-badges">'+
-'<span class="sp-badge '+tc+'">'+sp.type+'</span>'+
-'<span class="sp-badge '+rc+'">'+sp.role+'</span>'+
-'<span class="sp-badge sector-badge">'+sp.sector+'</span>'+
-'</div>'+
-'<div class="sp-topic">'+sp.panelTopic+'</div>'+
-'</div>';
-}).join("");
-}
-document.getElementById("filterType").addEventListener("change",renderSpeakers);
-document.getElementById("filterSector").addEventListener("change",renderSpeakers);
-renderSpeakers();
-</script>
-                    </div>
-                </div>
-            </div>
+            <div class="benefit-card"><div class="benefit-icon">&#x1F3D6;</div><h3>Exclusive Innovation Retreat</h3><p>Join fellow speakers for a private retreat experience — network with advisory board members and C-suite peers in an intimate setting.</p></div>
             <div class="benefit-card"><div class="benefit-icon">&#x1F399;</div><h3>Feature on AIBP ASEAN Podcast</h3><p>Selected speakers are invited to feature on the AIBP ASEAN Podcast, reaching thousands of enterprise leaders across the region.</p></div>
             <div class="benefit-card"><div class="benefit-icon">&#x1F30F;</div><h3>Speak Across Multiple Countries</h3><p>Distinguished speakers may be invited to present across multiple AIBP editions in different ASEAN countries, expanding your regional influence.</p></div>
         </div>
     </div>
 </section>
+
+<!-- Innovation Retreat Recap -->
+<section class="section" style="background:var(--color-bg-alt)">
+    <div class="container">
+        <h2 class="section-title centered">Innovation Retreat</h2>
+        <p class="section-subtitle centered">See highlights from our exclusive speaker retreat experience</p>
+        <div id="recap">
+            <div class="cleverstory__live_element" data-live-element="https://aibp.iotbusiness-platform.com/embedded/6971c6021e548b1afba6850f" data-id="6971c6021e548b1afba6850f" data-width="100%" data-height="815px">
+                <div id="page-6971c6021e548b1afba6850f" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>!function(){var t=window,e=t.Cleverstory;if("function"==typeof e)e();else{var a=document,n=function(){var t=a.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://editor.cleverstory.io/scripts/embed_page.min.js";var e=a.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)};t.attachEvent?t.attachEvent("onload",n):t.addEventListener("load",n,!1)}}();</script>
 
 <!-- AIBP ASEAN Podcast -->
 <section class="section podcast-section" id="podcast">

@@ -32,9 +32,9 @@
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', function () {
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(34, 34, 34, 0.98)';
+            navbar.style.background = 'rgba(180, 32, 36, 0.98)';
         } else {
-            navbar.style.background = 'rgba(34, 34, 34, 0.95)';
+            navbar.style.background = 'rgba(180, 32, 36, 0.95)';
         }
     });
 

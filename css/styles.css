@@ -551,14 +551,14 @@ a:hover {
 }
 
 .agenda-tab.active {
-    background: var(--color-primary);
-    border-color: var(--color-primary);
+    background: var(--color-accent);
+    border-color: var(--color-accent);
     color: var(--color-text-inverse);
 }
 
 .agenda-tab:hover:not(.active) {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
 }
 
 .agenda-timeline {
@@ -658,12 +658,12 @@ a:hover {
 }
 
 .agenda-download .btn-outline {
-    color: var(--color-primary);
-    border-color: var(--color-primary);
+    color: var(--color-accent);
+    border-color: var(--color-accent);
 }
 
 .agenda-download .btn-outline:hover {
-    background: var(--color-primary);
+    background: var(--color-accent);
     color: var(--color-text-inverse);
 }
 
@@ -825,18 +825,18 @@ a:hover {
 }
 
 .sponsor-cta .btn-outline {
-    color: var(--color-primary);
-    border-color: var(--color-primary);
+    color: var(--color-accent);
+    border-color: var(--color-accent);
 }
 
 .sponsor-cta .btn-outline:hover {
-    background: var(--color-primary);
+    background: var(--color-accent);
     color: var(--color-text-inverse);
 }
 
 /* ---------- Registration ---------- */
 .registration {
-    background: var(--color-primary);
+    background: var(--color-bg-dark);
     color: var(--color-text-inverse);
 }
 
@@ -1300,7 +1300,7 @@ a:hover {
 .why-image-placeholder {
     width: 100%;
     height: 200px;
-    background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1318,7 +1318,7 @@ a:hover {
 .why-card h3 {
     font-size: 1.125rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-text);
     padding: 20px 24px 8px;
 }
 
@@ -1344,7 +1344,7 @@ a:hover {
 .who-image-placeholder {
     width: 100%;
     height: 480px;
-    background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
     border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
@@ -1406,7 +1406,7 @@ a:hover {
 
 /* ---------- Stats Bar ---------- */
 .stats-bar {
-    background: var(--color-primary);
+    background: var(--color-bg-dark);
     padding: 56px 0;
 }
 
@@ -1675,7 +1675,7 @@ a:hover {
         top: var(--nav-height);
         left: 0;
         right: 0;
-        background: var(--color-primary);
+        background: rgba(45, 45, 45, 0.98);
         flex-direction: column;
         padding: 24px;
         gap: 0;

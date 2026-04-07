@@ -231,6 +231,216 @@
             }
         }
 
+        /* ---- Sessions Accordion ---- */
+        .sessions-section {
+            background: var(--color-bg-alt, #f8f5f0);
+        }
+        .sessions-subtitle {
+            text-align: center;
+            color: var(--color-text-light);
+            font-size: 1.05rem;
+            margin-bottom: 36px;
+        }
+        .session-accordion {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .session-card {
+            background: #faf5f0;
+            border-radius: var(--radius, 8px);
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            transition: box-shadow 0.3s ease;
+        }
+        .session-card:hover {
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        }
+        .session-card.day1 {
+            border-left: 3px solid #b42024;
+        }
+        .session-card.day2 {
+            border-left: 3px solid #c37c41;
+        }
+        .session-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .session-header-left {
+            flex: 1;
+        }
+        .session-header-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-primary, #3a2a1a);
+            margin: 0 0 4px 0;
+        }
+        .session-header-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 0.85rem;
+            color: var(--color-text-light, #777);
+        }
+        .session-toggle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-primary, #3a2a1a);
+            flex-shrink: 0;
+            margin-left: 16px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .session-card.active .session-toggle {
+            transform: rotate(45deg);
+            background: rgba(180,32,36,0.1);
+        }
+        .session-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s ease;
+        }
+        .session-body-inner {
+            padding: 0 24px 24px;
+        }
+        .session-description {
+            background: #f0ebe5;
+            border-radius: 6px;
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+        .session-subsection-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--color-primary, #3a2a1a);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e0d6cc;
+        }
+        .session-presenters {
+            margin-bottom: 24px;
+        }
+        .session-presenter-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px;
+            background: #fff;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .session-presenter-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .session-presenter-info h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0 0 2px;
+            color: var(--color-primary, #3a2a1a);
+        }
+        .session-presenter-info .sp-title {
+            font-size: 0.85rem;
+            color: var(--color-text-light, #777);
+            margin: 0 0 6px;
+        }
+        .session-presenter-info .sp-topic {
+            font-size: 0.85rem;
+            color: #b42024;
+            font-weight: 600;
+            margin: 0;
+        }
+        .session-panel-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-primary, #3a2a1a);
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+        .session-panelists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 20px;
+        }
+        .session-panelist {
+            text-align: center;
+        }
+        .session-panelist img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 8px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .session-panelist .sp-name {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--color-primary, #3a2a1a);
+            margin: 0 0 2px;
+        }
+        .session-panelist .sp-title {
+            font-size: 0.75rem;
+            color: var(--color-text-light, #777);
+            margin: 0;
+            line-height: 1.4;
+        }
+        .session-moderator {
+            margin-top: 16px;
+            padding: 12px 16px;
+            background: rgba(180,32,36,0.05);
+            border-radius: 6px;
+            font-size: 0.88rem;
+            color: var(--color-primary, #3a2a1a);
+        }
+        .session-moderator strong {
+            color: #b42024;
+        }
+        @media (max-width: 768px) {
+            .session-panelists-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .session-presenter-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        @media (max-width: 480px) {
+            .session-header {
+                padding: 16px;
+            }
+            .session-header-title {
+                font-size: 0.95rem;
+            }
+            .session-header-meta {
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+
         /* Benefits Section */
         .benefits-grid {
             display: grid;
@@ -385,6 +595,7 @@
         </button>
         <ul class="nav-menu" id="navMenu">
             <li><a href="#speakers">Past Speakers</a></li>
+            <li><a href="#sessions">Sessions</a></li>
             <li><a href="#why-speak">Why Speak</a></li>
             <li><a href="#formats">Formats</a></li>
             <li><a href="#nominate" class="nav-cta">Nominate a Speaker</a></li>
@@ -463,6 +674,15 @@
 
         <!-- Dynamic Grid -->
         <div class="speakers-grid" id="speakersGrid"></div>
+    </div>
+</section>
+
+<!-- 2025 Conference Sessions (Session-Based View) -->
+<section class="section sessions-section" id="sessions">
+    <div class="container">
+        <h2 class="section-title centered">2025 Conference Sessions</h2>
+        <p class="sessions-subtitle">Click a session to see the full panel lineup and discussion topics</p>
+        <div class="session-accordion" id="sessionAccordion"></div>
     </div>
 </section>
 
@@ -683,6 +903,235 @@
 
     // Initial render
     renderSpeakers(speakers);
+
+    // ---- Sessions Accordion ----
+    var sessionData = [
+        {
+            num: 1,
+            title: "Scaling AI Transformation",
+            date: "9 July 2025",
+            day: 1,
+            type: "Keynote Panel",
+            description: "Malaysia\u2019s future lies in its ability to scale AI for transformative outcomes. This keynote explores strategies to optimise operations, create new revenue streams, and position Malaysia as a leader in global digital innovation. Panelists will discuss the infrastructure, policies, and partnerships necessary to elevate Malaysia\u2019s digital competitiveness.",
+            moderator: { name: "Sue Yuin Ho", title: "Vice President", company: "AIBP" },
+            presenters: [],
+            panelTitle: "Scaling AI for Global Competitiveness",
+            panelists: ["Pedro Uria-Recio", "Dr. Siew Chan Cheong", "Shamsul Izhan Abdul Majid", "Datuk Ir. Megat Jalaluddin Megat Hassan"]
+        },
+        {
+            num: 2,
+            title: "AI Applications and ROI",
+            date: "9 July 2025",
+            day: 1,
+            type: "Panel",
+            description: "As AI tools become more accessible, enterprises must ensure that their adoption translates into measurable business value. This panel brings together industry leaders to discuss the utilisation of AI-powered tools. Topics include strategies for integrating these tools, overcoming workforce resistance, and calculating ROI.",
+            moderator: { name: "Mustafa Sabuwala", title: "Sales Director, ASEAN", company: "HCLTech" },
+            presenters: [
+                { name: "Colin Tan", topic: "AI-Augmented Testing: Turning QA into a Competitive Advantage" },
+                { name: "Mustafa Sabuwala", topic: "Scaling GenAI for Real ROI" }
+            ],
+            panelTitle: "From Tools to Transformation: Leveraging AI to Drive Productivity and ROI",
+            panelists: ["Rangam Bir", "Maz Mirza", "Aditya Ranjit Tuli"]
+        },
+        {
+            num: 3,
+            title: "Strengthening Data Governance for AI Driven Enterprises",
+            date: "9 July 2025",
+            day: 1,
+            type: "Panel",
+            description: "As AI systems grow more powerful, they rely on vast amounts of data \u2014 often collected, stored, and processed with minimal oversight. Without strong data governance, enterprises risk AI models that are opaque, biased, or in violation of privacy regulations. This panel will explore how enterprises can strengthen data governance to mitigate AI risks, protect user privacy, and navigate evolving regulatory landscapes.",
+            moderator: { name: "Joseph See", title: "Head South Asia & Korea", company: "Progress Software" },
+            presenters: [
+                { name: "Arfah Aridz", topic: "Strengthening AI Readiness and Governance in Malaysia" },
+                { name: "Chris Farrelly", topic: "Data Security & Governance in the Age of Generative AI" }
+            ],
+            panelTitle: "AI Knows Too Much \u2014 Why Data Governance Matters More Than Ever",
+            panelists: ["Dr. Hon Hock Woon", "Nili Shayrina Saat", "Dr. Jun-E Tan"]
+        },
+        {
+            num: 4,
+            title: "AI-Driven Cyber Security for BFSI",
+            date: "9 July 2025",
+            day: 1,
+            type: "Panel",
+            description: "As financial institutions in Malaysia accelerate their digital transformation, the sector faces heightened cybersecurity challenges and evolving regulatory expectations. Institutions must adopt advanced technologies to ensure operational resilience, regulatory compliance, and customer trust.",
+            moderator: { name: "Tyler Tang", title: "Director of Secure Design", company: "Softscheck" },
+            presenters: [
+                { name: "Tyler Tang", topic: "At the Core: AI Considerations when Designing for Cyber Resilience" }
+            ],
+            panelTitle: "Leveraging AI to Strengthen Cybersecurity and Regulatory Compliance in Malaysia\u2019s Financial Sector",
+            panelists: ["Dominic Yew", "Dr. Toh Shang Yee", "Ruban Bala", "Er Chiang Kai"]
+        },
+        {
+            num: 5,
+            title: "ESG and Digital Innovation",
+            date: "10 July 2025",
+            day: 2,
+            type: "Panel",
+            description: "With increasing pressure from regulators, investors, and consumers, organisations must go beyond ESG reporting and drive real impact using AI, big data, and digital tools. This session will explore how organisations can adopt data-driven ESG strategies to future-proof their businesses.",
+            moderator: null,
+            presenters: [
+                { name: "Jed Llanes", topic: "From Spreadsheets to Smart Data: Transforming Sustainability Reporting" }
+            ],
+            panelTitle: "ESG and Digital Transformation \u2014 Leveraging Data & AI for Measurable Impact",
+            panelists: ["Rushdi Abdul Rahim", "Ts. Shaharuddin Hamid Mustapha", "Azleena Idris", "Joseph Fernandez"]
+        },
+        {
+            num: 6,
+            title: "Securing Critical Infrastructure with AI",
+            date: "10 July 2025",
+            day: 2,
+            type: "Panel",
+            description: "As critical infrastructure sectors become increasingly digitalised, safeguarding them against cyber threats has become a national priority. This panel will discuss how organisations managing Malaysia\u2019s essential services can leverage AI-driven solutions to enhance cybersecurity, building resilient defences, real-time threat detection, and coordinated responses.",
+            moderator: null,
+            presenters: [
+                { name: "Dato' Ts. Dr. Haji Amirudin Abdul Wahab", topic: "Securing Malaysia\u2019s Digital Future" },
+                { name: "Kannan Velayutham", topic: "Protecting Cyber-Physical Systems: Uncover Hidden Risks" }
+            ],
+            panelTitle: "Protecting Malaysia\u2019s Critical Infrastructure: AI-Driven Cybersecurity for National Resilience",
+            panelists: ["Ts. Suraya Hani Binti Ahmad Zaki", "Aishah Farha Mohd Raih", "Dr. Amir Abdul Samad", "Nasrin Abg Omar", "G Saravanan"]
+        },
+        {
+            num: 7,
+            title: "Upskilling for Digital Future",
+            date: "10 July 2025",
+            day: 2,
+            type: "Panel",
+            description: "Building a future-ready workforce goes hand-in-hand with adopting the right technologies. This session explores how Malaysian enterprises can integrate technology adoption with workforce upskilling to maximise the impact of AI-driven transformation. Discover how to equip employees with the skills to harness AI tools, align tech strategies with talent development, and foster a culture of innovation.",
+            moderator: null,
+            presenters: [
+                { name: "Grace Zhang", topic: "The Role of AI, Data, and Continuous Learning in Workforce Transformation" }
+            ],
+            panelTitle: "Building the Future Workforce: Upskilling for AI-Driven Transformation",
+            panelists: ["Ben-Jie Lim", "Najmie Noordin", "Natalia Navin"]
+        }
+    ];
+
+    function findSpeakerPhoto(name) {
+        var match = speakers.find(function(s) { return s.name === name; });
+        return match ? match.photo : '';
+    }
+
+    function findSpeakerInfo(name) {
+        var match = speakers.find(function(s) { return s.name === name; });
+        return match || null;
+    }
+
+    function renderSessions() {
+        var container = document.getElementById('sessionAccordion');
+        if (!container) return;
+
+        sessionData.forEach(function(session) {
+            var totalSpeakers = session.presenters.length + session.panelists.length;
+            var dayClass = session.day === 1 ? 'day1' : 'day2';
+
+            var card = document.createElement('div');
+            card.className = 'session-card ' + dayClass;
+
+            // Header
+            var header = document.createElement('div');
+            header.className = 'session-header';
+            header.innerHTML =
+                '<div class="session-header-left">' +
+                    '<p class="session-header-title">Session ' + session.num + ': ' + escapeHtml(session.title) + '</p>' +
+                    '<div class="session-header-meta">' +
+                        '<span>' + escapeHtml(session.date) + '</span>' +
+                        '<span>' + totalSpeakers + ' speaker' + (totalSpeakers !== 1 ? 's' : '') + '</span>' +
+                        '<span>' + escapeHtml(session.type) + '</span>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="session-toggle">+</div>';
+
+            // Body
+            var body = document.createElement('div');
+            body.className = 'session-body';
+
+            var inner = document.createElement('div');
+            inner.className = 'session-body-inner';
+
+            // Description
+            inner.innerHTML = '<div class="session-description">' + escapeHtml(session.description) + '</div>';
+
+            // Presenters
+            if (session.presenters.length > 0) {
+                var presenterHtml = '<div class="session-presenters">' +
+                    '<h4 class="session-subsection-title">Presenters</h4>';
+                session.presenters.forEach(function(p) {
+                    var info = findSpeakerInfo(p.name);
+                    var photo = info ? info.photo : '';
+                    var title = info ? info.title + ', ' + info.company : '';
+                    presenterHtml +=
+                        '<div class="session-presenter-card">' +
+                            (photo ? '<img src="' + photo + '" alt="' + escapeHtml(p.name) + '" loading="lazy">' : '') +
+                            '<div class="session-presenter-info">' +
+                                '<h4>' + escapeHtml(p.name) + '</h4>' +
+                                '<p class="sp-title">' + escapeHtml(title) + '</p>' +
+                                '<p class="sp-topic">&ldquo;' + escapeHtml(p.topic) + '&rdquo;</p>' +
+                            '</div>' +
+                        '</div>';
+                });
+                presenterHtml += '</div>';
+                inner.innerHTML += presenterHtml;
+            }
+
+            // Panel Discussion
+            var panelHtml = '<div class="session-panel">' +
+                '<h4 class="session-subsection-title">Panel Discussion</h4>' +
+                '<p class="session-panel-title">&ldquo;' + escapeHtml(session.panelTitle) + '&rdquo;</p>' +
+                '<div class="session-panelists-grid">';
+
+            session.panelists.forEach(function(name) {
+                var info = findSpeakerInfo(name);
+                var photo = info ? info.photo : '';
+                var title = info ? info.title + ', ' + info.company : '';
+                panelHtml +=
+                    '<div class="session-panelist">' +
+                        (photo ? '<img src="' + photo + '" alt="' + escapeHtml(name) + '" loading="lazy">' : '') +
+                        '<p class="sp-name">' + escapeHtml(name) + '</p>' +
+                        '<p class="sp-title">' + escapeHtml(title) + '</p>' +
+                    '</div>';
+            });
+
+            panelHtml += '</div></div>';
+            inner.innerHTML += panelHtml;
+
+            // Moderator
+            if (session.moderator) {
+                var modInfo = findSpeakerInfo(session.moderator.name);
+                var modTitle = modInfo
+                    ? modInfo.title + ', ' + modInfo.company
+                    : session.moderator.title + ', ' + session.moderator.company;
+                inner.innerHTML +=
+                    '<div class="session-moderator">' +
+                        '<strong>Moderator:</strong> ' + escapeHtml(session.moderator.name) +
+                        ' &mdash; ' + escapeHtml(modTitle) +
+                    '</div>';
+            }
+
+            body.appendChild(inner);
+            card.appendChild(header);
+            card.appendChild(body);
+            container.appendChild(card);
+
+            // Click handler - accordion behavior
+            header.addEventListener('click', function() {
+                var isActive = card.classList.contains('active');
+                // Close all
+                var allCards = container.querySelectorAll('.session-card');
+                allCards.forEach(function(c) {
+                    c.classList.remove('active');
+                    c.querySelector('.session-body').style.maxHeight = null;
+                });
+                // Open this one if it was closed
+                if (!isActive) {
+                    card.classList.add('active');
+                    body.style.maxHeight = body.scrollHeight + 'px';
+                }
+            });
+        });
+    }
+
+    renderSessions();
 })();
 </script>
 </body>

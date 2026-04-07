@@ -4,20 +4,20 @@
 
 /* ---------- CSS Variables ---------- */
 :root {
-    --color-primary: #3a2a1a;
+    --color-primary: #222;
     --color-accent: #b42024;
-    --color-accent-hover: #931a1c;
-    --color-secondary: #c37c41;
+    --color-accent-hover: #931a1d;
+    --color-secondary: #b42024;
     --color-gold: #c9a84c;
     --color-silver: #8e8e93;
-    --color-platinum: #3a2a1a;
+    --color-platinum: #222;
     --color-bg: #ffffff;
-    --color-bg-alt: #faf5f0;
-    --color-bg-dark: #3a2a1a;
-    --color-text: #3a2a1a;
-    --color-text-light: #6b5b4a;
+    --color-bg-alt: #f9f9f9;
+    --color-bg-dark: #222;
+    --color-text: #222;
+    --color-text-light: #666;
     --color-text-inverse: #ffffff;
-    --color-border: #e0d6cc;
+    --color-border: #eee;
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --container-max: 1200px;
     --nav-height: 72px;
@@ -151,7 +151,7 @@ a:hover {
     left: 0;
     right: 0;
     height: var(--nav-height);
-    background: rgba(58, 42, 26, 0.95);
+    background: rgba(34, 34, 34, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: background var(--transition);
@@ -250,7 +250,7 @@ a:hover {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(58,42,26,0.88) 0%, rgba(195,124,65,0.7) 50%, rgba(58,42,26,0.88) 100%);
+    background: linear-gradient(135deg, rgba(34,34,34,0.88) 0%, rgba(180,32,36,0.7) 50%, rgba(34,34,34,0.88) 100%);
     z-index: 2;
 }
 
@@ -260,7 +260,7 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #3a2a1a 0%, #c37c41 50%, #3a2a1a 100%);
+    background: linear-gradient(135deg, #222 0%, #b42024 50%, #222 100%);
     z-index: 1;
 }
 

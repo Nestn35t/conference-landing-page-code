@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="css/styles.css">
     <style>
     /* === PAGE-SPECIFIC STYLES === */
-    .speakers-hero{position:relative;background:linear-gradient(135deg,var(--color-bg-dark) 0%,#1a1008 60%,#2a1a0a 100%);color:var(--color-text-inverse);padding:140px 0 80px;text-align:center;overflow:hidden}
-    .speakers-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(195,124,65,.15) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(180,32,36,.1) 0%,transparent 50%);pointer-events:none}
+    .speakers-hero{position:relative;background:linear-gradient(135deg,var(--color-bg-dark) 0%,#1a1a1a 60%,#333 100%);color:var(--color-text-inverse);padding:140px 0 80px;text-align:center;overflow:hidden}
+    .speakers-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(180,32,36,.15) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(180,32,36,.1) 0%,transparent 50%);pointer-events:none}
     .speakers-hero .container{position:relative;z-index:1}
     .speakers-hero h1{font-size:3.5rem;font-weight:900;margin-bottom:12px}
-    .speakers-hero .hero-subtitle{font-size:1.25rem;color:var(--color-secondary);font-weight:600;margin-bottom:16px;text-transform:uppercase;letter-spacing:2px}
+    .speakers-hero .hero-subtitle{font-size:1.25rem;color:var(--color-accent);font-weight:600;margin-bottom:16px;text-transform:uppercase;letter-spacing:2px}
     .speakers-hero .hero-desc{font-size:1.1rem;max-width:720px;margin:0 auto 32px;color:rgba(255,255,255,.85);line-height:1.7}
     .speakers-hero .hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
     /* ASEAN Countries */
@@ -56,7 +56,7 @@
     .sp-badges{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:6px}
     .sp-badge{display:inline-block;font-size:.65rem;font-weight:600;padding:3px 8px;border-radius:50px;text-transform:uppercase;letter-spacing:.5px}
     .sp-badge.keynote{background:rgba(180,32,36,.1);color:var(--color-accent)}
-    .sp-badge.panel{background:rgba(195,124,65,.1);color:var(--color-secondary)}
+    .sp-badge.panel{background:rgba(180,32,36,.1);color:var(--color-secondary)}
     .sp-badge.presenter{background:rgba(42,138,74,.1);color:#2a8a4a}
     .sp-badge.panelist{background:rgba(15,52,96,.1);color:#1a5276}
     .sp-badge.sector-badge{background:rgba(100,100,100,.08);color:var(--color-text-light);font-size:.6rem}
@@ -66,7 +66,7 @@
     .sess-card.day1{border-left:3px solid var(--color-accent)}
     .sess-card.day2{border-left:3px solid var(--color-secondary)}
     .sess-header{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;cursor:pointer;transition:background var(--transition)}
-    .sess-header:hover{background:rgba(195,124,65,.05)}
+    .sess-header:hover{background:rgba(180,32,36,.05)}
     .sess-header h3{font-size:1.05rem;font-weight:700;color:var(--color-primary);margin:0}
     .sess-header .sess-meta{font-size:.8rem;color:var(--color-text-light)}
     .sess-header .sess-toggle{font-size:1.5rem;color:var(--color-accent);font-weight:300;transition:transform .3s}
@@ -87,7 +87,7 @@
     .sess-panelist img{width:70px;height:70px;border-radius:50%;object-fit:cover;margin-bottom:4px}
     .sess-panelist .sp-name{font-size:.72rem;font-weight:600}
     .sess-panelist .sp-title{font-size:.65rem;color:var(--color-text-light)}
-    .sess-moderator{background:rgba(195,124,65,.08);border-radius:var(--radius);padding:10px 14px;font-size:.82rem;color:var(--color-text);margin-bottom:16px}
+    .sess-moderator{background:rgba(180,32,36,.08);border-radius:var(--radius);padding:10px 14px;font-size:.82rem;color:var(--color-text);margin-bottom:16px}
     /* Formats */
     .formats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
     .format-card{background:var(--color-bg-alt);border-radius:var(--radius-lg);padding:28px 20px;text-align:center}
@@ -113,7 +113,7 @@
 <nav class="navbar" id="navbar">
     <div class="container nav-container">
         <a href="malaysia.html" class="nav-logo">
-            <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/c89591f7-af5c-443b-9ce8-36f027609cf9/Secondary+Logo+-+AIBP+C%26E+Malaysia.png?content-type=image%2Fpng" alt="AIBP C&E Malaysia" class="nav-logo-img">
+            <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/1716539968465-AG33I78VY2N3EPY2H12P/AIBP+Conference+%26+Exhibition+Logo.png?content-type=image%2Fpng" alt="AIBP C&E Malaysia" class="nav-logo-img">
         </a>
         <ul class="nav-menu" id="navMenu">
             <li><a href="#about">About</a></li>
@@ -186,12 +186,10 @@
                         <script>!function(){var t=window,e=t.Cleverstory;if("function"==typeof e)e();else{var a=document,n=function(){var t=a.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://editor.cleverstory.io/scripts/embed_page.min.js";var e=a.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)};t.attachEvent?t.attachEvent("onload",n):t.addEventListener("load",n,!1)}}();// === RENDER SPEAKERS ===
 function renderSpeakers(){
 var t=document.getElementById("filterType").value;
-var s=document.getElementById("filterSession").value;
 var sc=document.getElementById("filterSector").value;
 var f=speakers.filter(function(sp){
 var ok=true;
 if(t)ok=ok&&sp.type===t;
-if(s)ok=ok&&sp.session===s;
 if(sc)ok=ok&&sp.sector===sc;
 return ok;
 });
@@ -214,7 +212,6 @@ return '<div class="sp-card">'+
 }).join("");
 }
 document.getElementById("filterType").addEventListener("change",renderSpeakers);
-document.getElementById("filterSession").addEventListener("change",renderSpeakers);
 document.getElementById("filterSector").addEventListener("change",renderSpeakers);
 renderSpeakers();
 </script>
@@ -260,7 +257,6 @@ renderSpeakers();
         <p class="section-subtitle centered">300+ C-suite leaders, government officials, and industry pioneers across 52 editions</p>
         <div class="filter-bar">
             <select id="filterType"><option value="">All Types</option><option value="Keynote">Keynote</option><option value="Panel">Panel</option></select>
-            <select id="filterSession"><option value="">All Sessions</option><option value="Keynote">Keynote</option><option value="AI Applications and ROI">AI Applications and ROI</option><option value="Data Governance">Data Governance</option><option value="AI-Driven Cyber Security for BFSI">Cyber Security for BFSI</option><option value="ESG & Digital Innovation">ESG & Digital Innovation</option><option value="Securing Critical Infrastructure">Securing Critical Infrastructure</option><option value="Upskilling for Digital Future">Upskilling for Digital Future</option></select>
             <select id="filterSector"><option value="">All Sectors</option><option value="BFSI">BFSI</option><option value="Public Services">Public Services</option><option value="Energy and Utilities">Energy and Utilities</option><option value="Manufacturing">Manufacturing</option><option value="DTLF">DTLF</option><option value="Technology">Technology</option><option value="Telecommunications">Telecommunications</option><option value="Retail">Retail</option><option value="Real Estate">Real Estate</option></select>
         </div>
         <p class="filter-count" id="filterCount">Showing 35 of 35 speakers</p>
@@ -311,7 +307,7 @@ renderSpeakers();
 <footer class="footer">
     <div class="container footer-grid">
         <div>
-            <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/c89591f7-af5c-443b-9ce8-36f027609cf9/Secondary+Logo+-+AIBP+C%26E+Malaysia.png?content-type=image%2Fpng" alt="AIBP" class="footer-logo-img">
+            <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/1716539968465-AG33I78VY2N3EPY2H12P/AIBP+Conference+%26+Exhibition+Logo.png?content-type=image%2Fpng" alt="AIBP" class="footer-logo-img">
             <p>&copy; 2026 AIBP — Industry Platform Pte Ltd. All rights reserved.</p>
         </div>
         <div class="footer-links">
@@ -364,12 +360,10 @@ var speakers = [
 // === RENDER SPEAKERS ===
 function renderSpeakers(){
 var t=document.getElementById("filterType").value;
-var s=document.getElementById("filterSession").value;
 var sc=document.getElementById("filterSector").value;
 var f=speakers.filter(function(sp){
 var ok=true;
 if(t)ok=ok&&sp.type===t;
-if(s)ok=ok&&sp.session===s;
 if(sc)ok=ok&&sp.sector===sc;
 return ok;
 });
@@ -392,7 +386,6 @@ return '<div class="sp-card">'+
 }).join("");
 }
 document.getElementById("filterType").addEventListener("change",renderSpeakers);
-document.getElementById("filterSession").addEventListener("change",renderSpeakers);
 document.getElementById("filterSector").addEventListener("change",renderSpeakers);
 renderSpeakers();
 // === SESSION ACCORDION ===

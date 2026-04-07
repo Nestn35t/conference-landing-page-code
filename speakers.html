@@ -11,13 +11,15 @@
     <link rel="stylesheet" href="css/styles.css">
     <style>
     /* === PAGE-SPECIFIC STYLES === */
-    .speakers-hero{position:relative;background:linear-gradient(135deg,#2d2d2d 0%,#1e1e1e 60%,#2d2d2d 100%);color:var(--color-text-inverse);padding:140px 0 80px;text-align:center;overflow:hidden}
-    .speakers-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(180,32,36,.12) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(180,32,36,.08) 0%,transparent 50%);pointer-events:none}
+    .speakers-hero{position:relative;background:linear-gradient(135deg,#faf6f2 0%,#f5ece4 60%,#faf6f2 100%);color:var(--color-text);padding:140px 0 80px;text-align:center;overflow:hidden}
+    .speakers-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(180,32,36,.06) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(180,32,36,.04) 0%,transparent 50%);pointer-events:none}
     .speakers-hero .container{position:relative;z-index:1}
-    .speakers-hero h1{font-size:3.5rem;font-weight:900;margin-bottom:12px}
-    .speakers-hero .hero-subtitle{font-size:1.25rem;color:rgba(255,255,255,.7);font-weight:600;margin-bottom:16px;text-transform:uppercase;letter-spacing:2px}
-    .speakers-hero .hero-desc{font-size:1.1rem;max-width:720px;margin:0 auto 32px;color:rgba(255,255,255,.85);line-height:1.7}
+    .speakers-hero h1{font-size:3.5rem;font-weight:900;margin-bottom:12px;color:var(--color-text)}
+    .speakers-hero .hero-subtitle{font-size:1.25rem;color:var(--color-accent);font-weight:600;margin-bottom:16px;text-transform:uppercase;letter-spacing:2px}
+    .speakers-hero .hero-desc{font-size:1.1rem;max-width:720px;margin:0 auto 32px;color:var(--color-text-light);line-height:1.7}
     .speakers-hero .hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .speakers-hero .btn-outline{color:var(--color-accent);border-color:var(--color-accent)}
+    .speakers-hero .btn-outline:hover{background:var(--color-accent);color:#fff}
     /* ASEAN Countries */
     .asean-grid{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
     .asean-card{background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:28px 24px;text-align:center;min-width:180px;flex:1;max-width:220px;transition:all var(--transition)}

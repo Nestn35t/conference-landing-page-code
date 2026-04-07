@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Speakers & Become a Speaker | AIBP Conference & Exhibition Malaysia</title>
+    <meta name="description" content="Explore 300+ past speakers from 52 editions of the AIBP Conference & Exhibition. Nominate a speaker or apply to speak at AIBP Malaysia 2026.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ---- Speakers Page Specific Styles ---- */
+        .speakers-hero {
+            position: relative;
+            background: linear-gradient(135deg, var(--color-bg-dark) 0%, #1a1008 60%, #2a1a0a 100%);
+            color: var(--color-text-inverse);
+            padding: 140px 0 80px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .speakers-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(195,124,65,0.15) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 80%, rgba(180,32,36,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .speakers-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        .speakers-hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+            line-height: 1.15;
+        }
+        .speakers-hero .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--color-secondary);
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .speakers-hero .hero-desc {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 32px;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--color-bg-dark);
+            border-top: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 40px 0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            text-align: center;
+            color: var(--color-text-inverse);
+        }
+        .stat-item .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--color-secondary);
+            display: block;
+            line-height: 1.2;
+        }
+        .stat-item .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+
+        /* Speaker Gallery */
+        .speaker-gallery .speakers-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .benefit-card {
+            background: var(--color-bg);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            box-shadow: var(--shadow-sm);
+            border-top: 4px solid var(--color-secondary);
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .benefit-card h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--color-primary);
+        }
+        .benefit-card p {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+        /* Speaking Formats */
+        .formats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .format-card {
+            background: var(--color-bg);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+        .format-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .format-card .format-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+        .format-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--color-primary);
+        }
+        .format-card p {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            line-height: 1.5;
+        }
+
+        /* Topics Section */
+        .topics-section {
+            background: var(--color-bg-dark);
+            color: var(--color-text-inverse);
+        }
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .topic-item {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            transition: background var(--transition), border-color var(--transition);
+        }
+        .topic-item:hover {
+            background: rgba(195,124,65,0.15);
+            border-color: var(--color-secondary);
+        }
+
+        /* Nomination Form */
+        .nominate-section {
+            background: var(--color-bg-alt);
+        }
+        .nominate-section .form-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--color-bg);
+            border-radius: var(--radius-lg);
+            padding: 0;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .nominate-section .form-wrapper iframe {
+            width: 100%;
+            min-height: 800px;
+            border: none;
+        }
+        .nominate-intro {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 32px;
+            color: var(--color-text-light);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .speakers-hero h1 { font-size: 2.5rem; }
+            .formats-grid { grid-template-columns: repeat(2, 1fr); }
+            .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+            .topics-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .speakers-hero { padding: 120px 0 60px; }
+            .speakers-hero h1 { font-size: 2rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .speaker-gallery .speakers-grid { grid-template-columns: repeat(2, 1fr); }
+            .formats-grid { grid-template-columns: 1fr; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .topics-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .speaker-gallery .speakers-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="container nav-container">
+        <a href="malaysia.html" class="nav-logo">
+            <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/c89591f7-af5c-443b-9ce8-36f027609cf9/Secondary+Logo+-+AIBP+C%26E+Malaysia.png?content-type=image%2Fpng" alt="AIBP Conference & Exhibition Malaysia" class="nav-logo-img">
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#speakers">Past Speakers</a></li>
+            <li><a href="#why-speak">Why Speak</a></li>
+            <li><a href="#formats">Formats</a></li>
+            <li><a href="#nominate" class="nav-cta">Nominate a Speaker</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="speakers-hero" id="hero">
+    <div class="container">
+        <h1>Past Speakers &amp; Become a Speaker</h1>
+        <p class="hero-subtitle">AIBP Conference &amp; Exhibition Malaysia</p>
+        <p class="hero-desc">Join 300+ C-suite leaders, government officials, and industry pioneers who have shared their insights across 52 editions</p>
+        <a href="#nominate" class="btn btn-primary btn-lg">Nominate a Speaker</a>
+    </div>
+</section>
+
+<!-- Speaker Stats Bar -->
+<div class="stats-bar">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">300+</span>
+                <span class="stat-label">Past Speakers</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">52</span>
+                <span class="stat-label">Editions Since 2013</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">10+</span>
+                <span class="stat-label">ASEAN Countries</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">7</span>
+                <span class="stat-label">Discussion Tracks</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Past Speakers Gallery -->
+<section class="section speakers speaker-gallery" id="speakers">
+    <div class="container">
+        <h2 class="section-title centered">Past Speakers</h2>
+        <p class="section-subtitle centered">C-suite leaders and government officials who have spoken at AIBP Malaysia</p>
+        <div class="speakers-grid">
+
+            <!-- Speaker 1 -->
+            <div class="speaker-card">
+                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/8adc8828-1f98-46e0-a57e-60ea1348a637/NAIO%2C+Shamsul+Izhan+Abdul+Majid%2C+CEO.png?format=500w" alt="Shamsul Izhan Abdul Majid" class="speaker-photo">
+                <h3 class="speaker-name">Shamsul Izhan Abdul Majid</h3>
+                <p class="speaker-title">CEO, National AI Office Malaysia (NAIO)</p>
+                <span class="speaker-type keynote">Keynote</span>
+            </div>
+
+            <!-- Speaker 2 -->
+            <div class="speaker-card">
+                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/d7899c4f-67f2-47ea-8ed6-d40ba062cbb2/TNB%2C+Datuk+Ir.+Megat+Jalaluddin%2C+President+_+Chief+Executive+Officer+%282%29.png?format=500w" alt="Datuk Ir. Megat Jalaluddin Megat Hassan" class="speaker-photo">
+                <h3 class="speaker-name">Datuk Ir. Megat Jalaluddin Megat Hassan</h3>
+                <p class="speaker-title">President / CEO, Tenaga Nasional Berhad</p>
+                <span class="speaker-type keynote">Keynote</span>
+            </div>
+
+            <!-- Speaker 3 -->
+            <div class="speaker-card">
+                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/d6b42758-cf00-41d7-a649-278bd3062be0/CIMB+Group%2C+Pedro+Uria-Recio%2C+Chief+Data+%26+AI+Officer+%282%29.png?format=500w" alt="Pedro Uria-Recio" class="speaker-photo">
+                <h3 class="speaker-name">Pedro Uria-Recio</h3>
+                <p class="speaker-title">Chief Data &amp; AI Officer, CIMB Group</p>
+                <span class="speaker-type keynote">Keynote</span>
+            </div>
+
+            <!-- Speaker 4 -->
+            <div class="speaker-card">
+                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/c4beb220-0ded-4281-b05f-232b637cb76d/Maybank%2C+Dr+Siew+Chan+Cheong%2C+Group+Chief+Strategy+and+Transformation+Officer+%282%29.png?format=500w" alt="Dr. Siew Chan Cheong" class="speaker-photo">
+                <h3 class="speaker-name">Dr. Siew Chan Cheong</h3>
+                <p class="speaker-title">Group Chief Strategy &amp; Transformation Officer, Maybank</p>
+                <span class="speaker-type keynote">Keynote</span>
+            </div>
+
+            <!-- Speaker 5 -->
+            <div class="speaker-card">
+                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/07eb77cb-23bb-4256-8a91-0734ca02f558/PDSB%2C+Ts.+Shaharuddin+Hamid+Mustapha%2C+Chief+Executive+Officer.png?format=500w" alt="Ts. Shaharuddin Hamid Mustapha" class="speaker-photo">
+                <h3 class="speaker-name">Ts. Shaharuddin Hamid Mustapha</h3>
+                <p class="speaker-title">CEO, PETRONAS Digital</p>
+                <span class="speaker-type panel">Panel</span>
+            </div>
+
+            <!-- Speaker 6 -->
+            <div class="speaker-card">
+                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/48e98365-fa48-49be-9545-d00655fb0c10/MIGHT%2C+Rushdi+Abdul+Rahim%2C+President+%26+Chief+Executive+Officer.png?format=500w" alt="Rushdi Abdul Rahim" class="speaker-photo">
+                <h3 class="speaker-name">Rushdi Abdul Rahim</h3>
+                <p class="speaker-title">President &amp; CEO, MIGHT</p>
+                <span class="speaker-type panel">Panel</span>
+            </div>
+
+            <!-- Speaker 7 -->
+            <div class="speaker-card">
+                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/bc8b6508-5cd7-455a-9fe0-02f106f8aa24/AmBank%2C+Dr.+Hon+Hock+Woon%2C+Head+of+AI+%282%29.png?format=500w" alt="Dr. Hon Hock Woon" class="speaker-photo">
+                <h3 class="speaker-name">Dr. Hon Hock Woon</h3>
+                <p class="speaker-title">Head of AI, AmBank</p>
+                <span class="speaker-type panel">Panel</span>
+            </div>
+
+            <!-- Speaker 8 -->
+            <div class="speaker-card">
+                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/c2f7f263-3335-42d7-9a5f-9d1aeadd1a0f/OCBC%2C+Dominic+Yew%2C+Chief+Information+Security+Officer.png?format=500w" alt="Dominic Yew" class="speaker-photo">
+                <h3 class="speaker-name">Dominic Yew</h3>
+                <p class="speaker-title">CISO, OCBC</p>
+                <span class="speaker-type panel">Panel</span>
+            </div>
+
+            <!-- Speaker 9 -->
+            <div class="speaker-card">
+                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/fae1bc36-8ead-4e07-a279-d57c099cfa5b/Thomson+Hospital+Group%2C+G+Saravanan%2C+Group+CIO+%282%29.png?format=500w" alt="G Saravanan" class="speaker-photo">
+                <h3 class="speaker-name">G Saravanan</h3>
+                <p class="speaker-title">Group CIO, Thomson Hospital Group</p>
+                <span class="speaker-type panel">Panel</span>
+            </div>
+
+            <!-- Speaker 10 -->
+            <div class="speaker-card">
+                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/6dff5bd8-d59a-4c0c-9968-78f9660d8d73/AmMetLife%2C+Rangam+Bir%2C+CEO+%282%29.png?format=500w" alt="Rangam Bir" class="speaker-photo">
+                <h3 class="speaker-name">Rangam Bir</h3>
+                <p class="speaker-title">CEO, AmMetLife</p>
+                <span class="speaker-type panel">Panel</span>
+            </div>
+
+            <!-- Speaker 11 -->
+            <div class="speaker-card">
+                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/60870753-dab5-4252-8971-1ea45bfd3c33/KWAP%2C+Maz+Mirza%2C+Chief+Digital+Officer.png?format=500w" alt="Maz Mirza" class="speaker-photo">
+                <h3 class="speaker-name">Maz Mirza</h3>
+                <p class="speaker-title">Chief Digital Officer, KWAP</p>
+                <span class="speaker-type panel">Panel</span>
+            </div>
+
+            <!-- Speaker 12 -->
+            <div class="speaker-card">
+                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/df9d386a-7eec-4443-8792-bcf505e0a276/Cybersecurity+Malaysia%2C+Dato%E2%80%99+Dr+Haji+Amirudin+Abdul+Wahab%2C+CEO+%282%29.png?format=500w" alt="Dato' Ts. Dr. Haji Amirudin Abdul Wahab" class="speaker-photo">
+                <h3 class="speaker-name">Dato' Ts. Dr. Haji Amirudin Abdul Wahab</h3>
+                <p class="speaker-title">CEO, CyberSecurity Malaysia</p>
+                <span class="speaker-type panel">Panel</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Why Speak at AIBP -->
+<section class="section" id="why-speak" style="background: var(--color-bg-alt);">
+    <div class="container">
+        <h2 class="section-title centered">Why Speak at AIBP</h2>
+        <p class="section-subtitle centered">Benefits of joining our speaker lineup</p>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h3>Thought Leadership Platform</h3>
+                <p>Present to 600 senior executives, government leaders and enterprise decision makers across ASEAN</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Complimentary Speaker Benefits</h3>
+                <p>Complimentary airfare, hotel accommodation, delegate passes, and access to the exclusive speakers retreat</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Government &amp; Enterprise Audience</h3>
+                <p>75% of attendees are from local enterprises and government agencies - your ideal target audience</p>
+            </div>
+            <div class="benefit-card">
+                <h3>ASEAN-Wide Visibility</h3>
+                <p>Content shared across AIBP's network spanning 10+ ASEAN countries, AIBP Online library, and social channels</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Curated Panel Discussions</h3>
+                <p>Join moderated panels with fellow C-suite leaders on topics like AI, cybersecurity, data governance &amp; ESG</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Networking Opportunities</h3>
+                <p>Connect with 64 speakers, advisory board members, and 40+ technology solution providers over 2 days</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Speaking Formats -->
+<section class="section" id="formats">
+    <div class="container">
+        <h2 class="section-title centered">Speaking Formats</h2>
+        <p class="section-subtitle centered">Choose the format that best suits your expertise and style</p>
+        <div class="formats-grid">
+            <div class="format-card">
+                <div class="format-icon">&#127908;</div>
+                <h3>Keynote Presentation</h3>
+                <p>20-30 minutes on the main stage, delivering your vision to the full audience</p>
+            </div>
+            <div class="format-card">
+                <div class="format-icon">&#128101;</div>
+                <h3>Panel Discussion</h3>
+                <p>45-60 minutes with 4-5 panelists + moderator, exploring key industry themes</p>
+            </div>
+            <div class="format-card">
+                <div class="format-icon">&#128736;</div>
+                <h3>Private Workshop</h3>
+                <p>2-3 hours of hands-on, invite-only sessions for deep-dive learning</p>
+            </div>
+            <div class="format-card">
+                <div class="format-icon">&#127860;</div>
+                <h3>Private Networking Luncheon/Dinner</h3>
+                <p>1-2 hours of hosted meal + facilitated discussion with select attendees</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 2026 Discussion Topics -->
+<section class="section topics-section" id="topics">
+    <div class="container">
+        <h2 class="section-title centered" style="color: var(--color-text-inverse);">2026 Discussion Topics</h2>
+        <p class="section-subtitle centered" style="color: rgba(255,255,255,0.7);">Key themes for AIBP Malaysia 2026 panel discussions</p>
+        <div class="topics-grid">
+            <div class="topic-item">Economics of AI Transformation</div>
+            <div class="topic-item">Data Ambition to Data Control</div>
+            <div class="topic-item">Governing AI Without Slowing It Down</div>
+            <div class="topic-item">The Enterprise AI Reality Check</div>
+            <div class="topic-item">Talent, Trust &amp; the Human Side</div>
+            <div class="topic-item">Cyber Risk in AI-Driven Enterprises</div>
+        </div>
+    </div>
+</section>
+
+<!-- Speaker Nomination Form -->
+<section class="section nominate-section" id="nominate">
+    <div class="container">
+        <h2 class="section-title centered">Nominate a Speaker</h2>
+        <p class="nominate-intro">Know a visionary leader who should speak at AIBP Malaysia 2026? Submit your nomination below. We welcome self-nominations as well as recommendations from peers and organizations.</p>
+        <div class="form-wrapper">
+            <iframe frameborder="0" style="height:900px;width:100%;border:none;" src="https://forms.zohopublic.com/industryplatformpteltd/form/AIBPCE2025Speak/formperma/m-hxcotQWRr38i9E2rTnEf_9OPPrijpiOTKZaxwbk9k"></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/c89591f7-af5c-443b-9ce8-36f027609cf9/Secondary+Logo+-+AIBP+C%26E+Malaysia.png?content-type=image%2Fpng" alt="AIBP" class="footer-logo-img">
+                <p>&copy; 2026 ASEAN Innovation Business Platform. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="malaysia.html">Home</a>
+                <a href="#speakers">Past Speakers</a>
+                <a href="#why-speak">Why Speak</a>
+                <a href="#formats">Formats</a>
+                <a href="#nominate">Nominate</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="#" target="_blank" rel="noopener">Twitter</a>
+                <a href="#" target="_blank" rel="noopener">Facebook</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

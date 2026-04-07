@@ -3,1136 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Past Speakers & Become a Speaker | AIBP Conference & Exhibition Malaysia</title>
-    <meta name="description" content="Explore 300+ past speakers from 52 editions of the AIBP Conference & Exhibition. Nominate a speaker or apply to speak at AIBP Malaysia 2026.">
+    <title>Become a Speaker | AIBP Conference & Exhibition Across ASEAN</title>
+    <meta name="description" content="Share your expertise with 600+ C-suite leaders across Southeast Asia. Join 300+ speakers across 52 editions in 5 ASEAN countries.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <style>
-        /* ---- Speakers Page Specific Styles ---- */
-        .speakers-hero {
-            position: relative;
-            background: linear-gradient(135deg, var(--color-bg-dark) 0%, #1a1008 60%, #2a1a0a 100%);
-            color: var(--color-text-inverse);
-            padding: 140px 0 80px;
-            text-align: center;
-            overflow: hidden;
-        }
-        .speakers-hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 30% 50%, rgba(195,124,65,0.15) 0%, transparent 60%),
-                        radial-gradient(ellipse at 70% 80%, rgba(180,32,36,0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        .speakers-hero .container {
-            position: relative;
-            z-index: 1;
-        }
-        .speakers-hero h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 12px;
-            line-height: 1.15;
-        }
-        .speakers-hero .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--color-secondary);
-            font-weight: 600;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .speakers-hero .hero-desc {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 32px;
-            opacity: 0.9;
-            line-height: 1.7;
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            background: var(--color-bg-dark);
-            border-top: 1px solid rgba(255,255,255,0.08);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            padding: 40px 0;
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            text-align: center;
-            color: var(--color-text-inverse);
-        }
-        .stat-item .stat-number {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--color-secondary);
-            display: block;
-            line-height: 1.2;
-        }
-        .stat-item .stat-label {
-            font-size: 0.95rem;
-            opacity: 0.85;
-            margin-top: 4px;
-        }
-
-        /* Speaker Gallery */
-        .speaker-gallery .speakers-grid {
-            grid-template-columns: repeat(5, 1fr);
-            gap: 24px;
-        }
-
-        /* Filter Bar */
-        .filter-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            justify-content: center;
-            align-items: flex-end;
-            margin-bottom: 12px;
-        }
-        .filter-bar-heading {
-            width: 100%;
-            text-align: center;
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--color-primary, #3a2a1a);
-            margin-bottom: 4px;
-        }
-        .filter-select-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        .filter-select-wrapper label {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--color-text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .filter-select {
-            appearance: none;
-            -webkit-appearance: none;
-            background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233a2a1a' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat right 14px center;
-            border: 1.5px solid #c0b0a0;
-            color: var(--color-primary, #3a2a1a);
-            padding: 12px 40px 12px 16px;
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 500;
-            min-width: 200px;
-            cursor: pointer;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-        .filter-select:focus {
-            outline: none;
-            border-color: var(--color-accent, #b42024);
-            box-shadow: 0 0 0 3px rgba(180, 32, 36, 0.12);
-        }
-        .filter-select:hover {
-            border-color: var(--color-secondary, #c37c41);
-        }
-        .speaker-count {
-            text-align: center;
-            font-size: 0.95rem;
-            color: var(--color-text-light);
-            margin-bottom: 28px;
-            font-weight: 500;
-        }
-
-        /* Dynamic speaker cards */
-        .speaker-card {
-            opacity: 1;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-        .speaker-card.fade-out {
-            opacity: 0;
-            transform: scale(0.95);
-        }
-        .speaker-card .speaker-photo {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 16px;
-            display: block;
-        }
-        .speaker-card .type-badge {
-            display: inline-block;
-            padding: 3px 14px;
-            border-radius: 999px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 8px;
-        }
-        .type-badge.keynote {
-            background: #b42024;
-            color: #fff;
-        }
-        .type-badge.panel {
-            background: #d4960a;
-            color: #fff;
-        }
-        .speaker-card .role-badge {
-            display: inline-block;
-            padding: 2px 12px;
-            border-radius: 999px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 6px;
-        }
-        .role-badge.presenter {
-            background: #1a8a4a;
-            color: #fff;
-        }
-        .role-badge.panelist {
-            background: #2a6cb8;
-            color: #fff;
-        }
-        .speaker-card .panel-topic {
-            display: block;
-            font-size: 0.75rem;
-            color: var(--color-text-light);
-            margin-top: 8px;
-            line-height: 1.4;
-            font-style: italic;
-        }
-        .speaker-card .session-tag {
-            display: block;
-            font-size: 0.78rem;
-            color: var(--color-text-light);
-            margin-top: 8px;
-            line-height: 1.4;
-        }
-
-        @media (max-width: 1200px) {
-            .filter-bar {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-        @media (max-width: 480px) {
-            .filter-select {
-                min-width: 100%;
-            }
-            .filter-bar {
-                flex-direction: column;
-                align-items: stretch;
-            }
-        }
-
-        /* ---- Sessions Accordion ---- */
-        .sessions-section {
-            background: var(--color-bg-alt, #f8f5f0);
-        }
-        .sessions-subtitle {
-            text-align: center;
-            color: var(--color-text-light);
-            font-size: 1.05rem;
-            margin-bottom: 36px;
-        }
-        .session-accordion {
-            max-width: 960px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .session-card {
-            background: #faf5f0;
-            border-radius: var(--radius, 8px);
-            overflow: hidden;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-            transition: box-shadow 0.3s ease;
-        }
-        .session-card:hover {
-            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-        }
-        .session-card.day1 {
-            border-left: 3px solid #b42024;
-        }
-        .session-card.day2 {
-            border-left: 3px solid #c37c41;
-        }
-        .session-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 24px;
-            cursor: pointer;
-            user-select: none;
-        }
-        .session-header-left {
-            flex: 1;
-        }
-        .session-header-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--color-primary, #3a2a1a);
-            margin: 0 0 4px 0;
-        }
-        .session-header-meta {
-            display: flex;
-            gap: 16px;
-            font-size: 0.85rem;
-            color: var(--color-text-light, #777);
-        }
-        .session-toggle {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: rgba(0,0,0,0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--color-primary, #3a2a1a);
-            flex-shrink: 0;
-            margin-left: 16px;
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
-        .session-card.active .session-toggle {
-            transform: rotate(45deg);
-            background: rgba(180,32,36,0.1);
-        }
-        .session-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.45s ease;
-        }
-        .session-body-inner {
-            padding: 0 24px 24px;
-        }
-        .session-description {
-            background: #f0ebe5;
-            border-radius: 6px;
-            padding: 16px 20px;
-            font-size: 0.95rem;
-            line-height: 1.7;
-            color: #444;
-            margin-bottom: 24px;
-            font-style: italic;
-        }
-        .session-subsection-title {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--color-primary, #3a2a1a);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin: 0 0 16px 0;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #e0d6cc;
-        }
-        .session-presenters {
-            margin-bottom: 24px;
-        }
-        .session-presenter-card {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 16px;
-            background: #fff;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-        }
-        .session-presenter-card img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-        .session-presenter-info h4 {
-            font-size: 1rem;
-            font-weight: 700;
-            margin: 0 0 2px;
-            color: var(--color-primary, #3a2a1a);
-        }
-        .session-presenter-info .sp-title {
-            font-size: 0.85rem;
-            color: var(--color-text-light, #777);
-            margin: 0 0 6px;
-        }
-        .session-presenter-info .sp-topic {
-            font-size: 0.85rem;
-            color: #b42024;
-            font-weight: 600;
-            margin: 0;
-        }
-        .session-panel-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--color-primary, #3a2a1a);
-            margin-bottom: 16px;
-            font-style: italic;
-        }
-        .session-panelists-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-            gap: 20px;
-        }
-        .session-panelist {
-            text-align: center;
-        }
-        .session-panelist img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 8px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .session-panelist .sp-name {
-            font-size: 0.82rem;
-            font-weight: 700;
-            color: var(--color-primary, #3a2a1a);
-            margin: 0 0 2px;
-        }
-        .session-panelist .sp-title {
-            font-size: 0.75rem;
-            color: var(--color-text-light, #777);
-            margin: 0;
-            line-height: 1.4;
-        }
-        .session-moderator {
-            margin-top: 16px;
-            padding: 12px 16px;
-            background: rgba(180,32,36,0.05);
-            border-radius: 6px;
-            font-size: 0.88rem;
-            color: var(--color-primary, #3a2a1a);
-        }
-        .session-moderator strong {
-            color: #b42024;
-        }
-        @media (max-width: 768px) {
-            .session-panelists-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .session-presenter-card {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-        @media (max-width: 480px) {
-            .session-header {
-                padding: 16px;
-            }
-            .session-header-title {
-                font-size: 0.95rem;
-            }
-            .session-header-meta {
-                flex-direction: column;
-                gap: 4px;
-            }
-        }
-
-        /* Benefits Section */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-        .benefit-card {
-            background: var(--color-bg);
-            border-radius: var(--radius-lg);
-            padding: 32px 24px;
-            box-shadow: var(--shadow-sm);
-            border-top: 4px solid var(--color-secondary);
-            transition: transform var(--transition), box-shadow var(--transition);
-        }
-        .benefit-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-        .benefit-card h3 {
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--color-primary);
-        }
-        .benefit-card p {
-            font-size: 0.95rem;
-            color: var(--color-text-light);
-            line-height: 1.6;
-        }
-
-        /* Speaking Formats */
-        .formats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-        .format-card {
-            background: var(--color-bg);
-            border-radius: var(--radius-lg);
-            padding: 32px 24px;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            transition: transform var(--transition), box-shadow var(--transition);
-        }
-        .format-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-        .format-card .format-icon {
-            font-size: 2.5rem;
-            margin-bottom: 16px;
-        }
-        .format-card h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--color-primary);
-        }
-        .format-card p {
-            font-size: 0.9rem;
-            color: var(--color-text-light);
-            line-height: 1.5;
-        }
-
-        /* Topics Section */
-        .topics-section {
-            background: var(--color-bg-dark);
-            color: var(--color-text-inverse);
-        }
-        .topics-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .topic-item {
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: var(--radius);
-            padding: 20px 24px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-align: center;
-            transition: background var(--transition), border-color var(--transition);
-        }
-        .topic-item:hover {
-            background: rgba(195,124,65,0.15);
-            border-color: var(--color-secondary);
-        }
-
-        /* Nomination Form */
-        .nominate-section {
-            background: var(--color-bg-alt);
-        }
-        .nominate-section .form-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--color-bg);
-            border-radius: var(--radius-lg);
-            padding: 0;
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-        }
-        .nominate-section .form-wrapper iframe {
-            width: 100%;
-            min-height: 800px;
-            border: none;
-        }
-        .nominate-intro {
-            text-align: center;
-            max-width: 650px;
-            margin: 0 auto 32px;
-            color: var(--color-text-light);
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .speakers-hero h1 { font-size: 2.5rem; }
-            .speaker-gallery .speakers-grid { grid-template-columns: repeat(3, 1fr); }
-            .formats-grid { grid-template-columns: repeat(2, 1fr); }
-            .benefits-grid { grid-template-columns: repeat(2, 1fr); }
-            .topics-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 768px) {
-            .speakers-hero { padding: 120px 0 60px; }
-            .speakers-hero h1 { font-size: 2rem; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-            .speaker-gallery .speakers-grid { grid-template-columns: repeat(2, 1fr); }
-            .formats-grid { grid-template-columns: 1fr; }
-            .benefits-grid { grid-template-columns: 1fr; }
-            .topics-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 480px) {
-            .stats-grid { grid-template-columns: 1fr; }
-            .speaker-gallery .speakers-grid { grid-template-columns: 1fr; }
-        }
+    /* === PAGE-SPECIFIC STYLES === */
+    .speakers-hero{position:relative;background:linear-gradient(135deg,var(--color-bg-dark) 0%,#1a1008 60%,#2a1a0a 100%);color:var(--color-text-inverse);padding:140px 0 80px;text-align:center;overflow:hidden}
+    .speakers-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(195,124,65,.15) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(180,32,36,.1) 0%,transparent 50%);pointer-events:none}
+    .speakers-hero .container{position:relative;z-index:1}
+    .speakers-hero h1{font-size:3.5rem;font-weight:900;margin-bottom:12px}
+    .speakers-hero .hero-subtitle{font-size:1.25rem;color:var(--color-secondary);font-weight:600;margin-bottom:16px;text-transform:uppercase;letter-spacing:2px}
+    .speakers-hero .hero-desc{font-size:1.1rem;max-width:720px;margin:0 auto 32px;color:rgba(255,255,255,.85);line-height:1.7}
+    .speakers-hero .hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    /* ASEAN Countries */
+    .asean-grid{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+    .asean-card{background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:28px 24px;text-align:center;min-width:180px;flex:1;max-width:220px;transition:all var(--transition)}
+    .asean-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .asean-card .country-flag{font-size:2.5rem;margin-bottom:8px}
+    .asean-card h4{font-size:1rem;font-weight:700;color:var(--color-primary);margin-bottom:4px}
+    .asean-card .date{font-size:.85rem;color:var(--color-accent);font-weight:600}
+    .asean-card .city{font-size:.8rem;color:var(--color-text-light)}
+    /* Benefits */
+    .benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .benefit-card{background:var(--color-bg);border-radius:var(--radius-lg);padding:32px 24px;box-shadow:var(--shadow-sm);transition:all var(--transition)}
+    .benefit-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .benefit-card .benefit-icon{font-size:2rem;margin-bottom:12px}
+    .benefit-card h3{font-size:1.05rem;font-weight:700;color:var(--color-primary);margin-bottom:8px}
+    .benefit-card p{font-size:.9rem;color:var(--color-text-light);line-height:1.6}
+    .cleverstory-wrap{margin-top:16px;border-radius:var(--radius);overflow:hidden}
+    /* Video Grid */
+    .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .video-item{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius-lg);box-shadow:var(--shadow-md)}
+    .video-item iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+    .podcast-section{background:var(--color-bg-dark);padding:80px 0}
+    .podcast-section .section-title{color:var(--color-text-inverse)}
+    .podcast-section .section-subtitle{color:rgba(255,255,255,.7)}
+    /* Filters */
+    .filter-bar{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+    .filter-bar select{padding:12px 16px;border:2px solid var(--color-border);border-radius:var(--radius);font-family:var(--font-family);font-size:.9rem;color:var(--color-text);background:var(--color-bg);min-width:200px;cursor:pointer;transition:border-color var(--transition)}
+    .filter-bar select:focus{outline:none;border-color:var(--color-accent)}
+    .filter-count{text-align:center;color:var(--color-text-light);margin-bottom:32px;font-size:.95rem}
+    /* Speaker Cards */
+    .sp-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+    .sp-card{background:var(--color-bg);border-radius:var(--radius-lg);padding:20px 12px;text-align:center;box-shadow:var(--shadow-sm);transition:all .25s ease}
+    .sp-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .sp-card img{width:140px;height:140px;border-radius:50%;object-fit:cover;margin:0 auto 12px;display:block;border:3px solid var(--color-bg-alt)}
+    .sp-card .sp-name{font-size:.95rem;font-weight:700;margin-bottom:4px}
+    .sp-card .sp-title{font-size:.78rem;color:var(--color-text-light);margin-bottom:8px;line-height:1.4}
+    .sp-badges{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:6px}
+    .sp-badge{display:inline-block;font-size:.65rem;font-weight:600;padding:3px 8px;border-radius:50px;text-transform:uppercase;letter-spacing:.5px}
+    .sp-badge.keynote{background:rgba(180,32,36,.1);color:var(--color-accent)}
+    .sp-badge.panel{background:rgba(195,124,65,.1);color:var(--color-secondary)}
+    .sp-badge.presenter{background:rgba(42,138,74,.1);color:#2a8a4a}
+    .sp-badge.panelist{background:rgba(15,52,96,.1);color:#1a5276}
+    .sp-badge.sector-badge{background:rgba(100,100,100,.08);color:var(--color-text-light);font-size:.6rem}
+    .sp-card .sp-topic{font-size:.72rem;color:var(--color-text-light);font-style:italic;margin-top:4px;line-height:1.3}
+    /* Session Accordion */
+    .sess-card{border:1px solid var(--color-border);border-radius:var(--radius-lg);margin-bottom:12px;overflow:hidden;background:var(--color-bg-alt)}
+    .sess-card.day1{border-left:3px solid var(--color-accent)}
+    .sess-card.day2{border-left:3px solid var(--color-secondary)}
+    .sess-header{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;cursor:pointer;transition:background var(--transition)}
+    .sess-header:hover{background:rgba(195,124,65,.05)}
+    .sess-header h3{font-size:1.05rem;font-weight:700;color:var(--color-primary);margin:0}
+    .sess-header .sess-meta{font-size:.8rem;color:var(--color-text-light)}
+    .sess-header .sess-toggle{font-size:1.5rem;color:var(--color-accent);font-weight:300;transition:transform .3s}
+    .sess-card.open .sess-toggle{transform:rotate(45deg)}
+    .sess-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+    .sess-card.open .sess-body{max-height:2000px}
+    .sess-inner{padding:0 24px 24px}
+    .sess-desc{background:var(--color-bg);border-radius:var(--radius);padding:16px;font-size:.9rem;color:var(--color-text-light);line-height:1.7;margin-bottom:20px}
+    .sess-sub{margin-bottom:16px}
+    .sess-sub h4{font-size:.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--color-accent);margin-bottom:12px}
+    .sess-presenter{display:flex;align-items:center;gap:16px;padding:12px;background:var(--color-bg);border-radius:var(--radius);margin-bottom:8px}
+    .sess-presenter img{width:70px;height:70px;border-radius:50%;object-fit:cover;flex-shrink:0}
+    .sess-presenter .sp-info .sp-name{font-weight:700;font-size:.9rem}
+    .sess-presenter .sp-info .sp-title{font-size:.78rem;color:var(--color-text-light)}
+    .sess-presenter .sp-info .sp-pres-topic{font-size:.78rem;color:var(--color-accent);font-style:italic;margin-top:2px}
+    .sess-panelist-grid{display:flex;gap:16px;flex-wrap:wrap}
+    .sess-panelist{text-align:center;width:90px}
+    .sess-panelist img{width:70px;height:70px;border-radius:50%;object-fit:cover;margin-bottom:4px}
+    .sess-panelist .sp-name{font-size:.72rem;font-weight:600}
+    .sess-panelist .sp-title{font-size:.65rem;color:var(--color-text-light)}
+    .sess-moderator{background:rgba(195,124,65,.08);border-radius:var(--radius);padding:10px 14px;font-size:.82rem;color:var(--color-text);margin-bottom:16px}
+    /* Formats */
+    .formats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .format-card{background:var(--color-bg-alt);border-radius:var(--radius-lg);padding:28px 20px;text-align:center}
+    .format-card h3{font-size:1rem;font-weight:700;color:var(--color-primary);margin-bottom:8px}
+    .format-card .format-dur{font-size:.85rem;color:var(--color-accent);font-weight:600;margin-bottom:8px}
+    .format-card p{font-size:.82rem;color:var(--color-text-light);line-height:1.5}
+    /* Nomination */
+    .nominate-section{background:var(--color-primary);color:var(--color-text-inverse);padding:80px 0}
+    .nominate-section .section-title{color:var(--color-text-inverse)}
+    .nominate-section p{color:rgba(255,255,255,.8)}
+    .nominate-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+    .nominate-form{background:var(--color-bg);border-radius:var(--radius-lg);overflow:hidden}
+    .nominate-form iframe{width:100%;min-height:1850px;border:none}
+    /* Responsive */
+    @media(max-width:1024px){.sp-grid{grid-template-columns:repeat(3,1fr)}.benefits-grid{grid-template-columns:repeat(2,1fr)}.formats-grid{grid-template-columns:repeat(2,1fr)}.nominate-grid{grid-template-columns:1fr}}
+    @media(max-width:768px){.sp-grid{grid-template-columns:repeat(2,1fr)}.video-grid{grid-template-columns:1fr}.benefits-grid{grid-template-columns:1fr}.speakers-hero h1{font-size:2.5rem}.asean-grid{flex-direction:column;align-items:center}.asean-card{max-width:100%;width:100%}.formats-grid{grid-template-columns:1fr}.nominate-grid{grid-template-columns:1fr}.filter-bar select{min-width:100%}}
+    @media(max-width:480px){.sp-grid{grid-template-columns:1fr}.speakers-hero h1{font-size:2rem}}
     </style>
 </head>
 <body>
 
-<!-- Navigation -->
+<!-- Navbar -->
 <nav class="navbar" id="navbar">
     <div class="container nav-container">
         <a href="malaysia.html" class="nav-logo">
-            <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/c89591f7-af5c-443b-9ce8-36f027609cf9/Secondary+Logo+-+AIBP+C%26E+Malaysia.png?content-type=image%2Fpng" alt="AIBP Conference & Exhibition Malaysia" class="nav-logo-img">
+            <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/c89591f7-af5c-443b-9ce8-36f027609cf9/Secondary+Logo+-+AIBP+C%26E+Malaysia.png?content-type=image%2Fpng" alt="AIBP C&E Malaysia" class="nav-logo-img">
         </a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-        </button>
         <ul class="nav-menu" id="navMenu">
-            <li><a href="#speakers">Past Speakers</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#past-speakers">Speakers</a></li>
             <li><a href="#sessions">Sessions</a></li>
-            <li><a href="#why-speak">Why Speak</a></li>
-            <li><a href="#formats">Formats</a></li>
-            <li><a href="#nominate" class="nav-cta">Nominate a Speaker</a></li>
+            <li><a href="#podcast">Podcast</a></li>
+            <li><a href="#nominate" class="nav-cta">Apply to Speak</a></li>
         </ul>
     </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="speakers-hero" id="hero">
+<!-- Hero -->
+<section class="speakers-hero" id="about">
     <div class="container">
-        <h1>Past Speakers &amp; Become a Speaker</h1>
-        <p class="hero-subtitle">AIBP Conference &amp; Exhibition Malaysia</p>
-        <p class="hero-desc">Join 300+ C-suite leaders, government officials, and industry pioneers who have shared their insights across 52 editions</p>
-        <a href="#nominate" class="btn btn-primary btn-lg">Nominate a Speaker</a>
+        <p class="hero-subtitle">AIBP Conference & Exhibition | Across ASEAN</p>
+        <h1>Become a Speaker</h1>
+        <p class="hero-desc">Share your expertise with 600+ C-suite leaders, government officials, and enterprise decision makers across Southeast Asia. Join 300+ distinguished speakers who have shaped conversations on AI, digital transformation, and cybersecurity across 52 editions in 5 ASEAN countries.</p>
+        <div class="hero-ctas">
+            <a href="#nominate" class="btn btn-primary btn-lg">Apply to Speak</a>
+            <a href="#podcast" class="btn btn-outline btn-lg">Watch Our Speakers</a>
+        </div>
     </div>
 </section>
 
-<!-- Speaker Stats Bar -->
-<div class="stats-bar">
+<!-- Stats Bar -->
+<section class="section stats-bar">
     <div class="container">
         <div class="stats-grid">
-            <div class="stat-item">
-                <span class="stat-number">300+</span>
-                <span class="stat-label">Past Speakers</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">52</span>
-                <span class="stat-label">Editions Since 2013</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">10+</span>
-                <span class="stat-label">ASEAN Countries</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">7</span>
-                <span class="stat-label">Discussion Tracks</span>
-            </div>
+            <div class="stat-card"><span class="stat-number">300+</span><span class="stat-label">Past Speakers</span></div>
+            <div class="stat-card"><span class="stat-number">52</span><span class="stat-label">Editions Since 2013</span></div>
+            <div class="stat-card"><span class="stat-number">5</span><span class="stat-label">ASEAN Countries</span></div>
+            <div class="stat-card"><span class="stat-number">7</span><span class="stat-label">Discussion Tracks</span></div>
         </div>
-    </div>
-</div>
-
-<!-- Past Speakers Gallery -->
-<section class="section speakers speaker-gallery" id="speakers">
-    <div class="container">
-        <h2 class="section-title centered">Past Speakers</h2>
-        <p class="section-subtitle centered">C-suite leaders and government officials who have spoken at AIBP Malaysia 2025</p>
-
-        <!-- Filter Bar -->
-        <div class="filter-bar" id="filterBar">
-            <div class="filter-bar-heading">Filter Speakers</div>
-            <div class="filter-select-wrapper">
-                <label for="filterType">Filter by Type</label>
-                <select class="filter-select" id="filterType">
-                    <option value="all">All Types</option>
-                    <option value="Keynote">Keynote</option>
-                    <option value="Panel">Panel</option>
-                </select>
-            </div>
-            <div class="filter-select-wrapper">
-                <label for="filterSession">Filter by Session</label>
-                <select class="filter-select" id="filterSession">
-                    <option value="all">All Sessions</option>
-                    <option value="Keynote">Keynote</option>
-                    <option value="AI Applications and ROI">AI Applications and ROI</option>
-                    <option value="Data Governance">Data Governance</option>
-                    <option value="AI-Driven Cyber Security for BFSI">AI-Driven Cyber Security for BFSI</option>
-                    <option value="ESG &amp; Digital Innovation">ESG &amp; Digital Innovation</option>
-                    <option value="Securing Critical Infrastructure">Securing Critical Infrastructure</option>
-                    <option value="Upskilling for Digital Future">Upskilling for Digital Future</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- Speaker Count -->
-        <p class="speaker-count" id="speakerCount">Showing 35 of 35 speakers</p>
-
-        <!-- Dynamic Grid -->
-        <div class="speakers-grid" id="speakersGrid"></div>
     </div>
 </section>
 
-<!-- 2025 Conference Sessions (Session-Based View) -->
-<section class="section sessions-section" id="sessions">
+<!-- Speak Across ASEAN -->
+<section class="section" style="background:var(--color-bg-alt)">
     <div class="container">
-        <h2 class="section-title centered">2025 Conference Sessions</h2>
-        <p class="sessions-subtitle">Click a session to see the full panel lineup and discussion topics</p>
-        <div class="session-accordion" id="sessionAccordion"></div>
+        <h2 class="section-title centered">Speak Across ASEAN</h2>
+        <p class="section-subtitle centered">Our conferences span 5 countries — your message reaches the entire region</p>
+        <div class="asean-grid">
+            <div class="asean-card"><div class="country-flag">&#x1F1F2;&#x1F1FE;</div><h4>Malaysia</h4><p class="date">8 – 9 July 2026</p><p class="city">Kuala Lumpur</p></div>
+            <div class="asean-card"><div class="country-flag">&#x1F1F9;&#x1F1ED;</div><h4>Thailand</h4><p class="date">TBA 2026</p><p class="city">Bangkok</p></div>
+            <div class="asean-card"><div class="country-flag">&#x1F1EE;&#x1F1E9;</div><h4>Indonesia</h4><p class="date">TBA 2026</p><p class="city">Jakarta</p></div>
+            <div class="asean-card"><div class="country-flag">&#x1F1FB;&#x1F1F3;</div><h4>Vietnam</h4><p class="date">15 – 16 Sep 2026</p><p class="city">Ho Chi Minh City</p></div>
+            <div class="asean-card"><div class="country-flag">&#x1F1F5;&#x1F1ED;</div><h4>Philippines</h4><p class="date">TBA 2026</p><p class="city">Manila</p></div>
+        </div>
     </div>
 </section>
 
 <!-- Why Speak at AIBP -->
-<section class="section" id="why-speak" style="background: var(--color-bg-alt);">
+<section class="section">
     <div class="container">
         <h2 class="section-title centered">Why Speak at AIBP</h2>
-        <p class="section-subtitle centered">Benefits of joining our speaker lineup</p>
+        <p class="section-subtitle centered">Exclusive benefits for our distinguished speakers</p>
         <div class="benefits-grid">
+            <div class="benefit-card"><div class="benefit-icon">&#x1F3AF;</div><h3>Address ASEAN's Top Decision Makers</h3><p>Present to 600 senior executives, ministers, and enterprise leaders per event. 75% of attendees are from local enterprises and government agencies.</p></div>
+            <div class="benefit-card"><div class="benefit-icon">&#x1F3DB;</div><h3>Government-Endorsed Platform</h3><p>Our events are endorsed by local ministries including MITI (Malaysia), ensuring high-calibre, invitation-only audiences of real decision makers.</p></div>
+            <div class="benefit-card"><div class="benefit-icon">&#x2708;</div><h3>Complimentary Speaker Package</h3><p>Selected speakers receive complimentary airfare, hotel accommodation, 2 delegate passes, and exclusive access to the Innovation Retreat.</p></div>
             <div class="benefit-card">
-                <h3>Thought Leadership Platform</h3>
-                <p>Present to 600 senior executives, government leaders and enterprise decision makers across ASEAN</p>
+                <div class="benefit-icon">&#x1F3D6;</div>
+                <h3>Exclusive Innovation Retreat</h3>
+                <p>Join fellow speakers for a private retreat experience — network with advisory board members and C-suite peers in an intimate setting.</p>
+                <div class="cleverstory-wrap">
+                    <div id="recap">
+                        <div class="cleverstory__live_element" data-live-element="https://aibp.iotbusiness-platform.com/embedded/6971c6021e548b1afba6850f" data-id="6971c6021e548b1afba6850f" data-width="100%" data-height="815px">
+                            <div id="page-6971c6021e548b1afba6850f" style="display: none;"></div>
+                        </div>
+                        <script>!function(){var t=window,e=t.Cleverstory;if("function"==typeof e)e();else{var a=document,n=function(){var t=a.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://editor.cleverstory.io/scripts/embed_page.min.js";var e=a.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)};t.attachEvent?t.attachEvent("onload",n):t.addEventListener("load",n,!1)}}();</script>
+                    </div>
+                </div>
             </div>
-            <div class="benefit-card">
-                <h3>Complimentary Speaker Benefits</h3>
-                <p>Complimentary airfare, hotel accommodation, delegate passes, and access to the exclusive speakers retreat</p>
-            </div>
-            <div class="benefit-card">
-                <h3>Government &amp; Enterprise Audience</h3>
-                <p>75% of attendees are from local enterprises and government agencies - your ideal target audience</p>
-            </div>
-            <div class="benefit-card">
-                <h3>ASEAN-Wide Visibility</h3>
-                <p>Content shared across AIBP's network spanning 10+ ASEAN countries, AIBP Online library, and social channels</p>
-            </div>
-            <div class="benefit-card">
-                <h3>Curated Panel Discussions</h3>
-                <p>Join moderated panels with fellow C-suite leaders on topics like AI, cybersecurity, data governance &amp; ESG</p>
-            </div>
-            <div class="benefit-card">
-                <h3>Networking Opportunities</h3>
-                <p>Connect with 64 speakers, advisory board members, and 40+ technology solution providers over 2 days</p>
-            </div>
+            <div class="benefit-card"><div class="benefit-icon">&#x1F399;</div><h3>Feature on AIBP ASEAN Podcast</h3><p>Selected speakers are invited to feature on the AIBP ASEAN Podcast, reaching thousands of enterprise leaders across the region.</p></div>
+            <div class="benefit-card"><div class="benefit-icon">&#x1F30F;</div><h3>Speak Across Multiple Countries</h3><p>Distinguished speakers may be invited to present across multiple AIBP editions in different ASEAN countries, expanding your regional influence.</p></div>
         </div>
+    </div>
+</section>
+
+<!-- AIBP ASEAN Podcast -->
+<section class="section podcast-section" id="podcast">
+    <div class="container">
+        <h2 class="section-title centered">Hear From Our Speakers</h2>
+        <p class="section-subtitle centered">Featured on the AIBP ASEAN Podcast</p>
+        <div class="video-grid">
+            <div class="video-item"><iframe src="https://www.youtube.com/embed/_Xc_aZUz-Ks?rel=0" title="AIBP Podcast 1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe></div>
+            <div class="video-item"><iframe src="https://www.youtube.com/embed/RKqNN7Y-GS8?rel=0" title="AIBP Podcast 2" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe></div>
+            <div class="video-item"><iframe src="https://www.youtube.com/embed/HL04p3wCnyo?rel=0" title="AIBP Podcast 3" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe></div>
+        </div>
+    </div>
+</section>
+
+<!-- Conference Highlights -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title centered">See What to Expect</h2>
+        <p class="section-subtitle centered">Highlights from past AIBP Conference & Exhibition editions</p>
+        <div class="video-grid">
+            <div class="video-item"><iframe src="https://www.youtube.com/embed/8Mq_M-sz_cg?rel=0" title="Conference Highlights 1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe></div>
+            <div class="video-item"><iframe src="https://www.youtube.com/embed/cbwQ0SDHGug?rel=0" title="Conference Highlights 2" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe></div>
+            <div class="video-item"><iframe src="https://www.youtube.com/embed/gTSG6-YTk6o?rel=0" title="Conference Highlights 3" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe></div>
+        </div>
+    </div>
+</section>
+
+<!-- Past Speakers Gallery -->
+<section class="section speakers" id="past-speakers" style="background:var(--color-bg-alt)">
+    <div class="container">
+        <h2 class="section-title centered">Our Past Speakers</h2>
+        <p class="section-subtitle centered">300+ C-suite leaders, government officials, and industry pioneers across 52 editions</p>
+        <div class="filter-bar">
+            <select id="filterType"><option value="">All Types</option><option value="Keynote">Keynote</option><option value="Panel">Panel</option></select>
+            <select id="filterSession"><option value="">All Sessions</option><option value="Keynote">Keynote</option><option value="AI Applications and ROI">AI Applications and ROI</option><option value="Data Governance">Data Governance</option><option value="AI-Driven Cyber Security for BFSI">Cyber Security for BFSI</option><option value="ESG & Digital Innovation">ESG & Digital Innovation</option><option value="Securing Critical Infrastructure">Securing Critical Infrastructure</option><option value="Upskilling for Digital Future">Upskilling for Digital Future</option></select>
+            <select id="filterSector"><option value="">All Sectors</option><option value="BFSI">BFSI</option><option value="Public Services">Public Services</option><option value="Energy and Utilities">Energy and Utilities</option><option value="Manufacturing">Manufacturing</option><option value="DTLF">DTLF</option><option value="Technology">Technology</option><option value="Telecommunications">Telecommunications</option><option value="Retail">Retail</option><option value="Real Estate">Real Estate</option></select>
+        </div>
+        <p class="filter-count" id="filterCount">Showing 35 of 35 speakers</p>
+        <div class="sp-grid" id="speakersGallery"></div>
+    </div>
+</section>
+
+<!-- Sessions Accordion -->
+<section class="section" id="sessions">
+    <div class="container">
+        <h2 class="section-title centered">2025 Conference Sessions</h2>
+        <p class="section-subtitle centered">Click a session to see the full panel lineup and discussion topics</p>
+        <div id="sessionAccordion"></div>
     </div>
 </section>
 
 <!-- Speaking Formats -->
-<section class="section" id="formats">
+<section class="section" style="background:var(--color-bg-alt)">
     <div class="container">
         <h2 class="section-title centered">Speaking Formats</h2>
-        <p class="section-subtitle centered">Choose the format that best suits your expertise and style</p>
+        <p class="section-subtitle centered">Multiple ways to share your expertise</p>
         <div class="formats-grid">
-            <div class="format-card">
-                <div class="format-icon">&#127908;</div>
-                <h3>Keynote Presentation</h3>
-                <p>20-30 minutes on the main stage, delivering your vision to the full audience</p>
-            </div>
-            <div class="format-card">
-                <div class="format-icon">&#128101;</div>
-                <h3>Panel Discussion</h3>
-                <p>45-60 minutes with 4-5 panelists + moderator, exploring key industry themes</p>
-            </div>
-            <div class="format-card">
-                <div class="format-icon">&#128736;</div>
-                <h3>Private Workshop</h3>
-                <p>2-3 hours of hands-on, invite-only sessions for deep-dive learning</p>
-            </div>
-            <div class="format-card">
-                <div class="format-icon">&#127860;</div>
-                <h3>Private Networking Luncheon/Dinner</h3>
-                <p>1-2 hours of hosted meal + facilitated discussion with select attendees</p>
-            </div>
+            <div class="format-card"><h3>Keynote Presentation</h3><p class="format-dur">20 – 30 minutes</p><p>Main stage presentation to the full conference audience of 600+ attendees.</p></div>
+            <div class="format-card"><h3>Panel Discussion</h3><p class="format-dur">45 – 60 minutes</p><p>Moderated discussion with 4-5 panelists on curated industry topics.</p></div>
+            <div class="format-card"><h3>Private Workshop</h3><p class="format-dur">2 – 3 hours</p><p>Hands-on, invite-only technical session for a select group of attendees.</p></div>
+            <div class="format-card"><h3>Private Networking</h3><p class="format-dur">1 – 2 hours</p><p>Hosted luncheon or dinner with curated guest list for focused discussion.</p></div>
         </div>
     </div>
 </section>
 
-<!-- 2026 Discussion Topics -->
-<section class="section topics-section" id="topics">
+<!-- Apply to Speak -->
+<section class="nominate-section" id="nominate">
     <div class="container">
-        <h2 class="section-title centered" style="color: var(--color-text-inverse);">2026 Discussion Topics</h2>
-        <p class="section-subtitle centered" style="color: rgba(255,255,255,0.7);">Key themes for AIBP Malaysia 2026 panel discussions</p>
-        <div class="topics-grid">
-            <div class="topic-item">Economics of AI Transformation</div>
-            <div class="topic-item">Data Ambition to Data Control</div>
-            <div class="topic-item">Governing AI Without Slowing It Down</div>
-            <div class="topic-item">The Enterprise AI Reality Check</div>
-            <div class="topic-item">Talent, Trust &amp; the Human Side</div>
-            <div class="topic-item">Cyber Risk in AI-Driven Enterprises</div>
-        </div>
-    </div>
-</section>
-
-<!-- Speaker Nomination Form -->
-<section class="section nominate-section" id="nominate">
-    <div class="container">
-        <h2 class="section-title centered">Nominate a Speaker</h2>
-        <p class="nominate-intro">Know a visionary leader who should speak at AIBP Malaysia 2026? Submit your nomination below. We welcome self-nominations as well as recommendations from peers and organizations.</p>
-        <div class="form-wrapper">
-            <iframe frameborder="0" style="height:900px;width:100%;border:none;" src="https://forms.zohopublic.com/industryplatformpteltd/form/AIBPCE2025Speak/formperma/m-hxcotQWRr38i9E2rTnEf_9OPPrijpiOTKZaxwbk9k"></iframe>
+        <div class="nominate-grid">
+            <div>
+                <h2 class="section-title">Apply to Speak</h2>
+                <p>Nominate yourself or a colleague to speak at the upcoming AIBP Conference & Exhibition. We welcome speakers from government, enterprise, and technology sectors across ASEAN.</p>
+                <p style="margin-top:24px"><strong>Contact us:</strong><br>aibp@industry-platform.com<br>(+65) 6733 - 1107</p>
+            </div>
+            <div class="nominate-form">
+                <iframe frameborder="0" src="https://forms.zohopublic.com/industryplatformpteltd/form/AIBPCE2025Speak/formperma/m-hxcotQWRr38i9E2rTnEf_9OPPrijpiOTKZaxwbk9k" aria-label="Speaker Nomination Form"></iframe>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- Footer -->
 <footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/c89591f7-af5c-443b-9ce8-36f027609cf9/Secondary+Logo+-+AIBP+C%26E+Malaysia.png?content-type=image%2Fpng" alt="AIBP" class="footer-logo-img">
-                <p>&copy; 2026 ASEAN Innovation Business Platform. All rights reserved.</p>
-            </div>
-            <div class="footer-links">
-                <a href="malaysia.html">Home</a>
-                <a href="#speakers">Past Speakers</a>
-                <a href="#why-speak">Why Speak</a>
-                <a href="#formats">Formats</a>
-                <a href="#nominate">Nominate</a>
-            </div>
-            <div class="footer-social">
-                <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="#" target="_blank" rel="noopener">Twitter</a>
-                <a href="#" target="_blank" rel="noopener">Facebook</a>
-            </div>
+    <div class="container footer-grid">
+        <div>
+            <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/c89591f7-af5c-443b-9ce8-36f027609cf9/Secondary+Logo+-+AIBP+C%26E+Malaysia.png?content-type=image%2Fpng" alt="AIBP" class="footer-logo-img">
+            <p>&copy; 2026 AIBP — Industry Platform Pte Ltd. All rights reserved.</p>
+        </div>
+        <div class="footer-links">
+            <a href="malaysia.html">Conference Page</a>
+            <a href="index.html">All Countries</a>
         </div>
     </div>
 </footer>
 
-<script src="js/main.js"></script>
-<script>
-(function() {
-    const speakers = [
-        { name: "Pedro Uria-Recio", title: "Chief Data & AI Officer", company: "CIMB Group", type: "Keynote", session: "Keynote", date: "9 July 2025", role: "Panelist", panelTopic: "Scaling AI for Global Competitiveness", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/d6b42758-cf00-41d7-a649-278bd3062be0/CIMB+Group%2C+Pedro+Uria-Recio%2C+Chief+Data+%26+AI+Officer+%282%29.png?format=500w" },
-        { name: "Dr. Siew Chan Cheong", title: "Group Chief Strategy & Transformation Officer", company: "Maybank", type: "Keynote", session: "Keynote", date: "9 July 2025", role: "Panelist", panelTopic: "Scaling AI for Global Competitiveness", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/c4beb220-0ded-4281-b05f-232b637cb76d/Maybank%2C+Dr+Siew+Chan+Cheong%2C+Group+Chief+Strategy+and+Transformation+Officer+%282%29.png?format=500w" },
-        { name: "Shamsul Izhan Abdul Majid", title: "Chief Executive Officer", company: "National AI Office Malaysia (NAIO)", type: "Keynote", session: "Keynote", date: "9 July 2025", role: "Panelist", panelTopic: "Scaling AI for Global Competitiveness", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/8adc8828-1f98-46e0-a57e-60ea1348a637/NAIO%2C+Shamsul+Izhan+Abdul+Majid%2C+CEO.png?format=500w" },
-        { name: "Datuk Ir. Megat Jalaluddin Megat Hassan", title: "President / Chief Executive Officer", company: "Tenaga Nasional Berhad", type: "Keynote", session: "Keynote", date: "9 July 2025", role: "Panelist", panelTopic: "Scaling AI for Global Competitiveness", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/d7899c4f-67f2-47ea-8ed6-d40ba062cbb2/TNB%2C+Datuk+Ir.+Megat+Jalaluddin%2C+President+_+Chief+Executive+Officer+%282%29.png?format=500w" },
-        { name: "Colin Tan", title: "Vice President, Asia", company: "Tricentis", type: "Panel", session: "AI Applications and ROI", date: "9 July 2025", role: "Presenter", panelTopic: "AI-Augmented Testing: Turning QA into a Competitive Advantage", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/ae833de1-fb6f-41df-b8b0-c4fc10da89c7/Tricentis%2C+Colin+Tan%2C+Vice+President%2C+Asia.png?format=500w" },
-        { name: "Mustafa Sabuwala", title: "Sales Director, ASEAN", company: "HCLTech", type: "Panel", session: "AI Applications and ROI", date: "9 July 2025", role: "Presenter", panelTopic: "Scaling GenAI for Real ROI", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/7c86f036-88a4-47eb-bdeb-c7bac1c45214/HCLTech%2C+Mustafa+Sabuwala%2C+Sales+Director%2C+ASEAN.png?format=500w" },
-        { name: "Rangam Bir", title: "Chief Executive Officer", company: "AmMetLife", type: "Panel", session: "AI Applications and ROI", date: "9 July 2025", role: "Panelist", panelTopic: "From Tools to Transformation: Leveraging AI to Drive Productivity and ROI", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/6dff5bd8-d59a-4c0c-9968-78f9660d8d73/AmMetLife%2C+Rangam+Bir%2C+CEO+%282%29.png?format=500w" },
-        { name: "Maz Mirza", title: "Chief Digital Officer", company: "KWAP", type: "Panel", session: "AI Applications and ROI", date: "9 July 2025", role: "Panelist", panelTopic: "From Tools to Transformation: Leveraging AI to Drive Productivity and ROI", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/60870753-dab5-4252-8971-1ea45bfd3c33/KWAP%2C+Maz+Mirza%2C+Chief+Digital+Officer.png?format=500w" },
-        { name: "Aditya Ranjit Tuli", title: "Chief Digital Officer", company: "SD Guthrie", type: "Panel", session: "AI Applications and ROI", date: "9 July 2025", role: "Panelist", panelTopic: "From Tools to Transformation: Leveraging AI to Drive Productivity and ROI", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/e209b839-2b64-4f5d-8b0f-2000b3b9fa6a/SD+Guthrie%2C+Aditya+Ranjit+Tuli%2C+Chief+Digital+Officer+%282%29.png?format=500w" },
-        { name: "Arfah Aridz", title: "Director, Data Conduct - Responsible AI", company: "Global Financial Institution", type: "Panel", session: "Data Governance", date: "9 July 2025", role: "Presenter", panelTopic: "Strengthening AI Readiness and Governance in Malaysia", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/9d38c5c5-58ed-442a-a5e3-b9173aceb4f2/Global+Financial+Institution%2C+Arfah+Aridz%2C+Director%2C+Data+Conduct+-+Responsible+AI.png?format=500w" },
-        { name: "Chris Farrelly", title: "Vice President APAC", company: "Concentric AI", type: "Panel", session: "Data Governance", date: "9 July 2025", role: "Presenter", panelTopic: "Data Security & Governance in the Age of Generative AI", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/ffe42408-9343-4ee8-9ace-8ebcd62fa598/Concentric+AI%2C+Chris+Farrelly%2C+Vice+President+APAC+%282%29.png?format=500w" },
-        { name: "Dr. Hon Hock Woon", title: "Head of AI", company: "AmBank", type: "Panel", session: "Data Governance", date: "9 July 2025", role: "Panelist", panelTopic: "AI Knows Too Much \u2014 Why Data Governance Matters More Than Ever", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/bc8b6508-5cd7-455a-9fe0-02f106f8aa24/AmBank%2C+Dr.+Hon+Hock+Woon%2C+Head+of+AI+%282%29.png?format=500w" },
-        { name: "Nili Shayrina Saat", title: "Group Head, Risk Management & Compliance", company: "IHH Healthcare", type: "Panel", session: "Data Governance", date: "9 July 2025", role: "Panelist", panelTopic: "AI Knows Too Much \u2014 Why Data Governance Matters More Than Ever", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/50f1c423-3494-475c-8f29-791ff97b491b/IHH+Healthcare%2C+Nili+Shayrina+Saat%2C+Group+Head%2C+Risk+Management+%26+Compliance+%282%29.png?format=500w" },
-        { name: "Dr. Jun-E Tan", title: "Senior Research Associate", company: "Khazanah Research Institute", type: "Panel", session: "Data Governance", date: "9 July 2025", role: "Panelist", panelTopic: "AI Knows Too Much \u2014 Why Data Governance Matters More Than Ever", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/9ae874b9-d37f-4977-a235-bcadb2f62cd5/Khazanah+Research+Institute%2C+Dr.+Jun-E+Tan%2C+Senior+Research+Associate+%282%29.png?format=500w" },
-        { name: "Tyler Tang", title: "Director of Secure Design", company: "Softscheck", type: "Panel", session: "AI-Driven Cyber Security for BFSI", date: "9 July 2025", role: "Presenter", panelTopic: "At the Core: AI Considerations when Designing for Cyber Resilience", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/976e82b9-6b94-4ae1-83c0-6c73af8f7d51/Softscheck%2C+Tyler+Tang%2C+Director+of+Secure+Design+%282%29.png?format=500w" },
-        { name: "Dominic Yew", title: "Chief Information Security Officer", company: "OCBC", type: "Panel", session: "AI-Driven Cyber Security for BFSI", date: "9 July 2025", role: "Panelist", panelTopic: "Leveraging AI to Strengthen Cybersecurity and Regulatory Compliance", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/c2f7f263-3335-42d7-9a5f-9d1aeadd1a0f/OCBC%2C+Dominic+Yew%2C+Chief+Information+Security+Officer.png?format=500w" },
-        { name: "Ruban Bala", title: "Head of Infrastructure and Application Security Risk", company: "Ryt Bank", type: "Panel", session: "AI-Driven Cyber Security for BFSI", date: "9 July 2025", role: "Panelist", panelTopic: "Leveraging AI to Strengthen Cybersecurity and Regulatory Compliance", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/5686768e-e6a0-4cb7-9600-729af7b60e78/Ryt+Bank%2C+Ruban+Bala%2C+Head+of+Infrastructure+and+Application+Security+Risk.png?format=500w" },
-        { name: "Er Chiang Kai", title: "Chief Technology Officer", company: "V-Key Pte Ltd", type: "Panel", session: "AI-Driven Cyber Security for BFSI", date: "9 July 2025", role: "Panelist", panelTopic: "Leveraging AI to Strengthen Cybersecurity and Regulatory Compliance", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/0388386d-f617-40dc-9515-48417a3a1442/V-Key+Pte+Ltd%2C+Er+Chiang+Kai%2C+Chief+Technology+Officer+%282%29.png?format=500w" },
-        { name: "Dr. Toh Shang Yee", title: "Head of Information Security", company: "MCIS Insurance Berhad", type: "Panel", session: "AI-Driven Cyber Security for BFSI", date: "9 July 2025", role: "Panelist", panelTopic: "Leveraging AI to Strengthen Cybersecurity and Regulatory Compliance", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/d696f43b-f517-431c-a0d5-247e9f5155c1/MCIS+Insurance+Berhad%2C+Dr.+Toh+Shang+Yee%2C+Head+of+Information+Security+%282%29.png?format=500w" },
-        { name: "Jed Llanes", title: "Chief Product Officer", company: "Komunidad", type: "Panel", session: "ESG & Digital Innovation", date: "10 July 2025", role: "Presenter", panelTopic: "From Spreadsheets to Smart Data: Transforming Sustainability Reporting", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/8d34e670-b199-4465-a539-16ee2196831e/Komunidad%2C+Jed+Llanes%2C+Chief+Product+Officer.png?format=500w" },
-        { name: "Rushdi Abdul Rahim", title: "President & Chief Executive Officer", company: "MIGHT", type: "Panel", session: "ESG & Digital Innovation", date: "10 July 2025", role: "Panelist", panelTopic: "ESG and Digital Transformation \u2014 Leveraging Data & AI for Measurable Impact", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/48e98365-fa48-49be-9545-d00655fb0c10/MIGHT%2C+Rushdi+Abdul+Rahim%2C+President+%26+Chief+Executive+Officer.png?format=500w" },
-        { name: "Ts. Shaharuddin Hamid Mustapha", title: "Chief Executive Officer", company: "PETRONAS Digital Sdn. Bhd.", type: "Panel", session: "ESG & Digital Innovation", date: "10 July 2025", role: "Panelist", panelTopic: "ESG and Digital Transformation \u2014 Leveraging Data & AI for Measurable Impact", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/07eb77cb-23bb-4256-8a91-0734ca02f558/PDSB%2C+Ts.+Shaharuddin+Hamid+Mustapha%2C+Chief+Executive+Officer.png?format=500w" },
-        { name: "Azleena Idris", title: "Senior Director, Head of Strategy & ESG Office", company: "PayNet", type: "Panel", session: "ESG & Digital Innovation", date: "10 July 2025", role: "Panelist", panelTopic: "ESG and Digital Transformation \u2014 Leveraging Data & AI for Measurable Impact", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/5f56c481-dc0f-4392-ba3c-1ca26b930d7c/PayNet%2C+Azleena+Idris%2C+Senior+Director%2C+Head+of+Strategy+%26+ESG+Office.png?format=500w" },
-        { name: "Joseph Fernandez", title: "Senior Director (Chief of Staff, Sustainability & Strategy)", company: "Sandisk", type: "Panel", session: "ESG & Digital Innovation", date: "10 July 2025", role: "Panelist", panelTopic: "ESG and Digital Transformation \u2014 Leveraging Data & AI for Measurable Impact", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/5216f5a8-6264-458f-9bc5-ab8318c93309/Sandisk%2C+Joseph+Fernandez%2C+Senior+Director+%28Chief+of+Staff%2C+Sustainability+%26+Strategy%29.png?format=500w" },
-        { name: "Dato' Ts. Dr. Haji Amirudin Abdul Wahab", title: "Chief Executive Officer", company: "CyberSecurity Malaysia", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", role: "Presenter", panelTopic: "Securing Malaysia\u2019s Digital Future: Unifying Efforts in the Age of AI", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/df9d386a-7eec-4443-8792-bcf505e0a276/Cybersecurity+Malaysia%2C+Dato%E2%80%99+Dr+Haji+Amirudin+Abdul+Wahab%2C+CEO+%282%29.png?format=500w" },
-        { name: "Kannan Velayutham", title: "Senior Security Engineer", company: "Tenable", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", role: "Presenter", panelTopic: "Protecting Cyber-Physical Systems: Uncover Hidden Risks", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/ce3ba958-0383-4856-8456-fde690f00928/Tenable%2C+Kannan+Velayutham_Senior+Security+Engineer+%282%29.png?format=500w" },
-        { name: "Ts. Suraya Hani Binti Ahmad Zaki", title: "Senior Architect, Threat Intelligence", company: "CyberSecurity Malaysia", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", role: "Panelist", panelTopic: "Protecting Malaysia\u2019s Critical Infrastructure: AI-Driven Cybersecurity", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/1160e289-5e44-4670-a5a4-6e8ae139ac3e/CSM%2C+Ts.+Suraya+Hani+Binti+Ahmad+Zaki+CCDA%2C+Security%2B%2C+C_TIA%2C+Senior+Architect.png?format=500w" },
-        { name: "Aishah Farha Mohd Raih", title: "Chief Information Security Officer", company: "PNB", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", role: "Panelist", panelTopic: "Protecting Malaysia\u2019s Critical Infrastructure: AI-Driven Cybersecurity", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/3a504b47-9351-4051-a3da-d9141fa11ebc/PNB%2C+Aishah+Farha+Mohd+Raih%2C+CISO.png?format=500w" },
-        { name: "Dr. Amir Abdul Samad", title: "Head, Cyber Security (CISO)", company: "PETRONAS", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", role: "Panelist", panelTopic: "Protecting Malaysia\u2019s Critical Infrastructure: AI-Driven Cybersecurity", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/fa0f7e71-2b16-48bc-bc33-f6a959654631/PETRONAS%2C+Dr.+Amir+Abdul+Samad%2C+Head%2C+Cyber+Security+%28CISO%29+%282%29.png?format=500w" },
-        { name: "Nasrin Abg Omar", title: "Group Head of Cyber Security", company: "TNB", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", role: "Panelist", panelTopic: "Protecting Malaysia\u2019s Critical Infrastructure: AI-Driven Cybersecurity", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/32f3161d-74df-4253-a5e9-3162bfa7f7d8/TNB%2C+Nasrin+Abg+Omar%2C+Group+Head+of+Cyber+Security.png?format=500w" },
-        { name: "G Saravanan", title: "Group Chief Information Officer (CIO)", company: "Thomson Hospital Group", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", role: "Panelist", panelTopic: "Protecting Malaysia\u2019s Critical Infrastructure: AI-Driven Cybersecurity", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/fae1bc36-8ead-4e07-a279-d57c099cfa5b/Thomson+Hospital+Group%2C+G+Saravanan%2C+Group+CIO+%282%29.png?format=500w" },
-        { name: "Grace Zhang", title: "Solution Director", company: "AvePoint", type: "Panel", session: "Upskilling for Digital Future", date: "10 July 2025", role: "Presenter", panelTopic: "The Role of AI, Data, and Continuous Learning in Workforce Transformation", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/96efbe69-23f9-4548-8dec-8fed2633d33c/AvePoint%2C+Grace+Zhang%2C+Solution+Director+%282%29.png?format=500w" },
-        { name: "Ben-Jie Lim", title: "Chief People and Partnership Officer", company: "AirAsia Move", type: "Panel", session: "Upskilling for Digital Future", date: "10 July 2025", role: "Panelist", panelTopic: "Building the Future Workforce: Upskilling for AI-Driven Transformation", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/63e95e6d-88f5-46ad-951c-dd18f0878b23/AirAsia+Move%2C+Ben-Jie+Lim%2C+Chief+People+and+Partnership+Officer.png?format=500w" },
-        { name: "Najmie Noordin", title: "Chief Talent Officer", company: "JCorp", type: "Panel", session: "Upskilling for Digital Future", date: "10 July 2025", role: "Panelist", panelTopic: "Building the Future Workforce: Upskilling for AI-Driven Transformation", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/47f69bea-45b8-4d2f-be07-52e096b2817d/JCorp%2C+Najmie+Noordin%2C+Chief+Talent+Officer+%282%29.png?format=500w" },
-        { name: "Natalia Navin", title: "Group Chief Human Capital Officer", company: "POS Malaysia", type: "Panel", session: "Upskilling for Digital Future", date: "10 July 2025", role: "Panelist", panelTopic: "Building the Future Workforce: Upskilling for AI-Driven Transformation", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/f2fa0dee-df81-46c6-98cb-ec7cc76891fe/POS+Malaysia%2C+Natalia+Navin%2C+Group+Chief+Human+Capital+Officer+%282%29.png?format=500w" }
-    ];
-
-    const grid = document.getElementById('speakersGrid');
-    const countEl = document.getElementById('speakerCount');
-    const filterType = document.getElementById('filterType');
-    const filterSession = document.getElementById('filterSession');
-
-    function escapeHtml(str) {
-        var div = document.createElement('div');
-        div.textContent = str;
-        return div.innerHTML;
-    }
-
-    function renderSpeakers(filtered) {
-        grid.innerHTML = '';
-        filtered.forEach(function(s) {
-            var card = document.createElement('div');
-            card.className = 'speaker-card';
-            var roleClass = s.role === 'Presenter' ? 'presenter' : 'panelist';
-            card.innerHTML =
-                '<img src="' + s.photo + '" alt="' + escapeHtml(s.name) + '" class="speaker-photo" loading="lazy">' +
-                '<h3 class="speaker-name">' + escapeHtml(s.name) + '</h3>' +
-                '<p class="speaker-title">' + escapeHtml(s.title) + ', ' + escapeHtml(s.company) + '</p>' +
-                '<span class="type-badge ' + s.type.toLowerCase() + '">' + s.type + '</span>' +
-                '<span class="role-badge ' + roleClass + '">' + s.role + '</span>' +
-                '<span class="panel-topic">' + escapeHtml(s.panelTopic) + '</span>' +
-                '<span class="session-tag">' + escapeHtml(s.session) + '</span>';
-            grid.appendChild(card);
-        });
-        countEl.textContent = 'Showing ' + filtered.length + ' of ' + speakers.length + ' speakers';
-    }
-
-    function filterSpeakers() {
-        var typeVal = filterType.value;
-        var sessionVal = filterSession.value;
-
-        var filtered = speakers.filter(function(s) {
-            var matchType = (typeVal === 'all') || (s.type === typeVal);
-            var matchSession = (sessionVal === 'all') || (s.session === sessionVal);
-            return matchType && matchSession;
-        });
-
-        // Fade out
-        var cards = grid.querySelectorAll('.speaker-card');
-        cards.forEach(function(c) { c.classList.add('fade-out'); });
-
-        setTimeout(function() {
-            renderSpeakers(filtered);
-            // Trigger reflow then fade in
-            var newCards = grid.querySelectorAll('.speaker-card');
-            newCards.forEach(function(c) { c.classList.add('fade-out'); });
-            requestAnimationFrame(function() {
-                newCards.forEach(function(c) { c.classList.remove('fade-out'); });
-            });
-        }, cards.length > 0 ? 250 : 0);
-    }
-
-    // Dropdown change events
-    filterType.addEventListener('change', filterSpeakers);
-    filterSession.addEventListener('change', filterSpeakers);
-
-    // Initial render
-    renderSpeakers(speakers);
-
-    // ---- Sessions Accordion ----
-    var sessionData = [
-        {
-            num: 1,
-            title: "Scaling AI Transformation",
-            date: "9 July 2025",
-            day: 1,
-            type: "Keynote Panel",
-            description: "Malaysia\u2019s future lies in its ability to scale AI for transformative outcomes. This keynote explores strategies to optimise operations, create new revenue streams, and position Malaysia as a leader in global digital innovation. Panelists will discuss the infrastructure, policies, and partnerships necessary to elevate Malaysia\u2019s digital competitiveness.",
-            moderator: { name: "Sue Yuin Ho", title: "Vice President", company: "AIBP" },
-            presenters: [],
-            panelTitle: "Scaling AI for Global Competitiveness",
-            panelists: ["Pedro Uria-Recio", "Dr. Siew Chan Cheong", "Shamsul Izhan Abdul Majid", "Datuk Ir. Megat Jalaluddin Megat Hassan"]
-        },
-        {
-            num: 2,
-            title: "AI Applications and ROI",
-            date: "9 July 2025",
-            day: 1,
-            type: "Panel",
-            description: "As AI tools become more accessible, enterprises must ensure that their adoption translates into measurable business value. This panel brings together industry leaders to discuss the utilisation of AI-powered tools. Topics include strategies for integrating these tools, overcoming workforce resistance, and calculating ROI.",
-            moderator: { name: "Mustafa Sabuwala", title: "Sales Director, ASEAN", company: "HCLTech" },
-            presenters: [
-                { name: "Colin Tan", topic: "AI-Augmented Testing: Turning QA into a Competitive Advantage" },
-                { name: "Mustafa Sabuwala", topic: "Scaling GenAI for Real ROI" }
-            ],
-            panelTitle: "From Tools to Transformation: Leveraging AI to Drive Productivity and ROI",
-            panelists: ["Rangam Bir", "Maz Mirza", "Aditya Ranjit Tuli"]
-        },
-        {
-            num: 3,
-            title: "Strengthening Data Governance for AI Driven Enterprises",
-            date: "9 July 2025",
-            day: 1,
-            type: "Panel",
-            description: "As AI systems grow more powerful, they rely on vast amounts of data \u2014 often collected, stored, and processed with minimal oversight. Without strong data governance, enterprises risk AI models that are opaque, biased, or in violation of privacy regulations. This panel will explore how enterprises can strengthen data governance to mitigate AI risks, protect user privacy, and navigate evolving regulatory landscapes.",
-            moderator: { name: "Joseph See", title: "Head South Asia & Korea", company: "Progress Software" },
-            presenters: [
-                { name: "Arfah Aridz", topic: "Strengthening AI Readiness and Governance in Malaysia" },
-                { name: "Chris Farrelly", topic: "Data Security & Governance in the Age of Generative AI" }
-            ],
-            panelTitle: "AI Knows Too Much \u2014 Why Data Governance Matters More Than Ever",
-            panelists: ["Dr. Hon Hock Woon", "Nili Shayrina Saat", "Dr. Jun-E Tan"]
-        },
-        {
-            num: 4,
-            title: "AI-Driven Cyber Security for BFSI",
-            date: "9 July 2025",
-            day: 1,
-            type: "Panel",
-            description: "As financial institutions in Malaysia accelerate their digital transformation, the sector faces heightened cybersecurity challenges and evolving regulatory expectations. Institutions must adopt advanced technologies to ensure operational resilience, regulatory compliance, and customer trust.",
-            moderator: { name: "Tyler Tang", title: "Director of Secure Design", company: "Softscheck" },
-            presenters: [
-                { name: "Tyler Tang", topic: "At the Core: AI Considerations when Designing for Cyber Resilience" }
-            ],
-            panelTitle: "Leveraging AI to Strengthen Cybersecurity and Regulatory Compliance in Malaysia\u2019s Financial Sector",
-            panelists: ["Dominic Yew", "Dr. Toh Shang Yee", "Ruban Bala", "Er Chiang Kai"]
-        },
-        {
-            num: 5,
-            title: "ESG and Digital Innovation",
-            date: "10 July 2025",
-            day: 2,
-            type: "Panel",
-            description: "With increasing pressure from regulators, investors, and consumers, organisations must go beyond ESG reporting and drive real impact using AI, big data, and digital tools. This session will explore how organisations can adopt data-driven ESG strategies to future-proof their businesses.",
-            moderator: null,
-            presenters: [
-                { name: "Jed Llanes", topic: "From Spreadsheets to Smart Data: Transforming Sustainability Reporting" }
-            ],
-            panelTitle: "ESG and Digital Transformation \u2014 Leveraging Data & AI for Measurable Impact",
-            panelists: ["Rushdi Abdul Rahim", "Ts. Shaharuddin Hamid Mustapha", "Azleena Idris", "Joseph Fernandez"]
-        },
-        {
-            num: 6,
-            title: "Securing Critical Infrastructure with AI",
-            date: "10 July 2025",
-            day: 2,
-            type: "Panel",
-            description: "As critical infrastructure sectors become increasingly digitalised, safeguarding them against cyber threats has become a national priority. This panel will discuss how organisations managing Malaysia\u2019s essential services can leverage AI-driven solutions to enhance cybersecurity, building resilient defences, real-time threat detection, and coordinated responses.",
-            moderator: null,
-            presenters: [
-                { name: "Dato' Ts. Dr. Haji Amirudin Abdul Wahab", topic: "Securing Malaysia\u2019s Digital Future" },
-                { name: "Kannan Velayutham", topic: "Protecting Cyber-Physical Systems: Uncover Hidden Risks" }
-            ],
-            panelTitle: "Protecting Malaysia\u2019s Critical Infrastructure: AI-Driven Cybersecurity for National Resilience",
-            panelists: ["Ts. Suraya Hani Binti Ahmad Zaki", "Aishah Farha Mohd Raih", "Dr. Amir Abdul Samad", "Nasrin Abg Omar", "G Saravanan"]
-        },
-        {
-            num: 7,
-            title: "Upskilling for Digital Future",
-            date: "10 July 2025",
-            day: 2,
-            type: "Panel",
-            description: "Building a future-ready workforce goes hand-in-hand with adopting the right technologies. This session explores how Malaysian enterprises can integrate technology adoption with workforce upskilling to maximise the impact of AI-driven transformation. Discover how to equip employees with the skills to harness AI tools, align tech strategies with talent development, and foster a culture of innovation.",
-            moderator: null,
-            presenters: [
-                { name: "Grace Zhang", topic: "The Role of AI, Data, and Continuous Learning in Workforce Transformation" }
-            ],
-            panelTitle: "Building the Future Workforce: Upskilling for AI-Driven Transformation",
-            panelists: ["Ben-Jie Lim", "Najmie Noordin", "Natalia Navin"]
-        }
-    ];
-
-    function findSpeakerPhoto(name) {
-        var match = speakers.find(function(s) { return s.name === name; });
-        return match ? match.photo : '';
-    }
-
-    function findSpeakerInfo(name) {
-        var match = speakers.find(function(s) { return s.name === name; });
-        return match || null;
-    }
-
-    function renderSessions() {
-        var container = document.getElementById('sessionAccordion');
-        if (!container) return;
-
-        sessionData.forEach(function(session) {
-            var totalSpeakers = session.presenters.length + session.panelists.length;
-            var dayClass = session.day === 1 ? 'day1' : 'day2';
-
-            var card = document.createElement('div');
-            card.className = 'session-card ' + dayClass;
-
-            // Header
-            var header = document.createElement('div');
-            header.className = 'session-header';
-            header.innerHTML =
-                '<div class="session-header-left">' +
-                    '<p class="session-header-title">Session ' + session.num + ': ' + escapeHtml(session.title) + '</p>' +
-                    '<div class="session-header-meta">' +
-                        '<span>' + escapeHtml(session.date) + '</span>' +
-                        '<span>' + totalSpeakers + ' speaker' + (totalSpeakers !== 1 ? 's' : '') + '</span>' +
-                        '<span>' + escapeHtml(session.type) + '</span>' +
-                    '</div>' +
-                '</div>' +
-                '<div class="session-toggle">+</div>';
-
-            // Body
-            var body = document.createElement('div');
-            body.className = 'session-body';
-
-            var inner = document.createElement('div');
-            inner.className = 'session-body-inner';
-
-            // Description
-            inner.innerHTML = '<div class="session-description">' + escapeHtml(session.description) + '</div>';
-
-            // Presenters
-            if (session.presenters.length > 0) {
-                var presenterHtml = '<div class="session-presenters">' +
-                    '<h4 class="session-subsection-title">Presenters</h4>';
-                session.presenters.forEach(function(p) {
-                    var info = findSpeakerInfo(p.name);
-                    var photo = info ? info.photo : '';
-                    var title = info ? info.title + ', ' + info.company : '';
-                    presenterHtml +=
-                        '<div class="session-presenter-card">' +
-                            (photo ? '<img src="' + photo + '" alt="' + escapeHtml(p.name) + '" loading="lazy">' : '') +
-                            '<div class="session-presenter-info">' +
-                                '<h4>' + escapeHtml(p.name) + '</h4>' +
-                                '<p class="sp-title">' + escapeHtml(title) + '</p>' +
-                                '<p class="sp-topic">&ldquo;' + escapeHtml(p.topic) + '&rdquo;</p>' +
-                            '</div>' +
-                        '</div>';
-                });
-                presenterHtml += '</div>';
-                inner.innerHTML += presenterHtml;
-            }
-
-            // Panel Discussion
-            var panelHtml = '<div class="session-panel">' +
-                '<h4 class="session-subsection-title">Panel Discussion</h4>' +
-                '<p class="session-panel-title">&ldquo;' + escapeHtml(session.panelTitle) + '&rdquo;</p>' +
-                '<div class="session-panelists-grid">';
-
-            session.panelists.forEach(function(name) {
-                var info = findSpeakerInfo(name);
-                var photo = info ? info.photo : '';
-                var title = info ? info.title + ', ' + info.company : '';
-                panelHtml +=
-                    '<div class="session-panelist">' +
-                        (photo ? '<img src="' + photo + '" alt="' + escapeHtml(name) + '" loading="lazy">' : '') +
-                        '<p class="sp-name">' + escapeHtml(name) + '</p>' +
-                        '<p class="sp-title">' + escapeHtml(title) + '</p>' +
-                    '</div>';
-            });
-
-            panelHtml += '</div></div>';
-            inner.innerHTML += panelHtml;
-
-            // Moderator
-            if (session.moderator) {
-                var modInfo = findSpeakerInfo(session.moderator.name);
-                var modTitle = modInfo
-                    ? modInfo.title + ', ' + modInfo.company
-                    : session.moderator.title + ', ' + session.moderator.company;
-                inner.innerHTML +=
-                    '<div class="session-moderator">' +
-                        '<strong>Moderator:</strong> ' + escapeHtml(session.moderator.name) +
-                        ' &mdash; ' + escapeHtml(modTitle) +
-                    '</div>';
-            }
-
-            body.appendChild(inner);
-            card.appendChild(header);
-            card.appendChild(body);
-            container.appendChild(card);
-
-            // Click handler - accordion behavior
-            header.addEventListener('click', function() {
-                var isActive = card.classList.contains('active');
-                // Close all
-                var allCards = container.querySelectorAll('.session-card');
-                allCards.forEach(function(c) {
-                    c.classList.remove('active');
-                    c.querySelector('.session-body').style.maxHeight = null;
-                });
-                // Open this one if it was closed
-                if (!isActive) {
-                    card.classList.add('active');
-                    body.style.maxHeight = body.scrollHeight + 'px';
-                }
-            });
-        });
-    }
-
-    renderSessions();
-})();
-</script>
-</body>
-</html>

@@ -90,52 +90,53 @@
         .filter-bar {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 16px;
             justify-content: center;
+            align-items: flex-end;
             margin-bottom: 12px;
         }
-        .filter-bar .filter-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            justify-content: center;
-            align-items: center;
+        .filter-bar-heading {
+            width: 100%;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-primary, #3a2a1a);
+            margin-bottom: 4px;
         }
-        .filter-bar .filter-group-label {
-            font-size: 0.85rem;
+        .filter-select-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .filter-select-wrapper label {
+            font-size: 0.8rem;
             font-weight: 700;
             color: var(--color-text-light);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-right: 4px;
         }
-        .filter-bar .filter-divider {
-            width: 1px;
-            height: 28px;
-            background: #d0c8c0;
-            margin: 0 8px;
-        }
-        .filter-btn {
-            display: inline-block;
-            padding: 7px 18px;
-            border-radius: 999px;
-            border: 1.5px solid #d0c8c0;
-            background: var(--color-bg);
-            color: var(--color-text);
-            font-size: 0.85rem;
-            font-weight: 600;
+        .filter-select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233a2a1a' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat right 14px center;
+            border: 1.5px solid #c0b0a0;
+            color: var(--color-primary, #3a2a1a);
+            padding: 12px 40px 12px 16px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            min-width: 200px;
             cursor: pointer;
-            transition: all 0.2s ease;
-            white-space: nowrap;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
-        .filter-btn:hover {
-            border-color: var(--color-secondary);
-            background: rgba(195,124,65,0.08);
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--color-accent, #b42024);
+            box-shadow: 0 0 0 3px rgba(180, 32, 36, 0.12);
         }
-        .filter-btn.active {
-            background: #b42024;
-            color: #fff;
-            border-color: #b42024;
+        .filter-select:hover {
+            border-color: var(--color-secondary, #c37c41);
         }
         .speaker-count {
             text-align: center;
@@ -180,6 +181,32 @@
             background: #d4960a;
             color: #fff;
         }
+        .speaker-card .role-badge {
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 6px;
+        }
+        .role-badge.presenter {
+            background: #1a8a4a;
+            color: #fff;
+        }
+        .role-badge.panelist {
+            background: #2a6cb8;
+            color: #fff;
+        }
+        .speaker-card .panel-topic {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--color-text-light);
+            margin-top: 8px;
+            line-height: 1.4;
+            font-style: italic;
+        }
         .speaker-card .session-tag {
             display: block;
             font-size: 0.78rem;
@@ -190,14 +217,17 @@
 
         @media (max-width: 1200px) {
             .filter-bar {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                flex-wrap: nowrap;
-                justify-content: flex-start;
-                padding-bottom: 8px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
-            .filter-bar .filter-group {
-                flex-wrap: nowrap;
+        }
+        @media (max-width: 480px) {
+            .filter-select {
+                min-width: 100%;
+            }
+            .filter-bar {
+                flex-direction: column;
+                align-items: stretch;
             }
         }
 
@@ -404,26 +434,27 @@
 
         <!-- Filter Bar -->
         <div class="filter-bar" id="filterBar">
-            <div class="filter-group">
-                <span class="filter-group-label">Show:</span>
-                <button class="filter-btn active" data-filter="all" data-filter-type="all">All</button>
+            <div class="filter-bar-heading">Filter Speakers</div>
+            <div class="filter-select-wrapper">
+                <label for="filterType">Filter by Type</label>
+                <select class="filter-select" id="filterType">
+                    <option value="all">All Types</option>
+                    <option value="Keynote">Keynote</option>
+                    <option value="Panel">Panel</option>
+                </select>
             </div>
-            <div class="filter-divider"></div>
-            <div class="filter-group">
-                <span class="filter-group-label">Type:</span>
-                <button class="filter-btn" data-filter="Keynote" data-filter-type="type">Keynote</button>
-                <button class="filter-btn" data-filter="Panel" data-filter-type="type">Panel</button>
-            </div>
-            <div class="filter-divider"></div>
-            <div class="filter-group">
-                <span class="filter-group-label">Session:</span>
-                <button class="filter-btn" data-filter="Keynote" data-filter-type="session">Keynote</button>
-                <button class="filter-btn" data-filter="AI Applications and ROI" data-filter-type="session">AI Applications and ROI</button>
-                <button class="filter-btn" data-filter="Data Governance" data-filter-type="session">Data Governance</button>
-                <button class="filter-btn" data-filter="AI-Driven Cyber Security for BFSI" data-filter-type="session">AI-Driven Cyber Security</button>
-                <button class="filter-btn" data-filter="ESG &amp; Digital Innovation" data-filter-type="session">ESG &amp; Digital Innovation</button>
-                <button class="filter-btn" data-filter="Securing Critical Infrastructure" data-filter-type="session">Securing Critical Infrastructure</button>
-                <button class="filter-btn" data-filter="Upskilling for Digital Future" data-filter-type="session">Upskilling for Digital Future</button>
+            <div class="filter-select-wrapper">
+                <label for="filterSession">Filter by Session</label>
+                <select class="filter-select" id="filterSession">
+                    <option value="all">All Sessions</option>
+                    <option value="Keynote">Keynote</option>
+                    <option value="AI Applications and ROI">AI Applications and ROI</option>
+                    <option value="Data Governance">Data Governance</option>
+                    <option value="AI-Driven Cyber Security for BFSI">AI-Driven Cyber Security for BFSI</option>
+                    <option value="ESG &amp; Digital Innovation">ESG &amp; Digital Innovation</option>
+                    <option value="Securing Critical Infrastructure">Securing Critical Infrastructure</option>
+                    <option value="Upskilling for Digital Future">Upskilling for Digital Future</option>
+                </select>
             </div>
         </div>
 
@@ -554,47 +585,47 @@
 <script>
 (function() {
     const speakers = [
-        { name: "Pedro Uria-Recio", title: "Chief Data & AI Officer", company: "CIMB Group", type: "Keynote", session: "Keynote", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/d6b42758-cf00-41d7-a649-278bd3062be0/CIMB+Group%2C+Pedro+Uria-Recio%2C+Chief+Data+%26+AI+Officer+%282%29.png?format=500w" },
-        { name: "Dr. Siew Chan Cheong", title: "Group Chief Strategy & Transformation Officer", company: "Maybank", type: "Keynote", session: "Keynote", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/c4beb220-0ded-4281-b05f-232b637cb76d/Maybank%2C+Dr+Siew+Chan+Cheong%2C+Group+Chief+Strategy+and+Transformation+Officer+%282%29.png?format=500w" },
-        { name: "Shamsul Izhan Abdul Majid", title: "Chief Executive Officer", company: "National AI Office Malaysia (NAIO)", type: "Keynote", session: "Keynote", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/8adc8828-1f98-46e0-a57e-60ea1348a637/NAIO%2C+Shamsul+Izhan+Abdul+Majid%2C+CEO.png?format=500w" },
-        { name: "Datuk Ir. Megat Jalaluddin Megat Hassan", title: "President / Chief Executive Officer", company: "Tenaga Nasional Berhad", type: "Keynote", session: "Keynote", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/d7899c4f-67f2-47ea-8ed6-d40ba062cbb2/TNB%2C+Datuk+Ir.+Megat+Jalaluddin%2C+President+_+Chief+Executive+Officer+%282%29.png?format=500w" },
-        { name: "Rangam Bir", title: "Chief Executive Officer", company: "AmMetLife", type: "Panel", session: "AI Applications and ROI", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/6dff5bd8-d59a-4c0c-9968-78f9660d8d73/AmMetLife%2C+Rangam+Bir%2C+CEO+%282%29.png?format=500w" },
-        { name: "Mustafa Sabuwala", title: "Sales Director, ASEAN", company: "HCLTech", type: "Panel", session: "AI Applications and ROI", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/7c86f036-88a4-47eb-bdeb-c7bac1c45214/HCLTech%2C+Mustafa+Sabuwala%2C+Sales+Director%2C+ASEAN.png?format=500w" },
-        { name: "Maz Mirza", title: "Chief Digital Officer", company: "KWAP", type: "Panel", session: "AI Applications and ROI", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/60870753-dab5-4252-8971-1ea45bfd3c33/KWAP%2C+Maz+Mirza%2C+Chief+Digital+Officer.png?format=500w" },
-        { name: "Aditya Ranjit Tuli", title: "Chief Digital Officer", company: "SD Guthrie", type: "Panel", session: "AI Applications and ROI", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/e209b839-2b64-4f5d-8b0f-2000b3b9fa6a/SD+Guthrie%2C+Aditya+Ranjit+Tuli%2C+Chief+Digital+Officer+%282%29.png?format=500w" },
-        { name: "Colin Tan", title: "Vice President, Asia", company: "Tricentis", type: "Panel", session: "AI Applications and ROI", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/ae833de1-fb6f-41df-b8b0-c4fc10da89c7/Tricentis%2C+Colin+Tan%2C+Vice+President%2C+Asia.png?format=500w" },
-        { name: "Dr. Hon Hock Woon", title: "Head of AI", company: "AmBank", type: "Panel", session: "Data Governance", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/bc8b6508-5cd7-455a-9fe0-02f106f8aa24/AmBank%2C+Dr.+Hon+Hock+Woon%2C+Head+of+AI+%282%29.png?format=500w" },
-        { name: "Chris Farrelly", title: "Vice President APAC", company: "Concentric AI", type: "Panel", session: "Data Governance", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/ffe42408-9343-4ee8-9ace-8ebcd62fa598/Concentric+AI%2C+Chris+Farrelly%2C+Vice+President+APAC+%282%29.png?format=500w" },
-        { name: "Arfah Aridz", title: "Director, Data Conduct - Responsible AI", company: "Global Financial Institution", type: "Panel", session: "Data Governance", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/9d38c5c5-58ed-442a-a5e3-b9173aceb4f2/Global+Financial+Institution%2C+Arfah+Aridz%2C+Director%2C+Data+Conduct+-+Responsible+AI.png?format=500w" },
-        { name: "Nili Shayrina Saat", title: "Group Head, Risk Management & Compliance", company: "IHH Healthcare", type: "Panel", session: "Data Governance", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/50f1c423-3494-475c-8f29-791ff97b491b/IHH+Healthcare%2C+Nili+Shayrina+Saat%2C+Group+Head%2C+Risk+Management+%26+Compliance+%282%29.png?format=500w" },
-        { name: "Dr. Jun-E Tan", title: "Senior Research Associate", company: "Khazanah Research Institute", type: "Panel", session: "Data Governance", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/9ae874b9-d37f-4977-a235-bcadb2f62cd5/Khazanah+Research+Institute%2C+Dr.+Jun-E+Tan%2C+Senior+Research+Associate+%282%29.png?format=500w" },
-        { name: "Dr. Toh Shang Yee", title: "Head of Information Security", company: "MCIS Insurance Berhad", type: "Panel", session: "AI-Driven Cyber Security for BFSI", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/d696f43b-f517-431c-a0d5-247e9f5155c1/MCIS+Insurance+Berhad%2C+Dr.+Toh+Shang+Yee%2C+Head+of+Information+Security+%282%29.png?format=500w" },
-        { name: "Dominic Yew", title: "Chief Information Security Officer", company: "OCBC", type: "Panel", session: "AI-Driven Cyber Security for BFSI", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/c2f7f263-3335-42d7-9a5f-9d1aeadd1a0f/OCBC%2C+Dominic+Yew%2C+Chief+Information+Security+Officer.png?format=500w" },
-        { name: "Ruban Bala", title: "Head of Infrastructure and Application Security Risk", company: "Ryt Bank", type: "Panel", session: "AI-Driven Cyber Security for BFSI", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/5686768e-e6a0-4cb7-9600-729af7b60e78/Ryt+Bank%2C+Ruban+Bala%2C+Head+of+Infrastructure+and+Application+Security+Risk.png?format=500w" },
-        { name: "Tyler Tang", title: "Director of Secure Design", company: "Softscheck", type: "Panel", session: "AI-Driven Cyber Security for BFSI", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/976e82b9-6b94-4ae1-83c0-6c73af8f7d51/Softscheck%2C+Tyler+Tang%2C+Director+of+Secure+Design+%282%29.png?format=500w" },
-        { name: "Er Chiang Kai", title: "Chief Technology Officer", company: "V-Key Pte Ltd", type: "Panel", session: "AI-Driven Cyber Security for BFSI", date: "9 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/0388386d-f617-40dc-9515-48417a3a1442/V-Key+Pte+Ltd%2C+Er+Chiang+Kai%2C+Chief+Technology+Officer+%282%29.png?format=500w" },
-        { name: "Jed Llanes", title: "Chief Product Officer", company: "Komunidad", type: "Panel", session: "ESG & Digital Innovation", date: "10 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/8d34e670-b199-4465-a539-16ee2196831e/Komunidad%2C+Jed+Llanes%2C+Chief+Product+Officer.png?format=500w" },
-        { name: "Rushdi Abdul Rahim", title: "President & Chief Executive Officer", company: "MIGHT", type: "Panel", session: "ESG & Digital Innovation", date: "10 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/48e98365-fa48-49be-9545-d00655fb0c10/MIGHT%2C+Rushdi+Abdul+Rahim%2C+President+%26+Chief+Executive+Officer.png?format=500w" },
-        { name: "Azleena Idris", title: "Senior Director, Head of Strategy & ESG Office", company: "PayNet", type: "Panel", session: "ESG & Digital Innovation", date: "10 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/5f56c481-dc0f-4392-ba3c-1ca26b930d7c/PayNet%2C+Azleena+Idris%2C+Senior+Director%2C+Head+of+Strategy+%26+ESG+Office.png?format=500w" },
-        { name: "Ts. Shaharuddin Hamid Mustapha", title: "Chief Executive Officer", company: "PETRONAS Digital Sdn. Bhd.", type: "Panel", session: "ESG & Digital Innovation", date: "10 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/07eb77cb-23bb-4256-8a91-0734ca02f558/PDSB%2C+Ts.+Shaharuddin+Hamid+Mustapha%2C+Chief+Executive+Officer.png?format=500w" },
-        { name: "Joseph Fernandez", title: "Senior Director (Chief of Staff, Sustainability & Strategy)", company: "Sandisk", type: "Panel", session: "ESG & Digital Innovation", date: "10 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/5216f5a8-6264-458f-9bc5-ab8318c93309/Sandisk%2C+Joseph+Fernandez%2C+Senior+Director+%28Chief+of+Staff%2C+Sustainability+%26+Strategy%29.png?format=500w" },
-        { name: "Dato' Ts. Dr. Haji Amirudin Abdul Wahab", title: "Chief Executive Officer", company: "CyberSecurity Malaysia", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/df9d386a-7eec-4443-8792-bcf505e0a276/Cybersecurity+Malaysia%2C+Dato%E2%80%99+Dr+Haji+Amirudin+Abdul+Wahab%2C+CEO+%282%29.png?format=500w" },
-        { name: "Ts. Suraya Hani Binti Ahmad Zaki", title: "Senior Architect, Threat Intelligence", company: "CyberSecurity Malaysia", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/1160e289-5e44-4670-a5a4-6e8ae139ac3e/CSM%2C+Ts.+Suraya+Hani+Binti+Ahmad+Zaki+CCDA%2C+Security%2B%2C+C_TIA%2C+Senior+Architect.png?format=500w" },
-        { name: "Aishah Farha Mohd Raih", title: "Chief Information Security Officer", company: "PNB", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/3a504b47-9351-4051-a3da-d9141fa11ebc/PNB%2C+Aishah+Farha+Mohd+Raih%2C+CISO.png?format=500w" },
-        { name: "Dr. Amir Abdul Samad", title: "Head, Cyber Security (CISO)", company: "PETRONAS", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/fa0f7e71-2b16-48bc-bc33-f6a959654631/PETRONAS%2C+Dr.+Amir+Abdul+Samad%2C+Head%2C+Cyber+Security+%28CISO%29+%282%29.png?format=500w" },
-        { name: "Kannan Velayutham", title: "Senior Security Engineer", company: "Tenable", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/ce3ba958-0383-4856-8456-fde690f00928/Tenable%2C+Kannan+Velayutham_Senior+Security+Engineer+%282%29.png?format=500w" },
-        { name: "Nasrin Abg Omar", title: "Group Head of Cyber Security", company: "TNB", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/32f3161d-74df-4253-a5e9-3162bfa7f7d8/TNB%2C+Nasrin+Abg+Omar%2C+Group+Head+of+Cyber+Security.png?format=500w" },
-        { name: "G Saravanan", title: "Group Chief Information Officer (CIO)", company: "Thomson Hospital Group", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/fae1bc36-8ead-4e07-a279-d57c099cfa5b/Thomson+Hospital+Group%2C+G+Saravanan%2C+Group+CIO+%282%29.png?format=500w" },
-        { name: "Ben-Jie Lim", title: "Chief People and Partnership Officer", company: "AirAsia Move", type: "Panel", session: "Upskilling for Digital Future", date: "10 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/63e95e6d-88f5-46ad-951c-dd18f0878b23/AirAsia+Move%2C+Ben-Jie+Lim%2C+Chief+People+and+Partnership+Officer.png?format=500w" },
-        { name: "Grace Zhang", title: "Solution Director", company: "AvePoint", type: "Panel", session: "Upskilling for Digital Future", date: "10 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/96efbe69-23f9-4548-8dec-8fed2633d33c/AvePoint%2C+Grace+Zhang%2C+Solution+Director+%282%29.png?format=500w" },
-        { name: "Najmie Noordin", title: "Chief Talent Officer", company: "JCorp", type: "Panel", session: "Upskilling for Digital Future", date: "10 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/47f69bea-45b8-4d2f-be07-52e096b2817d/JCorp%2C+Najmie+Noordin%2C+Chief+Talent+Officer+%282%29.png?format=500w" },
-        { name: "Natalia Navin", title: "Group Chief Human Capital Officer", company: "POS Malaysia", type: "Panel", session: "Upskilling for Digital Future", date: "10 July 2025", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/f2fa0dee-df81-46c6-98cb-ec7cc76891fe/POS+Malaysia%2C+Natalia+Navin%2C+Group+Chief+Human+Capital+Officer+%282%29.png?format=500w" }
+        { name: "Pedro Uria-Recio", title: "Chief Data & AI Officer", company: "CIMB Group", type: "Keynote", session: "Keynote", date: "9 July 2025", role: "Panelist", panelTopic: "Scaling AI for Global Competitiveness", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/d6b42758-cf00-41d7-a649-278bd3062be0/CIMB+Group%2C+Pedro+Uria-Recio%2C+Chief+Data+%26+AI+Officer+%282%29.png?format=500w" },
+        { name: "Dr. Siew Chan Cheong", title: "Group Chief Strategy & Transformation Officer", company: "Maybank", type: "Keynote", session: "Keynote", date: "9 July 2025", role: "Panelist", panelTopic: "Scaling AI for Global Competitiveness", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/c4beb220-0ded-4281-b05f-232b637cb76d/Maybank%2C+Dr+Siew+Chan+Cheong%2C+Group+Chief+Strategy+and+Transformation+Officer+%282%29.png?format=500w" },
+        { name: "Shamsul Izhan Abdul Majid", title: "Chief Executive Officer", company: "National AI Office Malaysia (NAIO)", type: "Keynote", session: "Keynote", date: "9 July 2025", role: "Panelist", panelTopic: "Scaling AI for Global Competitiveness", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/8adc8828-1f98-46e0-a57e-60ea1348a637/NAIO%2C+Shamsul+Izhan+Abdul+Majid%2C+CEO.png?format=500w" },
+        { name: "Datuk Ir. Megat Jalaluddin Megat Hassan", title: "President / Chief Executive Officer", company: "Tenaga Nasional Berhad", type: "Keynote", session: "Keynote", date: "9 July 2025", role: "Panelist", panelTopic: "Scaling AI for Global Competitiveness", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/d7899c4f-67f2-47ea-8ed6-d40ba062cbb2/TNB%2C+Datuk+Ir.+Megat+Jalaluddin%2C+President+_+Chief+Executive+Officer+%282%29.png?format=500w" },
+        { name: "Colin Tan", title: "Vice President, Asia", company: "Tricentis", type: "Panel", session: "AI Applications and ROI", date: "9 July 2025", role: "Presenter", panelTopic: "AI-Augmented Testing: Turning QA into a Competitive Advantage", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/ae833de1-fb6f-41df-b8b0-c4fc10da89c7/Tricentis%2C+Colin+Tan%2C+Vice+President%2C+Asia.png?format=500w" },
+        { name: "Mustafa Sabuwala", title: "Sales Director, ASEAN", company: "HCLTech", type: "Panel", session: "AI Applications and ROI", date: "9 July 2025", role: "Presenter", panelTopic: "Scaling GenAI for Real ROI", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/7c86f036-88a4-47eb-bdeb-c7bac1c45214/HCLTech%2C+Mustafa+Sabuwala%2C+Sales+Director%2C+ASEAN.png?format=500w" },
+        { name: "Rangam Bir", title: "Chief Executive Officer", company: "AmMetLife", type: "Panel", session: "AI Applications and ROI", date: "9 July 2025", role: "Panelist", panelTopic: "From Tools to Transformation: Leveraging AI to Drive Productivity and ROI", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/6dff5bd8-d59a-4c0c-9968-78f9660d8d73/AmMetLife%2C+Rangam+Bir%2C+CEO+%282%29.png?format=500w" },
+        { name: "Maz Mirza", title: "Chief Digital Officer", company: "KWAP", type: "Panel", session: "AI Applications and ROI", date: "9 July 2025", role: "Panelist", panelTopic: "From Tools to Transformation: Leveraging AI to Drive Productivity and ROI", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/60870753-dab5-4252-8971-1ea45bfd3c33/KWAP%2C+Maz+Mirza%2C+Chief+Digital+Officer.png?format=500w" },
+        { name: "Aditya Ranjit Tuli", title: "Chief Digital Officer", company: "SD Guthrie", type: "Panel", session: "AI Applications and ROI", date: "9 July 2025", role: "Panelist", panelTopic: "From Tools to Transformation: Leveraging AI to Drive Productivity and ROI", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/e209b839-2b64-4f5d-8b0f-2000b3b9fa6a/SD+Guthrie%2C+Aditya+Ranjit+Tuli%2C+Chief+Digital+Officer+%282%29.png?format=500w" },
+        { name: "Arfah Aridz", title: "Director, Data Conduct - Responsible AI", company: "Global Financial Institution", type: "Panel", session: "Data Governance", date: "9 July 2025", role: "Presenter", panelTopic: "Strengthening AI Readiness and Governance in Malaysia", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/9d38c5c5-58ed-442a-a5e3-b9173aceb4f2/Global+Financial+Institution%2C+Arfah+Aridz%2C+Director%2C+Data+Conduct+-+Responsible+AI.png?format=500w" },
+        { name: "Chris Farrelly", title: "Vice President APAC", company: "Concentric AI", type: "Panel", session: "Data Governance", date: "9 July 2025", role: "Presenter", panelTopic: "Data Security & Governance in the Age of Generative AI", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/ffe42408-9343-4ee8-9ace-8ebcd62fa598/Concentric+AI%2C+Chris+Farrelly%2C+Vice+President+APAC+%282%29.png?format=500w" },
+        { name: "Dr. Hon Hock Woon", title: "Head of AI", company: "AmBank", type: "Panel", session: "Data Governance", date: "9 July 2025", role: "Panelist", panelTopic: "AI Knows Too Much \u2014 Why Data Governance Matters More Than Ever", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/bc8b6508-5cd7-455a-9fe0-02f106f8aa24/AmBank%2C+Dr.+Hon+Hock+Woon%2C+Head+of+AI+%282%29.png?format=500w" },
+        { name: "Nili Shayrina Saat", title: "Group Head, Risk Management & Compliance", company: "IHH Healthcare", type: "Panel", session: "Data Governance", date: "9 July 2025", role: "Panelist", panelTopic: "AI Knows Too Much \u2014 Why Data Governance Matters More Than Ever", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/50f1c423-3494-475c-8f29-791ff97b491b/IHH+Healthcare%2C+Nili+Shayrina+Saat%2C+Group+Head%2C+Risk+Management+%26+Compliance+%282%29.png?format=500w" },
+        { name: "Dr. Jun-E Tan", title: "Senior Research Associate", company: "Khazanah Research Institute", type: "Panel", session: "Data Governance", date: "9 July 2025", role: "Panelist", panelTopic: "AI Knows Too Much \u2014 Why Data Governance Matters More Than Ever", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/9ae874b9-d37f-4977-a235-bcadb2f62cd5/Khazanah+Research+Institute%2C+Dr.+Jun-E+Tan%2C+Senior+Research+Associate+%282%29.png?format=500w" },
+        { name: "Tyler Tang", title: "Director of Secure Design", company: "Softscheck", type: "Panel", session: "AI-Driven Cyber Security for BFSI", date: "9 July 2025", role: "Presenter", panelTopic: "At the Core: AI Considerations when Designing for Cyber Resilience", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/976e82b9-6b94-4ae1-83c0-6c73af8f7d51/Softscheck%2C+Tyler+Tang%2C+Director+of+Secure+Design+%282%29.png?format=500w" },
+        { name: "Dominic Yew", title: "Chief Information Security Officer", company: "OCBC", type: "Panel", session: "AI-Driven Cyber Security for BFSI", date: "9 July 2025", role: "Panelist", panelTopic: "Leveraging AI to Strengthen Cybersecurity and Regulatory Compliance", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/c2f7f263-3335-42d7-9a5f-9d1aeadd1a0f/OCBC%2C+Dominic+Yew%2C+Chief+Information+Security+Officer.png?format=500w" },
+        { name: "Ruban Bala", title: "Head of Infrastructure and Application Security Risk", company: "Ryt Bank", type: "Panel", session: "AI-Driven Cyber Security for BFSI", date: "9 July 2025", role: "Panelist", panelTopic: "Leveraging AI to Strengthen Cybersecurity and Regulatory Compliance", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/5686768e-e6a0-4cb7-9600-729af7b60e78/Ryt+Bank%2C+Ruban+Bala%2C+Head+of+Infrastructure+and+Application+Security+Risk.png?format=500w" },
+        { name: "Er Chiang Kai", title: "Chief Technology Officer", company: "V-Key Pte Ltd", type: "Panel", session: "AI-Driven Cyber Security for BFSI", date: "9 July 2025", role: "Panelist", panelTopic: "Leveraging AI to Strengthen Cybersecurity and Regulatory Compliance", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/0388386d-f617-40dc-9515-48417a3a1442/V-Key+Pte+Ltd%2C+Er+Chiang+Kai%2C+Chief+Technology+Officer+%282%29.png?format=500w" },
+        { name: "Dr. Toh Shang Yee", title: "Head of Information Security", company: "MCIS Insurance Berhad", type: "Panel", session: "AI-Driven Cyber Security for BFSI", date: "9 July 2025", role: "Panelist", panelTopic: "Leveraging AI to Strengthen Cybersecurity and Regulatory Compliance", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/d696f43b-f517-431c-a0d5-247e9f5155c1/MCIS+Insurance+Berhad%2C+Dr.+Toh+Shang+Yee%2C+Head+of+Information+Security+%282%29.png?format=500w" },
+        { name: "Jed Llanes", title: "Chief Product Officer", company: "Komunidad", type: "Panel", session: "ESG & Digital Innovation", date: "10 July 2025", role: "Presenter", panelTopic: "From Spreadsheets to Smart Data: Transforming Sustainability Reporting", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/8d34e670-b199-4465-a539-16ee2196831e/Komunidad%2C+Jed+Llanes%2C+Chief+Product+Officer.png?format=500w" },
+        { name: "Rushdi Abdul Rahim", title: "President & Chief Executive Officer", company: "MIGHT", type: "Panel", session: "ESG & Digital Innovation", date: "10 July 2025", role: "Panelist", panelTopic: "ESG and Digital Transformation \u2014 Leveraging Data & AI for Measurable Impact", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/48e98365-fa48-49be-9545-d00655fb0c10/MIGHT%2C+Rushdi+Abdul+Rahim%2C+President+%26+Chief+Executive+Officer.png?format=500w" },
+        { name: "Ts. Shaharuddin Hamid Mustapha", title: "Chief Executive Officer", company: "PETRONAS Digital Sdn. Bhd.", type: "Panel", session: "ESG & Digital Innovation", date: "10 July 2025", role: "Panelist", panelTopic: "ESG and Digital Transformation \u2014 Leveraging Data & AI for Measurable Impact", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/07eb77cb-23bb-4256-8a91-0734ca02f558/PDSB%2C+Ts.+Shaharuddin+Hamid+Mustapha%2C+Chief+Executive+Officer.png?format=500w" },
+        { name: "Azleena Idris", title: "Senior Director, Head of Strategy & ESG Office", company: "PayNet", type: "Panel", session: "ESG & Digital Innovation", date: "10 July 2025", role: "Panelist", panelTopic: "ESG and Digital Transformation \u2014 Leveraging Data & AI for Measurable Impact", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/5f56c481-dc0f-4392-ba3c-1ca26b930d7c/PayNet%2C+Azleena+Idris%2C+Senior+Director%2C+Head+of+Strategy+%26+ESG+Office.png?format=500w" },
+        { name: "Joseph Fernandez", title: "Senior Director (Chief of Staff, Sustainability & Strategy)", company: "Sandisk", type: "Panel", session: "ESG & Digital Innovation", date: "10 July 2025", role: "Panelist", panelTopic: "ESG and Digital Transformation \u2014 Leveraging Data & AI for Measurable Impact", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/5216f5a8-6264-458f-9bc5-ab8318c93309/Sandisk%2C+Joseph+Fernandez%2C+Senior+Director+%28Chief+of+Staff%2C+Sustainability+%26+Strategy%29.png?format=500w" },
+        { name: "Dato' Ts. Dr. Haji Amirudin Abdul Wahab", title: "Chief Executive Officer", company: "CyberSecurity Malaysia", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", role: "Presenter", panelTopic: "Securing Malaysia\u2019s Digital Future: Unifying Efforts in the Age of AI", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/df9d386a-7eec-4443-8792-bcf505e0a276/Cybersecurity+Malaysia%2C+Dato%E2%80%99+Dr+Haji+Amirudin+Abdul+Wahab%2C+CEO+%282%29.png?format=500w" },
+        { name: "Kannan Velayutham", title: "Senior Security Engineer", company: "Tenable", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", role: "Presenter", panelTopic: "Protecting Cyber-Physical Systems: Uncover Hidden Risks", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/ce3ba958-0383-4856-8456-fde690f00928/Tenable%2C+Kannan+Velayutham_Senior+Security+Engineer+%282%29.png?format=500w" },
+        { name: "Ts. Suraya Hani Binti Ahmad Zaki", title: "Senior Architect, Threat Intelligence", company: "CyberSecurity Malaysia", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", role: "Panelist", panelTopic: "Protecting Malaysia\u2019s Critical Infrastructure: AI-Driven Cybersecurity", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/1160e289-5e44-4670-a5a4-6e8ae139ac3e/CSM%2C+Ts.+Suraya+Hani+Binti+Ahmad+Zaki+CCDA%2C+Security%2B%2C+C_TIA%2C+Senior+Architect.png?format=500w" },
+        { name: "Aishah Farha Mohd Raih", title: "Chief Information Security Officer", company: "PNB", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", role: "Panelist", panelTopic: "Protecting Malaysia\u2019s Critical Infrastructure: AI-Driven Cybersecurity", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/3a504b47-9351-4051-a3da-d9141fa11ebc/PNB%2C+Aishah+Farha+Mohd+Raih%2C+CISO.png?format=500w" },
+        { name: "Dr. Amir Abdul Samad", title: "Head, Cyber Security (CISO)", company: "PETRONAS", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", role: "Panelist", panelTopic: "Protecting Malaysia\u2019s Critical Infrastructure: AI-Driven Cybersecurity", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/fa0f7e71-2b16-48bc-bc33-f6a959654631/PETRONAS%2C+Dr.+Amir+Abdul+Samad%2C+Head%2C+Cyber+Security+%28CISO%29+%282%29.png?format=500w" },
+        { name: "Nasrin Abg Omar", title: "Group Head of Cyber Security", company: "TNB", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", role: "Panelist", panelTopic: "Protecting Malaysia\u2019s Critical Infrastructure: AI-Driven Cybersecurity", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/32f3161d-74df-4253-a5e9-3162bfa7f7d8/TNB%2C+Nasrin+Abg+Omar%2C+Group+Head+of+Cyber+Security.png?format=500w" },
+        { name: "G Saravanan", title: "Group Chief Information Officer (CIO)", company: "Thomson Hospital Group", type: "Panel", session: "Securing Critical Infrastructure", date: "10 July 2025", role: "Panelist", panelTopic: "Protecting Malaysia\u2019s Critical Infrastructure: AI-Driven Cybersecurity", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/fae1bc36-8ead-4e07-a279-d57c099cfa5b/Thomson+Hospital+Group%2C+G+Saravanan%2C+Group+CIO+%282%29.png?format=500w" },
+        { name: "Grace Zhang", title: "Solution Director", company: "AvePoint", type: "Panel", session: "Upskilling for Digital Future", date: "10 July 2025", role: "Presenter", panelTopic: "The Role of AI, Data, and Continuous Learning in Workforce Transformation", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/96efbe69-23f9-4548-8dec-8fed2633d33c/AvePoint%2C+Grace+Zhang%2C+Solution+Director+%282%29.png?format=500w" },
+        { name: "Ben-Jie Lim", title: "Chief People and Partnership Officer", company: "AirAsia Move", type: "Panel", session: "Upskilling for Digital Future", date: "10 July 2025", role: "Panelist", panelTopic: "Building the Future Workforce: Upskilling for AI-Driven Transformation", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/63e95e6d-88f5-46ad-951c-dd18f0878b23/AirAsia+Move%2C+Ben-Jie+Lim%2C+Chief+People+and+Partnership+Officer.png?format=500w" },
+        { name: "Najmie Noordin", title: "Chief Talent Officer", company: "JCorp", type: "Panel", session: "Upskilling for Digital Future", date: "10 July 2025", role: "Panelist", panelTopic: "Building the Future Workforce: Upskilling for AI-Driven Transformation", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/47f69bea-45b8-4d2f-be07-52e096b2817d/JCorp%2C+Najmie+Noordin%2C+Chief+Talent+Officer+%282%29.png?format=500w" },
+        { name: "Natalia Navin", title: "Group Chief Human Capital Officer", company: "POS Malaysia", type: "Panel", session: "Upskilling for Digital Future", date: "10 July 2025", role: "Panelist", panelTopic: "Building the Future Workforce: Upskilling for AI-Driven Transformation", photo: "https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/f2fa0dee-df81-46c6-98cb-ec7cc76891fe/POS+Malaysia%2C+Natalia+Navin%2C+Group+Chief+Human+Capital+Officer+%282%29.png?format=500w" }
     ];
 
     const grid = document.getElementById('speakersGrid');
     const countEl = document.getElementById('speakerCount');
-    const filterBar = document.getElementById('filterBar');
-    let activeFilter = { type: 'all', value: 'all' };
+    const filterType = document.getElementById('filterType');
+    const filterSession = document.getElementById('filterSession');
 
     function escapeHtml(str) {
         var div = document.createElement('div');
@@ -607,11 +638,14 @@
         filtered.forEach(function(s) {
             var card = document.createElement('div');
             card.className = 'speaker-card';
+            var roleClass = s.role === 'Presenter' ? 'presenter' : 'panelist';
             card.innerHTML =
                 '<img src="' + s.photo + '" alt="' + escapeHtml(s.name) + '" class="speaker-photo" loading="lazy">' +
                 '<h3 class="speaker-name">' + escapeHtml(s.name) + '</h3>' +
                 '<p class="speaker-title">' + escapeHtml(s.title) + ', ' + escapeHtml(s.company) + '</p>' +
                 '<span class="type-badge ' + s.type.toLowerCase() + '">' + s.type + '</span>' +
+                '<span class="role-badge ' + roleClass + '">' + s.role + '</span>' +
+                '<span class="panel-topic">' + escapeHtml(s.panelTopic) + '</span>' +
                 '<span class="session-tag">' + escapeHtml(s.session) + '</span>';
             grid.appendChild(card);
         });
@@ -619,14 +653,14 @@
     }
 
     function filterSpeakers() {
-        var filtered;
-        if (activeFilter.type === 'all') {
-            filtered = speakers;
-        } else if (activeFilter.type === 'type') {
-            filtered = speakers.filter(function(s) { return s.type === activeFilter.value; });
-        } else if (activeFilter.type === 'session') {
-            filtered = speakers.filter(function(s) { return s.session === activeFilter.value; });
-        }
+        var typeVal = filterType.value;
+        var sessionVal = filterSession.value;
+
+        var filtered = speakers.filter(function(s) {
+            var matchType = (typeVal === 'all') || (s.type === typeVal);
+            var matchSession = (sessionVal === 'all') || (s.session === sessionVal);
+            return matchType && matchSession;
+        });
 
         // Fade out
         var cards = grid.querySelectorAll('.speaker-card');
@@ -643,19 +677,9 @@
         }, cards.length > 0 ? 250 : 0);
     }
 
-    // Filter button clicks
-    filterBar.addEventListener('click', function(e) {
-        var btn = e.target.closest('.filter-btn');
-        if (!btn) return;
-
-        filterBar.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-
-        var filterType = btn.getAttribute('data-filter-type');
-        var filterValue = btn.getAttribute('data-filter');
-        activeFilter = { type: filterType, value: filterValue };
-        filterSpeakers();
-    });
+    // Dropdown change events
+    filterType.addEventListener('change', filterSpeakers);
+    filterSession.addEventListener('change', filterSpeakers);
 
     // Initial render
     renderSpeakers(speakers);

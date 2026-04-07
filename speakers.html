@@ -183,7 +183,41 @@
                         <div class="cleverstory__live_element" data-live-element="https://aibp.iotbusiness-platform.com/embedded/6971c6021e548b1afba6850f" data-id="6971c6021e548b1afba6850f" data-width="100%" data-height="815px">
                             <div id="page-6971c6021e548b1afba6850f" style="display: none;"></div>
                         </div>
-                        <script>!function(){var t=window,e=t.Cleverstory;if("function"==typeof e)e();else{var a=document,n=function(){var t=a.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://editor.cleverstory.io/scripts/embed_page.min.js";var e=a.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)};t.attachEvent?t.attachEvent("onload",n):t.addEventListener("load",n,!1)}}();</script>
+                        <script>!function(){var t=window,e=t.Cleverstory;if("function"==typeof e)e();else{var a=document,n=function(){var t=a.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://editor.cleverstory.io/scripts/embed_page.min.js";var e=a.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)};t.attachEvent?t.attachEvent("onload",n):t.addEventListener("load",n,!1)}}();// === RENDER SPEAKERS ===
+function renderSpeakers(){
+var t=document.getElementById("filterType").value;
+var s=document.getElementById("filterSession").value;
+var sc=document.getElementById("filterSector").value;
+var f=speakers.filter(function(sp){
+var ok=true;
+if(t)ok=ok&&sp.type===t;
+if(s)ok=ok&&sp.session===s;
+if(sc)ok=ok&&sp.sector===sc;
+return ok;
+});
+document.getElementById("filterCount").textContent="Showing "+f.length+" of "+speakers.length+" speakers";
+var g=document.getElementById("speakersGallery");
+g.innerHTML=f.map(function(sp){
+var tc=sp.type==="Keynote"?"keynote":"panel";
+var rc=sp.role==="Presenter"?"presenter":"panelist";
+return '<div class="sp-card">'+
+'<img src="'+sp.photo+'" alt="'+sp.name+'" loading="lazy">'+
+'<div class="sp-name">'+sp.name+'</div>'+
+'<div class="sp-title">'+sp.title+", "+sp.company+'</div>'+
+'<div class="sp-badges">'+
+'<span class="sp-badge '+tc+'">'+sp.type+'</span>'+
+'<span class="sp-badge '+rc+'">'+sp.role+'</span>'+
+'<span class="sp-badge sector-badge">'+sp.sector+'</span>'+
+'</div>'+
+'<div class="sp-topic">'+sp.panelTopic+'</div>'+
+'</div>';
+}).join("");
+}
+document.getElementById("filterType").addEventListener("change",renderSpeakers);
+document.getElementById("filterSession").addEventListener("change",renderSpeakers);
+document.getElementById("filterSector").addEventListener("change",renderSpeakers);
+renderSpeakers();
+</script>
                     </div>
                 </div>
             </div>
@@ -327,6 +361,40 @@ var speakers = [
 {name:"Najmie Noordin",title:"Chief Talent Officer",company:"JCorp",type:"Panel",session:"Upskilling for Digital Future",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/47f69bea-45b8-4d2f-be07-52e096b2817d/JCorp%2C+Najmie+Noordin%2C+Chief+Talent+Officer+%282%29.png?format=500w",role:"Panelist",panelTopic:"Building the Future Workforce",sector:"Public Services",country:"MY"},
 {name:"Natalia Navin",title:"Group Chief Human Capital Officer",company:"POS Malaysia",type:"Panel",session:"Upskilling for Digital Future",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/f2fa0dee-df81-46c6-98cb-ec7cc76891fe/POS+Malaysia%2C+Natalia+Navin%2C+Group+Chief+Human+Capital+Officer+%282%29.png?format=500w",role:"Panelist",panelTopic:"Building the Future Workforce",sector:"DTLF",country:"MY"}
 ];
+// === RENDER SPEAKERS ===
+function renderSpeakers(){
+var t=document.getElementById("filterType").value;
+var s=document.getElementById("filterSession").value;
+var sc=document.getElementById("filterSector").value;
+var f=speakers.filter(function(sp){
+var ok=true;
+if(t)ok=ok&&sp.type===t;
+if(s)ok=ok&&sp.session===s;
+if(sc)ok=ok&&sp.sector===sc;
+return ok;
+});
+document.getElementById("filterCount").textContent="Showing "+f.length+" of "+speakers.length+" speakers";
+var g=document.getElementById("speakersGallery");
+g.innerHTML=f.map(function(sp){
+var tc=sp.type==="Keynote"?"keynote":"panel";
+var rc=sp.role==="Presenter"?"presenter":"panelist";
+return '<div class="sp-card">'+
+'<img src="'+sp.photo+'" alt="'+sp.name+'" loading="lazy">'+
+'<div class="sp-name">'+sp.name+'</div>'+
+'<div class="sp-title">'+sp.title+", "+sp.company+'</div>'+
+'<div class="sp-badges">'+
+'<span class="sp-badge '+tc+'">'+sp.type+'</span>'+
+'<span class="sp-badge '+rc+'">'+sp.role+'</span>'+
+'<span class="sp-badge sector-badge">'+sp.sector+'</span>'+
+'</div>'+
+'<div class="sp-topic">'+sp.panelTopic+'</div>'+
+'</div>';
+}).join("");
+}
+document.getElementById("filterType").addEventListener("change",renderSpeakers);
+document.getElementById("filterSession").addEventListener("change",renderSpeakers);
+document.getElementById("filterSector").addEventListener("change",renderSpeakers);
+renderSpeakers();
 </script>
 </body>
 </html>

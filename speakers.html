@@ -153,6 +153,26 @@
     .format-dur-badge{font-size:.72rem;color:var(--color-accent);font-weight:600;background:rgba(180,32,36,.08);padding:3px 10px;border-radius:50px;white-space:nowrap}
     .format-content p{font-size:.88rem;color:var(--color-text-light);line-height:1.7}
     @media(max-width:600px){.format-item{flex-direction:column;gap:12px}.format-icon{width:auto}}
+    /* Community */
+    .community-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .community-item{background:var(--color-bg);border-radius:var(--radius-lg);padding:32px 24px;box-shadow:var(--shadow-sm);transition:all .25s ease}
+    .community-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .community-icon{font-size:2rem;margin-bottom:12px}
+    .community-item h3{font-size:1.05rem;font-weight:700;color:#000;margin-bottom:8px}
+    .community-item p{font-size:.88rem;color:var(--color-text-light);line-height:1.7}
+    /* Visibility */
+    .visibility-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .visibility-item{background:var(--color-bg);border-radius:var(--radius-lg);padding:28px 24px;box-shadow:var(--shadow-sm);transition:all .25s ease}
+    .visibility-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .visibility-num{font-size:1.5rem;font-weight:900;color:var(--color-accent);margin-bottom:8px}
+    .visibility-item h4{font-size:1rem;font-weight:700;color:#000;margin-bottom:6px}
+    .visibility-item p{font-size:.88rem;color:var(--color-text-light);line-height:1.7}
+    /* What to Expect */
+    .expect-list{display:flex;flex-direction:column;gap:16px;max-width:800px;margin:0 auto}
+    .expect-item{background:var(--color-bg-alt);border-radius:var(--radius-lg);padding:24px 28px}
+    .expect-item h4{font-size:1rem;font-weight:700;color:#000;margin-bottom:8px}
+    .expect-item p{font-size:.88rem;color:var(--color-text-light);line-height:1.7}
+    @media(max-width:768px){.community-grid{grid-template-columns:1fr}.visibility-grid{grid-template-columns:1fr}}
     /* Nomination */
     .nominate-section{background:var(--color-bg-dark);color:var(--color-text-inverse);padding:80px 0}
     .nominate-section .section-title{color:var(--color-text-inverse)}
@@ -188,6 +208,7 @@
         <p class="hero-subtitle">AIBP | Across ASEAN</p>
         <h1>Speak Alongside Ministers & CEOs Shaping ASEAN's Future</h1>
         <p class="hero-desc">300+ government leaders, C-suite executives, and industry pioneers have taken our stage across 52 editions in 5 countries. Our platform is endorsed by ASEAN ministries and attended by 600+ senior decision makers per event. Selection is by application only — we accept fewer than 30% of nominations.</p>
+        <p class="hero-desc" style="font-size:.95rem;color:var(--color-accent);font-weight:600;margin-bottom:32px">Your insights will be featured in the AIBP Annual Innovation Report — shaping how enterprises across ASEAN make decisions.</p>
         <div class="hero-ctas">
             <a href="#nominate" class="btn btn-primary btn-lg">Apply to Speak</a>
             <a href="#podcast" class="btn btn-outline btn-lg">See Past Speakers</a>
@@ -311,6 +332,31 @@
     </div>
 </section>
 
+<!-- Join the AIBP Speaker Community -->
+<section class="section" style="background:var(--color-bg-alt)">
+    <div class="container">
+        <h2 class="section-title centered">More Than a Speaking Slot — Join a Community</h2>
+        <p class="section-subtitle centered">Speaking at AIBP is the beginning of an ongoing relationship, not a one-time engagement</p>
+        <div class="community-grid">
+            <div class="community-item">
+                <div class="community-icon">&#x1F3D6;</div>
+                <h3>Innovation Retreat</h3>
+                <p>An exclusive, private retreat for speakers and advisory board members. Past retreats in Singapore included experiential learning workshops on AI and cyber resilience, site visits to NUS and CyberSecurity Agency, and recreational networking activities. This is where lasting peer relationships are built — away from the conference stage.</p>
+            </div>
+            <div class="community-item">
+                <div class="community-icon">&#x1F91D;</div>
+                <h3>Advisory Board Network</h3>
+                <p>Distinguished speakers may be invited to join the AIBP Advisory Board — a group of C-suite leaders across ASEAN who shape conference themes, advise on innovation priorities, and connect throughout the year. Current members include leaders from PETRONAS, Maybank, Tenaga Nasional, and JCorp.</p>
+            </div>
+            <div class="community-item">
+                <div class="community-icon">&#x1F30F;</div>
+                <h3>Multi-Country Invitations</h3>
+                <p>Top speakers are invited to present across multiple AIBP editions in different ASEAN countries — expanding your influence from Malaysia to Thailand, Indonesia, Vietnam, and the Philippines. Your message reaches the entire region, not just one market.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- AIBP ASEAN Podcast -->
 <section class="section podcast-section" id="podcast">
     <div class="container">
@@ -333,6 +379,36 @@
             <div class="video-item"><iframe src="https://www.youtube.com/embed/8Mq_M-sz_cg?rel=0" title="Conference Highlights 1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe></div>
             <div class="video-item"><iframe src="https://www.youtube.com/embed/cbwQ0SDHGug?rel=0" title="Conference Highlights 2" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe></div>
             <div class="video-item"><iframe src="https://www.youtube.com/embed/gTSG6-YTk6o?rel=0" title="Conference Highlights 3" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe></div>
+        </div>
+    </div>
+</section>
+
+<!-- Your Speaker Visibility -->
+<section class="section" style="background:var(--color-bg-alt)">
+    <div class="container">
+        <h2 class="section-title centered">Your Visibility After the Event</h2>
+        <p class="section-subtitle centered">Speaking at AIBP doesn't end when you leave the stage</p>
+        <div class="visibility-grid">
+            <div class="visibility-item">
+                <div class="visibility-num">01</div>
+                <h4>AIBP ASEAN Podcast Feature</h4>
+                <p>Selected speakers are invited to record a dedicated podcast episode, distributed to AIBP's 30,000+ stakeholder network across major platforms.</p>
+            </div>
+            <div class="visibility-item">
+                <div class="visibility-num">02</div>
+                <h4>Conference Video Highlights</h4>
+                <p>Your session is professionally filmed and featured in post-event video highlights shared with attendees, sponsors, and across AIBP social channels.</p>
+            </div>
+            <div class="visibility-item">
+                <div class="visibility-num">03</div>
+                <h4>Annual Innovation Report</h4>
+                <p>Key insights from your session are cited in the AIBP Annual Enterprise Innovation Market Overview — referenced by enterprises and government agencies across ASEAN.</p>
+            </div>
+            <div class="visibility-item">
+                <div class="visibility-num">04</div>
+                <h4>Speaker Profile & Promotion</h4>
+                <p>Your profile is featured on the AIBP website and across all pre-event marketing — reaching thousands of C-suite executives, government officials, and enterprise leaders ahead of the conference.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -392,10 +468,10 @@
 </section>
 
 <!-- Innovation Retreat Recap -->
-<section class="section" style="background:var(--color-bg-alt)">
+<section class="section">
     <div class="container">
-        <h2 class="section-title centered">Innovation Retreat</h2>
-        <p class="section-subtitle centered">See highlights from our exclusive speaker retreat experience</p>
+        <h2 class="section-title centered">Innovation Retreat Highlights</h2>
+        <p class="section-subtitle centered">A glimpse into the exclusive retreat experience for speakers and advisory board members</p>
         <div id="recap">
             <div class="cleverstory__live_element" data-live-element="https://aibp.iotbusiness-platform.com/embedded/6971c6021e548b1afba6850f" data-id="6971c6021e548b1afba6850f" data-width="100%" data-height="815px">
                 <div id="page-6971c6021e548b1afba6850f" style="display: none;"></div>
@@ -404,6 +480,40 @@
     </div>
 </section>
 <script>!function(){var t=window,e=t.Cleverstory;if("function"==typeof e)e();else{var a=document,n=function(){var t=a.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://editor.cleverstory.io/scripts/embed_page.min.js";var e=a.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)};t.attachEvent?t.attachEvent("onload",n):t.addEventListener("load",n,!1)}}();</script>
+
+<!-- What to Expect -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title centered">What to Expect</h2>
+        <p class="section-subtitle centered">Common questions from prospective speakers</p>
+        <div class="expect-list">
+            <div class="expect-item">
+                <h4>How much time do I need to commit?</h4>
+                <p>Your on-stage commitment is typically 20–60 minutes depending on the format. We handle all logistics — you just need to show up and share your expertise. Most speakers arrive the evening before and depart after the conference.</p>
+            </div>
+            <div class="expect-item">
+                <h4>Is there any cost to me or my organisation?</h4>
+                <p>None. Selected speakers receive a complimentary package that includes airfare, hotel accommodation at W Hotel Kuala Lumpur (or equivalent), 2 full conference passes, and exclusive access to the Innovation Retreat. There is no financial obligation.</p>
+            </div>
+            <div class="expect-item">
+                <h4>Will I have support preparing my session?</h4>
+                <p>Yes. All panel discussions are moderated by experienced AIBP facilitators. You'll receive the session brief, discussion points, and fellow panelist profiles in advance. For keynotes and presentations, our team provides guidance on audience expectations and content framing.</p>
+            </div>
+            <div class="expect-item">
+                <h4>How does this benefit my organisation?</h4>
+                <p>Your organisation gains visibility as a thought leader in front of 600+ enterprise decision makers and government officials. Your company is featured across all marketing materials, and the session content strengthens your brand's position on innovation and digital transformation in ASEAN.</p>
+            </div>
+            <div class="expect-item">
+                <h4>Who is in the audience?</h4>
+                <p>84% are from local enterprises and government. 46% are C-level, Directors, and VPs. 74% from enterprise sectors including BFSI, energy, manufacturing, and public services. This is a curated, invitation-only audience — not an open public event.</p>
+            </div>
+            <div class="expect-item">
+                <h4>How are speakers selected?</h4>
+                <p>We review all nominations and select speakers based on relevance to the conference themes, seniority of role, and ability to share real enterprise experience. We accept fewer than 30% of nominations. You'll hear back from our team within 2 weeks of applying.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Apply to Speak -->
 <section class="nominate-section" id="nominate">

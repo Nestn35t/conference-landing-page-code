@@ -10,14 +10,60 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <style>
+    /* === SPEAKERS PAGE COLOR OVERRIDES === */
+    :root {
+        --color-primary: #2d2d2d;
+        --color-accent: #b42024;
+        --color-accent-hover: #931a1d;
+        --color-secondary: #b42024;
+        --color-bg-alt: #faf6f2;
+        --color-bg-dark: #b42024;
+        --color-text: #000000;
+        --color-text-light: #555;
+        --color-border: #e8e0d8;
+    }
+    .navbar{background:rgba(255,255,255,0.95)!important;border-bottom:1px solid #e8e0d8}
+    .nav-menu a{color:#000!important}
+    .nav-menu a:hover{color:#b42024!important}
+    .nav-menu a.nav-cta:hover{color:#fff!important}
+    .nav-toggle span{background:#000!important}
+    .stats-bar{background:#b42024!important}
+    .stats-bar .stat-number{color:#fff!important}
+    .stats-bar .stat-label{color:rgba(255,255,255,.85)!important}
+    .nominate-section{background:#b42024!important}
+    .nominate-section .section-title{color:#fff!important}
+    .nominate-section p{color:rgba(255,255,255,.85)!important}
+    .podcast-section{background:#b42024!important}
+    .nav-cta{background:#b42024!important;color:#000!important}
+    .nav-cta:hover{background:#931a1d!important;color:#fff!important}
+    .btn-primary{background:#b42024;border-color:#b42024}
+    .btn-primary:hover{background:#931a1d;border-color:#931a1d}
+    .nominate-section .btn-primary,.speakers-hero .btn-primary{background:#fff!important;color:#b42024!important;border-color:#fff!important}
+    .nominate-section .btn-primary:hover,.speakers-hero .btn-primary:hover{background:#faf6f2!important;border-color:#faf6f2!important}
+    .footer{background:#fff!important;color:#666!important;border-top:1px solid #e8e0d8}
+    .footer-links a{color:#666!important}
+    .footer p{color:#666}
+    @media(max-width:768px){.nav-menu{background:rgba(255,255,255,0.98)!important}}
+    /* Government Cards */
+    .govt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .govt-card{background:var(--color-bg);border-radius:var(--radius-lg);padding:28px 20px;text-align:center;box-shadow:var(--shadow-sm);transition:all .25s ease;border-left:3px solid var(--color-accent)}
+    .govt-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .govt-flag{font-size:2rem;margin-bottom:8px}
+    .govt-name{font-size:1rem;font-weight:700;margin-bottom:4px;color:#000}
+    .govt-title{font-size:.82rem;color:var(--color-text-light);line-height:1.5;margin-bottom:8px}
+    .govt-event{font-size:.72rem;color:var(--color-accent);font-weight:600;background:rgba(180,32,36,.08);display:inline-block;padding:3px 10px;border-radius:50px}
+    @media(max-width:768px){.govt-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.govt-grid{grid-template-columns:1fr}}
     /* === PAGE-SPECIFIC STYLES === */
-    .speakers-hero{position:relative;background:linear-gradient(135deg,var(--color-bg-dark) 0%,#1a1008 60%,#2a1a0a 100%);color:var(--color-text-inverse);padding:140px 0 80px;text-align:center;overflow:hidden}
-    .speakers-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(195,124,65,.15) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(180,32,36,.1) 0%,transparent 50%);pointer-events:none}
+    .speakers-hero{position:relative;background:linear-gradient(135deg,#faf6f2 0%,#f5ece4 60%,#faf6f2 100%);color:var(--color-text);padding:140px 0 80px;text-align:center;overflow:hidden}
+    .speakers-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(180,32,36,.06) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(180,32,36,.04) 0%,transparent 50%);pointer-events:none}
     .speakers-hero .container{position:relative;z-index:1}
-    .speakers-hero h1{font-size:3.5rem;font-weight:900;margin-bottom:12px}
-    .speakers-hero .hero-subtitle{font-size:1.25rem;color:var(--color-secondary);font-weight:600;margin-bottom:16px;text-transform:uppercase;letter-spacing:2px}
-    .speakers-hero .hero-desc{font-size:1.1rem;max-width:720px;margin:0 auto 32px;color:rgba(255,255,255,.85);line-height:1.7}
+    .speakers-hero h1{font-size:3.5rem;font-weight:900;margin-bottom:12px;color:#000}
+    .speakers-hero .hero-subtitle{font-size:1.25rem;color:var(--color-accent);font-weight:600;margin-bottom:16px;text-transform:uppercase;letter-spacing:2px}
+    .speakers-hero .hero-desc{font-size:1.1rem;max-width:720px;margin:0 auto 32px;color:var(--color-text-light);line-height:1.7}
     .speakers-hero .hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .speakers-hero .btn-outline{color:var(--color-accent);border-color:var(--color-accent)}
+    .speakers-hero .btn-outline:hover{background:var(--color-accent);color:#fff}
     /* ASEAN Countries */
     .asean-grid{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
     .asean-card{background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:28px 24px;text-align:center;min-width:180px;flex:1;max-width:220px;transition:all var(--transition)}
@@ -56,7 +102,7 @@
     .sp-badges{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:6px}
     .sp-badge{display:inline-block;font-size:.65rem;font-weight:600;padding:3px 8px;border-radius:50px;text-transform:uppercase;letter-spacing:.5px}
     .sp-badge.keynote{background:rgba(180,32,36,.1);color:var(--color-accent)}
-    .sp-badge.panel{background:rgba(195,124,65,.1);color:var(--color-secondary)}
+    .sp-badge.panel{background:rgba(180,32,36,.1);color:var(--color-secondary)}
     .sp-badge.presenter{background:rgba(42,138,74,.1);color:#2a8a4a}
     .sp-badge.panelist{background:rgba(15,52,96,.1);color:#1a5276}
     .sp-badge.sector-badge{background:rgba(100,100,100,.08);color:var(--color-text-light);font-size:.6rem}
@@ -66,7 +112,7 @@
     .sess-card.day1{border-left:3px solid var(--color-accent)}
     .sess-card.day2{border-left:3px solid var(--color-secondary)}
     .sess-header{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;cursor:pointer;transition:background var(--transition)}
-    .sess-header:hover{background:rgba(195,124,65,.05)}
+    .sess-header:hover{background:rgba(180,32,36,.05)}
     .sess-header h3{font-size:1.05rem;font-weight:700;color:var(--color-primary);margin:0}
     .sess-header .sess-meta{font-size:.8rem;color:var(--color-text-light)}
     .sess-header .sess-toggle{font-size:1.5rem;color:var(--color-accent);font-weight:300;transition:transform .3s}
@@ -87,7 +133,7 @@
     .sess-panelist img{width:70px;height:70px;border-radius:50%;object-fit:cover;margin-bottom:4px}
     .sess-panelist .sp-name{font-size:.72rem;font-weight:600}
     .sess-panelist .sp-title{font-size:.65rem;color:var(--color-text-light)}
-    .sess-moderator{background:rgba(195,124,65,.08);border-radius:var(--radius);padding:10px 14px;font-size:.82rem;color:var(--color-text);margin-bottom:16px}
+    .sess-moderator{background:rgba(180,32,36,.08);border-radius:var(--radius);padding:10px 14px;font-size:.82rem;color:var(--color-text);margin-bottom:16px}
     /* Formats */
     .formats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
     .format-card{background:var(--color-bg-alt);border-radius:var(--radius-lg);padding:28px 20px;text-align:center}
@@ -95,7 +141,7 @@
     .format-card .format-dur{font-size:.85rem;color:var(--color-accent);font-weight:600;margin-bottom:8px}
     .format-card p{font-size:.82rem;color:var(--color-text-light);line-height:1.5}
     /* Nomination */
-    .nominate-section{background:var(--color-primary);color:var(--color-text-inverse);padding:80px 0}
+    .nominate-section{background:var(--color-bg-dark);color:var(--color-text-inverse);padding:80px 0}
     .nominate-section .section-title{color:var(--color-text-inverse)}
     .nominate-section p{color:rgba(255,255,255,.8)}
     .nominate-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
@@ -133,7 +179,7 @@
         <p class="hero-desc">Speak alongside ministers, deputy ministers, and senior government officials from across Southeast Asia. Address a select group of 600+ C-suite leaders, government decision makers, and enterprise heads across 5 ASEAN countries. Gain credibility, expand your regional influence, and enjoy exclusive speaker benefits including a private innovation retreat.</p>
         <div class="hero-ctas">
             <a href="#nominate" class="btn btn-primary btn-lg">Apply to Speak</a>
-            <a href="#podcast" class="btn btn-outline btn-lg">Watch Our Speakers</a>
+            <a href="#podcast" class="btn btn-outline btn-lg">See Past Speakers</a>
         </div>
     </div>
 </section>
@@ -150,7 +196,7 @@
     </div>
 </section>
 
-<!-- Speak Across ASEAN -->
+<!-- Government Endorsement -->
 <section class="section" style="background:var(--color-bg-alt)">
     <div class="container">
         <h2 class="section-title centered">Speak Across ASEAN</h2>
@@ -225,21 +271,13 @@
         <h2 class="section-title centered">Our Past Speakers</h2>
         <p class="section-subtitle centered">Ministers, government officials, and C-suite leaders from across ASEAN — not just one country</p>
         <div class="filter-bar">
-            <select id="filterType"><option value="">All Types</option><option value="Keynote">Keynote</option><option value="Panel">Panel</option></select>
-            <select id="filterSession"><option value="">All Sessions</option><option value="Keynote">Keynote</option><option value="AI Applications and ROI">AI Applications and ROI</option><option value="Data Governance">Data Governance</option><option value="AI-Driven Cyber Security for BFSI">Cyber Security for BFSI</option><option value="ESG & Digital Innovation">ESG & Digital Innovation</option><option value="Securing Critical Infrastructure">Securing Critical Infrastructure</option><option value="Upskilling for Digital Future">Upskilling for Digital Future</option></select>
+            <select id="filterCountry"><option value="">All Countries</option><option value="MY">Malaysia</option><option value="TH">Thailand</option><option value="ID">Indonesia</option><option value="VN">Vietnam</option><option value="PH">Philippines</option></select>
             <select id="filterSector"><option value="">All Sectors</option><option value="BFSI">BFSI</option><option value="Public Services">Public Services</option><option value="Energy and Utilities">Energy and Utilities</option><option value="Manufacturing">Manufacturing</option><option value="DTLF">DTLF</option><option value="Technology">Technology</option><option value="Telecommunications">Telecommunications</option><option value="Retail">Retail</option><option value="Real Estate">Real Estate</option></select>
         </div>
-        <p class="filter-count" id="filterCount">Showing 35 of 35 speakers</p>
         <div class="sp-grid" id="speakersGallery"></div>
-    </div>
-</section>
-
-<!-- Sessions Accordion -->
-<section class="section" id="sessions">
-    <div class="container">
-        <h2 class="section-title centered">2025 Conference Sessions</h2>
-        <p class="section-subtitle centered">Click a session to see the full panel lineup and discussion topics</p>
-        <div id="sessionAccordion"></div>
+        <div style="text-align:center;margin-top:32px" id="viewAllWrap">
+            <a href="#" class="btn btn-outline" id="viewAllBtn" style="color:#b42024;border-color:#b42024">View All Speakers</a>
+        </div>
     </div>
 </section>
 
@@ -256,6 +294,20 @@
         </div>
     </div>
 </section>
+
+<!-- Innovation Retreat Recap -->
+<section class="section" style="background:var(--color-bg-alt)">
+    <div class="container">
+        <h2 class="section-title centered">Innovation Retreat</h2>
+        <p class="section-subtitle centered">See highlights from our exclusive speaker retreat experience</p>
+        <div id="recap">
+            <div class="cleverstory__live_element" data-live-element="https://aibp.iotbusiness-platform.com/embedded/6971c6021e548b1afba6850f" data-id="6971c6021e548b1afba6850f" data-width="100%" data-height="815px">
+                <div id="page-6971c6021e548b1afba6850f" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>!function(){var t=window,e=t.Cleverstory;if("function"==typeof e)e();else{var a=document,n=function(){var t=a.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://editor.cleverstory.io/scripts/embed_page.min.js";var e=a.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)};t.attachEvent?t.attachEvent("onload",n):t.addEventListener("load",n,!1)}}();</script>
 
 <!-- Apply to Speak -->
 <section class="nominate-section" id="nominate">
@@ -287,3 +339,83 @@
     </div>
 </footer>
 
+
+<script>
+// === SPEAKER DATA ===
+var speakers = [
+{name:"Pedro Uria-Recio",title:"Chief Data & AI Officer",company:"CIMB Group",type:"Keynote",session:"Keynote",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/d6b42758-cf00-41d7-a649-278bd3062be0/CIMB+Group%2C+Pedro+Uria-Recio%2C+Chief+Data+%26+AI+Officer+%282%29.png?format=500w",role:"Panelist",panelTopic:"Scaling AI for Global Competitiveness",sector:"BFSI",country:"MY"},
+{name:"Dr. Siew Chan Cheong",title:"Group Chief Strategy & Transformation Officer",company:"Maybank",type:"Keynote",session:"Keynote",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/c4beb220-0ded-4281-b05f-232b637cb76d/Maybank%2C+Dr+Siew+Chan+Cheong%2C+Group+Chief+Strategy+and+Transformation+Officer+%282%29.png?format=500w",role:"Panelist",panelTopic:"Scaling AI for Global Competitiveness",sector:"BFSI",country:"MY"},
+{name:"Shamsul Izhan Abdul Majid",title:"Chief Executive Officer",company:"National AI Office Malaysia (NAIO)",type:"Keynote",session:"Keynote",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/8adc8828-1f98-46e0-a57e-60ea1348a637/NAIO%2C+Shamsul+Izhan+Abdul+Majid%2C+CEO.png?format=500w",role:"Panelist",panelTopic:"Scaling AI for Global Competitiveness",sector:"Public Services",country:"MY"},
+{name:"Datuk Ir. Megat Jalaluddin Megat Hassan",title:"President / Chief Executive Officer",company:"Tenaga Nasional Berhad",type:"Keynote",session:"Keynote",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/d7899c4f-67f2-47ea-8ed6-d40ba062cbb2/TNB%2C+Datuk+Ir.+Megat+Jalaluddin%2C+President+_+Chief+Executive+Officer+%282%29.png?format=500w",role:"Panelist",panelTopic:"Scaling AI for Global Competitiveness",sector:"Energy and Utilities",country:"MY"},
+{name:"Colin Tan",title:"Vice President, Asia",company:"Tricentis",type:"Panel",session:"AI Applications and ROI",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/ae833de1-fb6f-41df-b8b0-c4fc10da89c7/Tricentis%2C+Colin+Tan%2C+Vice+President%2C+Asia.png?format=500w",role:"Presenter",panelTopic:"AI-Augmented Testing: Turning QA into a Competitive Advantage",sector:"Technology",country:"MY"},
+{name:"Mustafa Sabuwala",title:"Sales Director, ASEAN",company:"HCLTech",type:"Panel",session:"AI Applications and ROI",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/7c86f036-88a4-47eb-bdeb-c7bac1c45214/HCLTech%2C+Mustafa+Sabuwala%2C+Sales+Director%2C+ASEAN.png?format=500w",role:"Presenter",panelTopic:"Scaling GenAI for Real ROI",sector:"Technology",country:"MY"},
+{name:"Rangam Bir",title:"Chief Executive Officer",company:"AmMetLife",type:"Panel",session:"AI Applications and ROI",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/6dff5bd8-d59a-4c0c-9968-78f9660d8d73/AmMetLife%2C+Rangam+Bir%2C+CEO+%282%29.png?format=500w",role:"Panelist",panelTopic:"From Tools to Transformation: Leveraging AI to Drive Productivity and ROI",sector:"BFSI",country:"MY"},
+{name:"Maz Mirza",title:"Chief Digital Officer",company:"KWAP",type:"Panel",session:"AI Applications and ROI",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/60870753-dab5-4252-8971-1ea45bfd3c33/KWAP%2C+Maz+Mirza%2C+Chief+Digital+Officer.png?format=500w",role:"Panelist",panelTopic:"From Tools to Transformation",sector:"BFSI",country:"MY"},
+{name:"Aditya Ranjit Tuli",title:"Chief Digital Officer",company:"SD Guthrie",type:"Panel",session:"AI Applications and ROI",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/e209b839-2b64-4f5d-8b0f-2000b3b9fa6a/SD+Guthrie%2C+Aditya+Ranjit+Tuli%2C+Chief+Digital+Officer+%282%29.png?format=500w",role:"Panelist",panelTopic:"From Tools to Transformation",sector:"Manufacturing",country:"MY"},
+{name:"Arfah Aridz",title:"Director, Data Conduct - Responsible AI",company:"Global Financial Institution",type:"Panel",session:"Data Governance",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/9d38c5c5-58ed-442a-a5e3-b9173aceb4f2/Global+Financial+Institution%2C+Arfah+Aridz%2C+Director%2C+Data+Conduct+-+Responsible+AI.png?format=500w",role:"Presenter",panelTopic:"Strengthening AI Readiness and Governance in Malaysia",sector:"BFSI",country:"MY"},
+{name:"Chris Farrelly",title:"Vice President APAC",company:"Concentric AI",type:"Panel",session:"Data Governance",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/ffe42408-9343-4ee8-9ace-8ebcd62fa598/Concentric+AI%2C+Chris+Farrelly%2C+Vice+President+APAC+%282%29.png?format=500w",role:"Presenter",panelTopic:"Data Security & Governance in the Age of Generative AI",sector:"Technology",country:"MY"},
+{name:"Dr. Hon Hock Woon",title:"Head of AI",company:"AmBank",type:"Panel",session:"Data Governance",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/bc8b6508-5cd7-455a-9fe0-02f106f8aa24/AmBank%2C+Dr.+Hon+Hock+Woon%2C+Head+of+AI+%282%29.png?format=500w",role:"Panelist",panelTopic:"AI Knows Too Much — Why Data Governance Matters",sector:"BFSI",country:"MY"},
+{name:"Nili Shayrina Saat",title:"Group Head, Risk Management & Compliance",company:"IHH Healthcare",type:"Panel",session:"Data Governance",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/50f1c423-3494-475c-8f29-791ff97b491b/IHH+Healthcare%2C+Nili+Shayrina+Saat%2C+Group+Head%2C+Risk+Management+%26+Compliance+%282%29.png?format=500w",role:"Panelist",panelTopic:"AI Knows Too Much — Why Data Governance Matters",sector:"Manufacturing",country:"MY"},
+{name:"Dr. Jun-E Tan",title:"Senior Research Associate",company:"Khazanah Research Institute",type:"Panel",session:"Data Governance",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/9ae874b9-d37f-4977-a235-bcadb2f62cd5/Khazanah+Research+Institute%2C+Dr.+Jun-E+Tan%2C+Senior+Research+Associate+%282%29.png?format=500w",role:"Panelist",panelTopic:"AI Knows Too Much — Why Data Governance Matters",sector:"Public Services",country:"MY"},
+{name:"Tyler Tang",title:"Director of Secure Design",company:"Softscheck",type:"Panel",session:"AI-Driven Cyber Security for BFSI",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/976e82b9-6b94-4ae1-83c0-6c73af8f7d51/Softscheck%2C+Tyler+Tang%2C+Director+of+Secure+Design+%282%29.png?format=500w",role:"Presenter",panelTopic:"AI Considerations when Designing for Cyber Resilience",sector:"Technology",country:"MY"},
+{name:"Dominic Yew",title:"Chief Information Security Officer",company:"OCBC",type:"Panel",session:"AI-Driven Cyber Security for BFSI",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/c2f7f263-3335-42d7-9a5f-9d1aeadd1a0f/OCBC%2C+Dominic+Yew%2C+Chief+Information+Security+Officer.png?format=500w",role:"Panelist",panelTopic:"Leveraging AI to Strengthen Cybersecurity",sector:"BFSI",country:"MY"},
+{name:"Ruban Bala",title:"Head of Infrastructure and Application Security Risk",company:"Ryt Bank",type:"Panel",session:"AI-Driven Cyber Security for BFSI",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/5686768e-e6a0-4cb7-9600-729af7b60e78/Ryt+Bank%2C+Ruban+Bala%2C+Head+of+Infrastructure+and+Application+Security+Risk.png?format=500w",role:"Panelist",panelTopic:"Leveraging AI to Strengthen Cybersecurity",sector:"BFSI",country:"MY"},
+{name:"Er Chiang Kai",title:"Chief Technology Officer",company:"V-Key Pte Ltd",type:"Panel",session:"AI-Driven Cyber Security for BFSI",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/0388386d-f617-40dc-9515-48417a3a1442/V-Key+Pte+Ltd%2C+Er+Chiang+Kai%2C+Chief+Technology+Officer+%282%29.png?format=500w",role:"Panelist",panelTopic:"Leveraging AI to Strengthen Cybersecurity",sector:"Technology",country:"MY"},
+{name:"Dr. Toh Shang Yee",title:"Head of Information Security",company:"MCIS Insurance",type:"Panel",session:"AI-Driven Cyber Security for BFSI",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/d696f43b-f517-431c-a0d5-247e9f5155c1/MCIS+Insurance+Berhad%2C+Dr.+Toh+Shang+Yee%2C+Head+of+Information+Security+%282%29.png?format=500w",role:"Panelist",panelTopic:"Leveraging AI to Strengthen Cybersecurity",sector:"BFSI",country:"MY"},
+{name:"Jed Llanes",title:"Chief Product Officer",company:"Komunidad",type:"Panel",session:"ESG & Digital Innovation",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/8d34e670-b199-4465-a539-16ee2196831e/Komunidad%2C+Jed+Llanes%2C+Chief+Product+Officer.png?format=500w",role:"Presenter",panelTopic:"From Spreadsheets to Smart Data",sector:"Technology",country:"MY"},
+{name:"Rushdi Abdul Rahim",title:"President & CEO",company:"MIGHT",type:"Panel",session:"ESG & Digital Innovation",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/48e98365-fa48-49be-9545-d00655fb0c10/MIGHT%2C+Rushdi+Abdul+Rahim%2C+President+%26+Chief+Executive+Officer.png?format=500w",role:"Panelist",panelTopic:"ESG and Digital Transformation",sector:"Public Services",country:"MY"},
+{name:"Ts. Shaharuddin Hamid Mustapha",title:"Chief Executive Officer",company:"PETRONAS Digital",type:"Panel",session:"ESG & Digital Innovation",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/07eb77cb-23bb-4256-8a91-0734ca02f558/PDSB%2C+Ts.+Shaharuddin+Hamid+Mustapha%2C+Chief+Executive+Officer.png?format=500w",role:"Panelist",panelTopic:"ESG and Digital Transformation",sector:"Energy and Utilities",country:"MY"},
+{name:"Azleena Idris",title:"Senior Director, Head of Strategy & ESG",company:"PayNet",type:"Panel",session:"ESG & Digital Innovation",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/5f56c481-dc0f-4392-ba3c-1ca26b930d7c/PayNet%2C+Azleena+Idris%2C+Senior+Director%2C+Head+of+Strategy+%26+ESG+Office.png?format=500w",role:"Panelist",panelTopic:"ESG and Digital Transformation",sector:"BFSI",country:"MY"},
+{name:"Joseph Fernandez",title:"Senior Director, Sustainability & Strategy",company:"Sandisk",type:"Panel",session:"ESG & Digital Innovation",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/5216f5a8-6264-458f-9bc5-ab8318c93309/Sandisk%2C+Joseph+Fernandez%2C+Senior+Director+%28Chief+of+Staff%2C+Sustainability+%26+Strategy%29.png?format=500w",role:"Panelist",panelTopic:"ESG and Digital Transformation",sector:"Manufacturing",country:"MY"},
+{name:"Dato' Ts. Dr. Haji Amirudin Abdul Wahab",title:"Chief Executive Officer",company:"CyberSecurity Malaysia",type:"Panel",session:"Securing Critical Infrastructure",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/df9d386a-7eec-4443-8792-bcf505e0a276/Cybersecurity+Malaysia%2C+Dato%E2%80%99+Dr+Haji+Amirudin+Abdul+Wahab%2C+CEO+%282%29.png?format=500w",role:"Presenter",panelTopic:"Securing Malaysia's Digital Future",sector:"Public Services",country:"MY"},
+{name:"Kannan Velayutham",title:"Senior Security Engineer",company:"Tenable",type:"Panel",session:"Securing Critical Infrastructure",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/ce3ba958-0383-4856-8456-fde690f00928/Tenable%2C+Kannan+Velayutham_Senior+Security+Engineer+%282%29.png?format=500w",role:"Presenter",panelTopic:"Protecting Cyber-Physical Systems",sector:"Technology",country:"MY"},
+{name:"Ts. Suraya Hani Binti Ahmad Zaki",title:"Senior Architect, Threat Intelligence",company:"CyberSecurity Malaysia",type:"Panel",session:"Securing Critical Infrastructure",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/1160e289-5e44-4670-a5a4-6e8ae139ac3e/CSM%2C+Ts.+Suraya+Hani+Binti+Ahmad+Zaki+CCDA%2C+Security%2B%2C+C_TIA%2C+Senior+Architect.png?format=500w",role:"Panelist",panelTopic:"Protecting Malaysia's Critical Infrastructure",sector:"Public Services",country:"MY"},
+{name:"Aishah Farha Mohd Raih",title:"Chief Information Security Officer",company:"PNB",type:"Panel",session:"Securing Critical Infrastructure",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/3a504b47-9351-4051-a3da-d9141fa11ebc/PNB%2C+Aishah+Farha+Mohd+Raih%2C+CISO.png?format=500w",role:"Panelist",panelTopic:"Protecting Malaysia's Critical Infrastructure",sector:"BFSI",country:"MY"},
+{name:"Dr. Amir Abdul Samad",title:"Head, Cyber Security (CISO)",company:"PETRONAS",type:"Panel",session:"Securing Critical Infrastructure",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/fa0f7e71-2b16-48bc-bc33-f6a959654631/PETRONAS%2C+Dr.+Amir+Abdul+Samad%2C+Head%2C+Cyber+Security+%28CISO%29+%282%29.png?format=500w",role:"Panelist",panelTopic:"Protecting Malaysia's Critical Infrastructure",sector:"Energy and Utilities",country:"MY"},
+{name:"Nasrin Abg Omar",title:"Group Head of Cyber Security",company:"TNB",type:"Panel",session:"Securing Critical Infrastructure",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/32f3161d-74df-4253-a5e9-3162bfa7f7d8/TNB%2C+Nasrin+Abg+Omar%2C+Group+Head+of+Cyber+Security.png?format=500w",role:"Panelist",panelTopic:"Protecting Malaysia's Critical Infrastructure",sector:"Energy and Utilities",country:"MY"},
+{name:"G Saravanan",title:"Group Chief Information Officer",company:"Thomson Hospital Group",type:"Panel",session:"Securing Critical Infrastructure",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/fae1bc36-8ead-4e07-a279-d57c099cfa5b/Thomson+Hospital+Group%2C+G+Saravanan%2C+Group+CIO+%282%29.png?format=500w",role:"Panelist",panelTopic:"Protecting Malaysia's Critical Infrastructure",sector:"Manufacturing",country:"MY"},
+{name:"Grace Zhang",title:"Solution Director",company:"AvePoint",type:"Panel",session:"Upskilling for Digital Future",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/96efbe69-23f9-4548-8dec-8fed2633d33c/AvePoint%2C+Grace+Zhang%2C+Solution+Director+%282%29.png?format=500w",role:"Presenter",panelTopic:"The Role of AI, Data, and Continuous Learning",sector:"Technology",country:"MY"},
+{name:"Ben-Jie Lim",title:"Chief People and Partnership Officer",company:"AirAsia Move",type:"Panel",session:"Upskilling for Digital Future",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/63e95e6d-88f5-46ad-951c-dd18f0878b23/AirAsia+Move%2C+Ben-Jie+Lim%2C+Chief+People+and+Partnership+Officer.png?format=500w",role:"Panelist",panelTopic:"Building the Future Workforce",sector:"DTLF",country:"MY"},
+{name:"Najmie Noordin",title:"Chief Talent Officer",company:"JCorp",type:"Panel",session:"Upskilling for Digital Future",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/47f69bea-45b8-4d2f-be07-52e096b2817d/JCorp%2C+Najmie+Noordin%2C+Chief+Talent+Officer+%282%29.png?format=500w",role:"Panelist",panelTopic:"Building the Future Workforce",sector:"Public Services",country:"MY"},
+{name:"Natalia Navin",title:"Group Chief Human Capital Officer",company:"POS Malaysia",type:"Panel",session:"Upskilling for Digital Future",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/f2fa0dee-df81-46c6-98cb-ec7cc76891fe/POS+Malaysia%2C+Natalia+Navin%2C+Group+Chief+Human+Capital+Officer+%282%29.png?format=500w",role:"Panelist",panelTopic:"Building the Future Workforce",sector:"DTLF",country:"MY"}
+];
+// === RENDER SPEAKERS ===
+var showAll=false;
+function renderSpeakers(){
+var co=document.getElementById("filterCountry").value;
+var sc=document.getElementById("filterSector").value;
+var isFiltered=co||sc;
+var f=speakers.filter(function(sp){
+var ok=true;
+if(co)ok=ok&&sp.country===co;
+if(sc)ok=ok&&sp.sector===sc;
+return ok;
+});
+var display=(!isFiltered&&!showAll)?f.slice(0,10):f;
+var g=document.getElementById("speakersGallery");
+g.innerHTML=display.map(function(sp){
+var tc=sp.type==="Keynote"?"keynote":"panel";
+var rc=sp.role==="Presenter"?"presenter":"panelist";
+return '<div class="sp-card">'+
+'<img src="'+sp.photo+'" alt="'+sp.name+'" loading="lazy">'+
+'<div class="sp-name">'+sp.name+'</div>'+
+'<div class="sp-title">'+sp.title+', <strong>'+sp.company+'</strong></div>'+
+'<div class="sp-badges">'+
+'<span class="sp-badge '+tc+'">'+sp.type+'</span>'+
+'<span class="sp-badge '+rc+'">'+sp.role+'</span>'+
+'<span class="sp-badge sector-badge">'+sp.sector+'</span>'+
+'</div>'+
+'<div class="sp-topic">'+sp.panelTopic+'</div>'+
+'</div>';
+}).join("");
+var wrap=document.getElementById("viewAllWrap");
+if(isFiltered||showAll||f.length<=10){wrap.style.display="none";}else{wrap.style.display="block";}
+}
+document.getElementById("filterCountry").addEventListener("change",function(){showAll=false;renderSpeakers();});
+document.getElementById("filterSector").addEventListener("change",function(){showAll=false;renderSpeakers();});
+document.getElementById("viewAllBtn").addEventListener("click",function(e){e.preventDefault();showAll=true;renderSpeakers();});
+renderSpeakers();
+
+</script>
+</body>
+</html>

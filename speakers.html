@@ -25,6 +25,7 @@
     .navbar{background:rgba(255,255,255,0.95)!important;border-bottom:1px solid #e8e0d8}
     .nav-menu a{color:#000!important}
     .nav-menu a:hover{color:#b42024!important}
+    .nav-menu a.nav-cta:hover{color:#fff!important}
     .nav-toggle span{background:#000!important}
     .stats-bar{background:#b42024!important}
     .stats-bar .stat-number{color:#fff!important}
@@ -43,6 +44,16 @@
     .footer-links a{color:#666!important}
     .footer p{color:#666}
     @media(max-width:768px){.nav-menu{background:rgba(255,255,255,0.98)!important}}
+    /* Government Cards */
+    .govt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .govt-card{background:var(--color-bg);border-radius:var(--radius-lg);padding:28px 20px;text-align:center;box-shadow:var(--shadow-sm);transition:all .25s ease;border-left:3px solid var(--color-accent)}
+    .govt-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .govt-flag{font-size:2rem;margin-bottom:8px}
+    .govt-name{font-size:1rem;font-weight:700;margin-bottom:4px;color:#000}
+    .govt-title{font-size:.82rem;color:var(--color-text-light);line-height:1.5;margin-bottom:8px}
+    .govt-event{font-size:.72rem;color:var(--color-accent);font-weight:600;background:rgba(180,32,36,.08);display:inline-block;padding:3px 10px;border-radius:50px}
+    @media(max-width:768px){.govt-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.govt-grid{grid-template-columns:1fr}}
     /* === PAGE-SPECIFIC STYLES === */
     .speakers-hero{position:relative;background:linear-gradient(135deg,#faf6f2 0%,#f5ece4 60%,#faf6f2 100%);color:var(--color-text);padding:140px 0 80px;text-align:center;overflow:hidden}
     .speakers-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(180,32,36,.06) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(180,32,36,.04) 0%,transparent 50%);pointer-events:none}
@@ -151,9 +162,7 @@
             <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/1716539968465-AG33I78VY2N3EPY2H12P/AIBP+Conference+%26+Exhibition+Logo.png?content-type=image%2Fpng" alt="AIBP C&E Malaysia" class="nav-logo-img">
         </a>
         <ul class="nav-menu" id="navMenu">
-            <li><a href="#about">About</a></li>
             <li><a href="#past-speakers">Speakers</a></li>
-            <li><a href="#sessions">Sessions</a></li>
             <li><a href="#podcast">Podcast</a></li>
             <li><a href="#nominate" class="nav-cta">Apply to Speak</a></li>
         </ul>
@@ -163,12 +172,12 @@
 <!-- Hero -->
 <section class="speakers-hero" id="about">
     <div class="container">
-        <p class="hero-subtitle">AIBP Conference & Exhibition | Across ASEAN</p>
-        <h1>Become a Speaker</h1>
-        <p class="hero-desc">Share your expertise with 600+ C-suite leaders, government officials, and enterprise decision makers across Southeast Asia. Join 300+ distinguished speakers who have shaped conversations on AI, digital transformation, and cybersecurity across 52 editions in 5 ASEAN countries.</p>
+        <p class="hero-subtitle">AIBP | Across ASEAN</p>
+        <h1>Speak Alongside Ministers & CEOs Shaping ASEAN's Future</h1>
+        <p class="hero-desc">300+ government leaders, C-suite executives, and industry pioneers have taken our stage across 52 editions in 5 countries. Our platform is endorsed by ASEAN ministries and attended by 600+ senior decision makers per event. Selection is by application only — we accept fewer than 30% of nominations.</p>
         <div class="hero-ctas">
             <a href="#nominate" class="btn btn-primary btn-lg">Apply to Speak</a>
-            <a href="#podcast" class="btn btn-outline btn-lg">Watch Our Speakers</a>
+            <a href="#podcast" class="btn btn-outline btn-lg">See Past Speakers</a>
         </div>
     </div>
 </section>
@@ -185,17 +194,66 @@
     </div>
 </section>
 
-<!-- Speak Across ASEAN -->
+<!-- Government Endorsement -->
 <section class="section" style="background:var(--color-bg-alt)">
     <div class="container">
-        <h2 class="section-title centered">Speak Across ASEAN</h2>
-        <p class="section-subtitle centered">Your message reaches the entire region</p>
-        <div class="asean-grid">
-            <div class="asean-card"><div class="country-flag">&#x1F1F2;&#x1F1FE;</div><h4>Malaysia</h4><p class="date">2026</p></div>
-            <div class="asean-card"><div class="country-flag">&#x1F1F9;&#x1F1ED;</div><h4>Thailand</h4><p class="date">2026</p></div>
-            <div class="asean-card"><div class="country-flag">&#x1F1EE;&#x1F1E9;</div><h4>Indonesia</h4><p class="date">2026</p></div>
-            <div class="asean-card"><div class="country-flag">&#x1F1FB;&#x1F1F3;</div><h4>Vietnam</h4><p class="date">2026</p></div>
-            <div class="asean-card"><div class="country-flag">&#x1F1F5;&#x1F1ED;</div><h4>Philippines</h4><p class="date">2026</p></div>
+        <h2 class="section-title centered">Endorsed by Government Leaders</h2>
+        <p class="section-subtitle centered">Presidents, ministers, and senior government officials who have spoken at AIBP</p>
+        <div class="govt-grid">
+            <div class="govt-card">
+                <div class="govt-flag">&#x1F1F9;&#x1F1FC;</div>
+                <div class="govt-name">Tsai Ying Wen</div>
+                <div class="govt-title">President, Taiwan</div>
+                <div class="govt-event">2017 WCIT, Taipei</div>
+            </div>
+            <div class="govt-card">
+                <div class="govt-flag">&#x1F1EE;&#x1F1E9;</div>
+                <div class="govt-name">Sandiaga Uno</div>
+                <div class="govt-title">Minister of Tourism & Creative Economy, Republic of Indonesia</div>
+                <div class="govt-event">2018 AIBP C&E Indonesia</div>
+            </div>
+            <div class="govt-card">
+                <div class="govt-flag">&#x1F1F2;&#x1F1FE;</div>
+                <div class="govt-name">YB Dato' Sri Dr. Adham Bin Baba</div>
+                <div class="govt-title">Minister of Science, Technology & Innovation, Malaysia</div>
+                <div class="govt-event">2022 AIBP C&E Malaysia</div>
+            </div>
+            <div class="govt-card">
+                <div class="govt-flag">&#x1F1F5;&#x1F1ED;</div>
+                <div class="govt-name">Atty. Ivan John Enrile Uy</div>
+                <div class="govt-title">Secretary, Department of Information & Communications Technology, Philippines</div>
+                <div class="govt-event">2022 AIBP C&E Philippines</div>
+            </div>
+            <div class="govt-card">
+                <div class="govt-flag">&#x1F1F9;&#x1F1ED;</div>
+                <div class="govt-name">Ajarin Pattanapanchai</div>
+                <div class="govt-title">Permanent Secretary, Ministry of Digital Economy & Society, Thailand</div>
+                <div class="govt-event">2019 AIBP C&E Thailand</div>
+            </div>
+            <div class="govt-card">
+                <div class="govt-flag">&#x1F1EE;&#x1F1E9;</div>
+                <div class="govt-name">Semuel Abrijani Pangerapan</div>
+                <div class="govt-title">Director-General of Application & Informatics, Ministry of Communications & IT, Indonesia</div>
+                <div class="govt-event">2018 AIBP C&E Indonesia</div>
+            </div>
+            <div class="govt-card">
+                <div class="govt-flag">&#x1F1F2;&#x1F1FE;</div>
+                <div class="govt-name">YBhg. Datuk Seri Panglima Wilfred Madius Tangau</div>
+                <div class="govt-title">Minister of Science, Technology & Innovation, Malaysia</div>
+                <div class="govt-event">2016 AIBP C&E Malaysia</div>
+            </div>
+            <div class="govt-card">
+                <div class="govt-flag">&#x1F1EE;&#x1F1E9;</div>
+                <div class="govt-name">Dr. Ir Ismail</div>
+                <div class="govt-title">Director General of Spectrum Management & Standardization, Ministry of Communications & IT, Indonesia</div>
+                <div class="govt-event">2019 AIBP C&E Indonesia</div>
+            </div>
+            <div class="govt-card">
+                <div class="govt-flag">&#x1F1EE;&#x1F1E9;</div>
+                <div class="govt-name">Mulyadi</div>
+                <div class="govt-title">Director of Resource & Equipment, Kementerian Komunikasi dan Informatika (KOMINFO), Indonesia</div>
+                <div class="govt-event">AIBP C&E Indonesia</div>
+            </div>
         </div>
     </div>
 </section>
@@ -246,23 +304,15 @@
 <section class="section speakers" id="past-speakers" style="background:var(--color-bg-alt)">
     <div class="container">
         <h2 class="section-title centered">Our Past Speakers</h2>
-        <p class="section-subtitle centered">300+ C-suite leaders, government officials, and industry pioneers across 52 editions</p>
+        <p class="section-subtitle centered">C-suite leaders, government officials, and industry pioneers across ASEAN</p>
         <div class="filter-bar">
             <select id="filterCountry"><option value="">All Countries</option><option value="MY">Malaysia</option><option value="TH">Thailand</option><option value="ID">Indonesia</option><option value="VN">Vietnam</option><option value="PH">Philippines</option></select>
-            <select id="filterType"><option value="">All Types</option><option value="Keynote">Keynote</option><option value="Panel">Panel</option></select>
             <select id="filterSector"><option value="">All Sectors</option><option value="BFSI">BFSI</option><option value="Public Services">Public Services</option><option value="Energy and Utilities">Energy and Utilities</option><option value="Manufacturing">Manufacturing</option><option value="DTLF">DTLF</option><option value="Technology">Technology</option><option value="Telecommunications">Telecommunications</option><option value="Retail">Retail</option><option value="Real Estate">Real Estate</option></select>
         </div>
-        <p class="filter-count" id="filterCount">Showing 35 of 35 speakers</p>
         <div class="sp-grid" id="speakersGallery"></div>
-    </div>
-</section>
-
-<!-- Sessions Accordion -->
-<section class="section" id="sessions">
-    <div class="container">
-        <h2 class="section-title centered">Past Conference Sessions</h2>
-        <p class="section-subtitle centered">Click a session to see the full panel lineup and discussion topics</p>
-        <div id="sessionAccordion"></div>
+        <div style="text-align:center;margin-top:32px" id="viewAllWrap">
+            <a href="#" class="btn btn-outline" id="viewAllBtn" style="color:#b42024;border-color:#b42024">View All Speakers</a>
+        </div>
     </div>
 </section>
 
@@ -352,27 +402,26 @@ var speakers = [
 {name:"Natalia Navin",title:"Group Chief Human Capital Officer",company:"POS Malaysia",type:"Panel",session:"Upskilling for Digital Future",photo:"https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/f2fa0dee-df81-46c6-98cb-ec7cc76891fe/POS+Malaysia%2C+Natalia+Navin%2C+Group+Chief+Human+Capital+Officer+%282%29.png?format=500w",role:"Panelist",panelTopic:"Building the Future Workforce",sector:"DTLF",country:"MY"}
 ];
 // === RENDER SPEAKERS ===
+var showAll=false;
 function renderSpeakers(){
 var co=document.getElementById("filterCountry").value;
-var t=document.getElementById("filterType").value;
 var sc=document.getElementById("filterSector").value;
+var isFiltered=co||sc;
 var f=speakers.filter(function(sp){
 var ok=true;
 if(co)ok=ok&&sp.country===co;
-if(t)ok=ok&&sp.type===t;
 if(sc)ok=ok&&sp.sector===sc;
 return ok;
 });
-document.getElementById("filterCount").textContent="Showing "+f.length+" of "+speakers.length+" speakers";
+var display=(!isFiltered&&!showAll)?f.slice(0,10):f;
 var g=document.getElementById("speakersGallery");
-g.innerHTML=f.map(function(sp){
+g.innerHTML=display.map(function(sp){
 var tc=sp.type==="Keynote"?"keynote":"panel";
 var rc=sp.role==="Presenter"?"presenter":"panelist";
-var countryNames={MY:"Malaysia",TH:"Thailand",ID:"Indonesia",VN:"Vietnam",PH:"Philippines"};
 return '<div class="sp-card">'+
 '<img src="'+sp.photo+'" alt="'+sp.name+'" loading="lazy">'+
 '<div class="sp-name">'+sp.name+'</div>'+
-'<div class="sp-title">'+sp.title+", "+sp.company+'</div>'+
+'<div class="sp-title">'+sp.title+', <strong>'+sp.company+'</strong></div>'+
 '<div class="sp-badges">'+
 '<span class="sp-badge '+tc+'">'+sp.type+'</span>'+
 '<span class="sp-badge '+rc+'">'+sp.role+'</span>'+
@@ -381,36 +430,13 @@ return '<div class="sp-card">'+
 '<div class="sp-topic">'+sp.panelTopic+'</div>'+
 '</div>';
 }).join("");
+var wrap=document.getElementById("viewAllWrap");
+if(isFiltered||showAll||f.length<=10){wrap.style.display="none";}else{wrap.style.display="block";}
 }
-document.getElementById("filterCountry").addEventListener("change",renderSpeakers);
-document.getElementById("filterType").addEventListener("change",renderSpeakers);
-document.getElementById("filterSector").addEventListener("change",renderSpeakers);
+document.getElementById("filterCountry").addEventListener("change",function(){showAll=false;renderSpeakers();});
+document.getElementById("filterSector").addEventListener("change",function(){showAll=false;renderSpeakers();});
+document.getElementById("viewAllBtn").addEventListener("click",function(e){e.preventDefault();showAll=true;renderSpeakers();});
 renderSpeakers();
-// === SESSION ACCORDION ===
-var sessions=[
-{num:1,title:"Scaling AI Transformation",date:"9 July 2025",day:1,desc:"Malaysia’s future lies in its ability to scale AI for transformative outcomes. This keynote explores strategies to optimise operations, create new revenue streams, and position Malaysia as a leader in global digital innovation.",moderator:"Sue Yuin Ho, Vice President, AIBP",panelTitle:"Scaling AI for Global Competitiveness",presenters:[],panelists:["Pedro Uria-Recio","Dr. Siew Chan Cheong","Shamsul Izhan Abdul Majid","Datuk Ir. Megat Jalaluddin Megat Hassan"]},
-{num:2,title:"AI Applications and ROI",date:"9 July 2025",day:1,desc:"As AI tools become more accessible, enterprises must ensure that their adoption translates into measurable business value. Topics include strategies for integrating these tools, overcoming workforce resistance, and calculating ROI.",moderator:"Mustafa Sabuwala, HCLTech",panelTitle:"From Tools to Transformation: Leveraging AI to Drive Productivity and ROI",presenters:["Colin Tan","Mustafa Sabuwala"],panelists:["Rangam Bir","Maz Mirza","Aditya Ranjit Tuli"]},
-{num:3,title:"Data Governance for AI Enterprises",date:"9 July 2025",day:1,desc:"As AI systems grow more powerful, they rely on vast amounts of data often collected with minimal oversight. This panel explores how enterprises can strengthen data governance to mitigate AI risks and navigate evolving regulatory landscapes.",moderator:"Joseph See, Progress Software",panelTitle:"AI Knows Too Much \u2014 Why Data Governance Matters",presenters:["Arfah Aridz","Chris Farrelly"],panelists:["Dr. Hon Hock Woon","Nili Shayrina Saat","Dr. Jun-E Tan"]},
-{num:4,title:"AI-Driven Cyber Security for BFSI",date:"9 July 2025",day:1,desc:"As financial institutions accelerate digital transformation, the sector faces heightened cybersecurity challenges. Institutions must adopt advanced technologies to ensure operational resilience and customer trust.",moderator:"Tyler Tang, Softscheck",panelTitle:"Leveraging AI to Strengthen Cybersecurity and Regulatory Compliance",presenters:["Tyler Tang"],panelists:["Dominic Yew","Dr. Toh Shang Yee","Ruban Bala","Er Chiang Kai"]},
-{num:5,title:"ESG and Digital Innovation",date:"10 July 2025",day:2,desc:"With increasing pressure from regulators, investors, and consumers, organisations must go beyond ESG reporting and drive real impact using AI, big data, and digital tools.",moderator:"",panelTitle:"ESG and Digital Transformation \u2014 Leveraging Data and AI",presenters:["Jed Llanes"],panelists:["Rushdi Abdul Rahim","Ts. Shaharuddin Hamid Mustapha","Azleena Idris","Joseph Fernandez"]},
-{num:6,title:"Securing Critical Infrastructure",date:"10 July 2025",day:2,desc:"As critical infrastructure becomes increasingly digitalised, safeguarding against cyber threats is a national priority. This panel discusses how organisations managing essential services can leverage AI-driven solutions.",moderator:"",panelTitle:"Protecting Malaysia\u2019s Critical Infrastructure",presenters:["Dato\u2019 Ts. Dr. Haji Amirudin Abdul Wahab","Kannan Velayutham"],panelists:["Ts. Suraya Hani Binti Ahmad Zaki","Aishah Farha Mohd Raih","Dr. Amir Abdul Samad","Nasrin Abg Omar","G Saravanan"]},
-{num:7,title:"Upskilling for Digital Future",date:"10 July 2025",day:2,desc:"Building a future-ready workforce goes hand-in-hand with adopting the right technologies. Discover how to equip employees with skills to harness AI tools and foster innovation.",moderator:"",panelTitle:"Building the Future Workforce",presenters:["Grace Zhang"],panelists:["Ben-Jie Lim","Najmie Noordin","Natalia Navin"]}
-];
-function findSp(name){for(var i=0;i<speakers.length;i++){if(speakers[i].name===name)return speakers[i];}return null;}
-function renderSessions(){
-var c=document.getElementById("sessionAccordion");if(!c)return;
-c.innerHTML=sessions.map(function(s){
-var dc=s.day===1?"day1":"day2";
-var total=s.presenters.length+s.panelists.length;
-var presHtml=s.presenters.map(function(n){var sp=findSp(n);if(!sp)return"";return '<div class="sess-presenter"><img src="'+sp.photo+'" alt="'+sp.name+'" loading="lazy"><div class="sp-info"><div class="sp-name">'+sp.name+'</div><div class="sp-title">'+sp.title+", "+sp.company+'</div><div class="sp-pres-topic">'+sp.panelTopic+'</div></div></div>';}).join("");
-var panHtml=s.panelists.map(function(n){var sp=findSp(n);if(!sp)return"";return '<div class="sess-panelist"><img src="'+sp.photo+'" alt="'+sp.name+'" loading="lazy"><div class="sp-name">'+sp.name+'</div><div class="sp-title">'+sp.company+'</div></div>';}).join("");
-return '<div class="sess-card '+dc+'"><div class="sess-header"><div><h3>Session '+s.num+": "+s.title+'</h3><div class="sess-meta">'+s.date+" \u2022 "+total+' speakers</div></div><span class="sess-toggle">+</span></div><div class="sess-body"><div class="sess-inner"><div class="sess-desc">'+s.desc+'</div>'+(s.moderator?'<div class="sess-moderator"><strong>Moderator:</strong> '+s.moderator+'</div>':"")+
-(presHtml?'<div class="sess-sub"><h4>Presenters</h4>'+presHtml+'</div>':"")+
-'<div class="sess-sub"><h4>'+s.panelTitle+'</h4><div class="sess-panelist-grid">'+panHtml+'</div></div></div></div></div>';
-}).join("");
-document.querySelectorAll(".sess-header").forEach(function(h){h.addEventListener("click",function(){var card=this.parentElement;var wasOpen=card.classList.contains("open");document.querySelectorAll(".sess-card").forEach(function(c){c.classList.remove("open");});if(!wasOpen)card.classList.add("open");});});
-}
-renderSessions();
 
 </script>
 </body>

@@ -144,11 +144,15 @@
     .sess-panelist .sp-title{font-size:.65rem;color:var(--color-text-light)}
     .sess-moderator{background:rgba(180,32,36,.08);border-radius:var(--radius);padding:10px 14px;font-size:.82rem;color:var(--color-text);margin-bottom:16px}
     /* Formats */
-    .formats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-    .format-card{background:var(--color-bg-alt);border-radius:var(--radius-lg);padding:28px 20px;text-align:center}
-    .format-card h3{font-size:1rem;font-weight:700;color:var(--color-primary);margin-bottom:8px}
-    .format-card .format-dur{font-size:.85rem;color:var(--color-accent);font-weight:600;margin-bottom:8px}
-    .format-card p{font-size:.82rem;color:var(--color-text-light);line-height:1.5}
+    .formats-list{display:flex;flex-direction:column;gap:16px}
+    .format-item{display:flex;gap:20px;align-items:flex-start;background:var(--color-bg);border-radius:var(--radius-lg);padding:28px 24px;box-shadow:var(--shadow-sm);transition:all .25s ease}
+    .format-item:hover{box-shadow:var(--shadow-lg);transform:translateX(4px)}
+    .format-icon{font-size:2rem;flex-shrink:0;width:48px;text-align:center}
+    .format-content{flex:1}
+    .format-content h3{font-size:1.05rem;font-weight:700;color:#000;margin-bottom:6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .format-dur-badge{font-size:.72rem;color:var(--color-accent);font-weight:600;background:rgba(180,32,36,.08);padding:3px 10px;border-radius:50px;white-space:nowrap}
+    .format-content p{font-size:.88rem;color:var(--color-text-light);line-height:1.7}
+    @media(max-width:600px){.format-item{flex-direction:column;gap:12px}.format-icon{width:auto}}
     /* Nomination */
     .nominate-section{background:var(--color-bg-dark);color:var(--color-text-inverse);padding:80px 0}
     .nominate-section .section-title{color:var(--color-text-inverse)}
@@ -157,8 +161,8 @@
     .nominate-form{background:var(--color-bg);border-radius:var(--radius-lg);overflow:hidden}
     .nominate-form iframe{width:100%;min-height:1850px;border:none}
     /* Responsive */
-    @media(max-width:1024px){.sp-grid{grid-template-columns:repeat(3,1fr)}.benefits-grid{grid-template-columns:repeat(2,1fr)}.formats-grid{grid-template-columns:repeat(2,1fr)}.nominate-grid{grid-template-columns:1fr}}
-    @media(max-width:768px){.sp-grid{grid-template-columns:repeat(2,1fr)}.video-grid{grid-template-columns:1fr}.benefits-grid{grid-template-columns:1fr}.speakers-hero h1{font-size:2.5rem}.asean-grid{flex-direction:column;align-items:center}.asean-card{max-width:100%;width:100%}.formats-grid{grid-template-columns:1fr}.nominate-grid{grid-template-columns:1fr}.filter-bar select{min-width:100%}}
+    @media(max-width:1024px){.sp-grid{grid-template-columns:repeat(3,1fr)}.benefits-grid{grid-template-columns:repeat(2,1fr)}.formats-list .format-item{padding:20px 16px}.nominate-grid{grid-template-columns:1fr}}
+    @media(max-width:768px){.sp-grid{grid-template-columns:repeat(2,1fr)}.video-grid{grid-template-columns:1fr}.benefits-grid{grid-template-columns:1fr}.speakers-hero h1{font-size:2.5rem}.asean-grid{flex-direction:column;align-items:center}.asean-card{max-width:100%;width:100%}.formats-list .format-icon{font-size:1.5rem}.nominate-grid{grid-template-columns:1fr}.filter-bar select{min-width:100%}}
     @media(max-width:480px){.sp-grid{grid-template-columns:1fr}.speakers-hero h1{font-size:2rem}}
     </style>
 </head>
@@ -354,11 +358,35 @@
     <div class="container">
         <h2 class="section-title centered">Speaking Formats</h2>
         <p class="section-subtitle centered">Multiple ways to share your expertise</p>
-        <div class="formats-grid">
-            <div class="format-card"><h3>Keynote Presentation</h3><p class="format-dur">20 – 30 minutes</p><p>Main stage presentation to the full conference audience of 600+ attendees. Past keynote speakers include CEOs from PETRONAS, Maybank, and the National AI Office of Malaysia. Ideal for sharing a bold vision, national strategy, or enterprise transformation story that sets the tone for the conference.</p></div>
-            <div class="format-card"><h3>Panel Discussion</h3><p class="format-dur">45 – 60 minutes</p><p>Moderated dialogue with 4–5 panelists from enterprise CxOs, government leaders, and industry experts. Each conference features 6–7 thematic sessions covering AI, cybersecurity, data governance, ESG, and talent. Panelists share real experiences — what worked, what broke, and what they would do differently.</p></div>
-            <div class="format-card"><h3>Private Workshop</h3><p class="format-dur">2 – 3 hours</p><p>Hands-on, invite-only sessions for a select group of senior attendees. Participants work through frameworks, assess their own readiness, and leave with actionable takeaways. Past workshops have covered data governance, cyber resilience for critical infrastructure, and AI implementation playbooks.</p></div>
-            <div class="format-card"><h3>Private Networking</h3><p class="format-dur">1 – 2 hours</p><p>Hosted luncheon or roundtable with a curated guest list of 15–30 C-suite executives. Combines a short keynote or fireside chat with open discussion over a seated meal. Designed for deeper relationship-building and focused dialogue on a single strategic topic with decision makers.</p></div>
+        <div class="formats-list">
+            <div class="format-item">
+                <div class="format-icon">&#x1F3A4;</div>
+                <div class="format-content">
+                    <h3>Keynote Presentation <span class="format-dur-badge">20 – 30 min</span></h3>
+                    <p>Main stage presentation to the full conference audience of 600+ attendees. Past keynote speakers include CEOs from PETRONAS, Maybank, and the National AI Office of Malaysia. Ideal for sharing a bold vision, national strategy, or enterprise transformation story that sets the tone for the conference.</p>
+                </div>
+            </div>
+            <div class="format-item">
+                <div class="format-icon">&#x1F4AC;</div>
+                <div class="format-content">
+                    <h3>Panel Discussion <span class="format-dur-badge">45 – 60 min</span></h3>
+                    <p>Moderated dialogue with 4–5 panelists from enterprise CxOs, government leaders, and industry experts. Each conference features 6–7 thematic sessions covering AI, cybersecurity, data governance, ESG, and talent. Panelists share real experiences — what worked, what broke, and what they would do differently.</p>
+                </div>
+            </div>
+            <div class="format-item">
+                <div class="format-icon">&#x1F6E0;</div>
+                <div class="format-content">
+                    <h3>Private Workshop <span class="format-dur-badge">2 – 3 hours</span></h3>
+                    <p>Hands-on, invite-only sessions for a select group of senior attendees. Participants work through frameworks, assess their own readiness, and leave with actionable takeaways. Past workshops have covered data governance, cyber resilience for critical infrastructure, and AI implementation playbooks.</p>
+                </div>
+            </div>
+            <div class="format-item">
+                <div class="format-icon">&#x1F37D;</div>
+                <div class="format-content">
+                    <h3>Private Networking <span class="format-dur-badge">1 – 2 hours</span></h3>
+                    <p>Hosted luncheon or roundtable with a curated guest list of 15–30 C-suite executives. Combines a short keynote or fireside chat with open discussion over a seated meal. Designed for deeper relationship-building and focused dialogue on a single strategic topic with decision makers.</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>

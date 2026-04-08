@@ -44,16 +44,25 @@
     .footer-links a{color:#666!important}
     .footer p{color:#666}
     @media(max-width:768px){.nav-menu{background:rgba(255,255,255,0.98)!important}}
-    /* Government Cards */
-    .govt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .govt-card{background:var(--color-bg);border-radius:var(--radius-lg);padding:28px 20px;text-align:center;box-shadow:var(--shadow-sm);transition:all .25s ease;border-left:3px solid var(--color-accent)}
-    .govt-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
-    .govt-flag{font-size:2rem;margin-bottom:8px}
-    .govt-name{font-size:1rem;font-weight:700;margin-bottom:4px;color:#000}
-    .govt-title{font-size:.82rem;color:var(--color-text-light);line-height:1.5;margin-bottom:8px}
-    .govt-event{font-size:.72rem;color:var(--color-accent);font-weight:600;background:rgba(180,32,36,.08);display:inline-block;padding:3px 10px;border-radius:50px}
-    @media(max-width:768px){.govt-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:480px){.govt-grid{grid-template-columns:1fr}}
+    /* Government Editorial */
+    .govt-featured{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:48px}
+    .govt-block{display:flex;gap:24px;align-items:flex-start;background:var(--color-bg);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);transition:all .25s ease}
+    .govt-block:hover{box-shadow:var(--shadow-lg)}
+    .govt-block img{width:220px;height:220px;object-fit:cover;flex-shrink:0}
+    .govt-block-text{padding:24px 24px 24px 0;display:flex;flex-direction:column;justify-content:center}
+    .govt-block-name{font-size:1.1rem;font-weight:800;color:#000;margin-bottom:4px}
+    .govt-block-title{font-size:.85rem;color:var(--color-text-light);line-height:1.5;margin-bottom:10px}
+    .govt-block-desc{font-size:.85rem;color:#000;line-height:1.6;margin-bottom:10px}
+    .govt-block-event{font-size:.72rem;color:var(--color-accent);font-weight:600;background:rgba(180,32,36,.08);display:inline-block;padding:3px 10px;border-radius:50px}
+    .govt-compact{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .govt-compact-card{background:var(--color-bg);border-radius:var(--radius-lg);padding:20px 16px;text-align:center;box-shadow:var(--shadow-sm);transition:all .25s ease}
+    .govt-compact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .govt-compact-card .govt-flag{font-size:1.8rem;margin-bottom:6px}
+    .govt-compact-card .govt-name{font-size:.9rem;font-weight:700;color:#000;margin-bottom:4px}
+    .govt-compact-card .govt-title{font-size:.75rem;color:var(--color-text-light);line-height:1.4;margin-bottom:6px}
+    .govt-compact-card .govt-event{font-size:.68rem;color:var(--color-accent);font-weight:600;background:rgba(180,32,36,.08);display:inline-block;padding:2px 8px;border-radius:50px}
+    @media(max-width:900px){.govt-featured{grid-template-columns:1fr}.govt-compact{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.govt-block{flex-direction:column}.govt-block img{width:100%;height:200px}.govt-block-text{padding:20px}.govt-compact{grid-template-columns:1fr}}
     /* === PAGE-SPECIFIC STYLES === */
     .speakers-hero{position:relative;background:linear-gradient(135deg,#faf6f2 0%,#f5ece4 60%,#faf6f2 100%);color:var(--color-text);padding:140px 0 80px;text-align:center;overflow:hidden}
     .speakers-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(180,32,36,.06) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(180,32,36,.04) 0%,transparent 50%);pointer-events:none}
@@ -198,61 +207,85 @@
 <section class="section" style="background:var(--color-bg-alt)">
     <div class="container">
         <h2 class="section-title centered">Endorsed by Government Leaders</h2>
-        <p class="section-subtitle centered">Presidents, ministers, and senior government officials who have spoken at AIBP</p>
-        <div class="govt-grid">
-            <div class="govt-card">
-                <div class="govt-flag">&#x1F1F9;&#x1F1FC;</div>
-                <div class="govt-name">Tsai Ying Wen</div>
-                <div class="govt-title">President, Taiwan</div>
-                <div class="govt-event">2017 WCIT, Taipei</div>
+        <p class="section-subtitle centered">Presidents, ministers, and senior government officials who have spoken at AIBP events across the region</p>
+
+        <!-- Featured Leaders -->
+        <div class="govt-featured">
+            <div class="govt-block">
+                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/1662446705204-MY6KP22CR0LCW8GGX3HV/img225.jpg?format=500w" alt="Tsai Ying Wen at WCIT 2017">
+                <div class="govt-block-text">
+                    <div class="govt-block-name">Tsai Ying Wen</div>
+                    <div class="govt-block-title">President, Taiwan</div>
+                    <div class="govt-block-desc">Delivered the opening address at the 2017 World Congress on Information Technology (WCIT) in Taipei, where AIBP was a featured platform partner.</div>
+                    <div><span class="govt-block-event">2017 WCIT, Taipei</span></div>
+                </div>
             </div>
-            <div class="govt-card">
-                <div class="govt-flag">&#x1F1EE;&#x1F1E9;</div>
-                <div class="govt-name">Sandiaga Uno</div>
-                <div class="govt-title">Minister of Tourism & Creative Economy, Republic of Indonesia</div>
-                <div class="govt-event">2018 AIBP C&E Indonesia</div>
+            <div class="govt-block">
+                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/1662446705204-MY6KP22CR0LCW8GGX3HV/img225.jpg?format=500w" alt="Sandiaga Uno at AIBP 2018">
+                <div class="govt-block-text">
+                    <div class="govt-block-name">Sandiaga Uno</div>
+                    <div class="govt-block-title">Minister of Tourism & Creative Economy, Republic of Indonesia</div>
+                    <div class="govt-block-desc">Addressed enterprise leaders on Indonesia's digital economy ambitions and the role of innovation in national competitiveness.</div>
+                    <div><span class="govt-block-event">2018 AIBP C&E Indonesia</span></div>
+                </div>
             </div>
-            <div class="govt-card">
-                <div class="govt-flag">&#x1F1F2;&#x1F1FE;</div>
-                <div class="govt-name">YB Dato' Sri Dr. Adham Bin Baba</div>
-                <div class="govt-title">Minister of Science, Technology & Innovation, Malaysia</div>
-                <div class="govt-event">2022 AIBP C&E Malaysia</div>
+            <div class="govt-block">
+                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/1662446705204-MY6KP22CR0LCW8GGX3HV/img225.jpg?format=500w" alt="YB Dato' Sri Dr. Adham at AIBP 2022">
+                <div class="govt-block-text">
+                    <div class="govt-block-name">YB Dato' Sri Dr. Adham Bin Baba</div>
+                    <div class="govt-block-title">Minister of Science, Technology & Innovation, Malaysia</div>
+                    <div class="govt-block-desc">Delivered the ministerial keynote on Malaysia's national science and technology agenda to an audience of C-suite executives and enterprise leaders.</div>
+                    <div><span class="govt-block-event">2022 AIBP C&E Malaysia</span></div>
+                </div>
             </div>
-            <div class="govt-card">
-                <div class="govt-flag">&#x1F1F5;&#x1F1ED;</div>
-                <div class="govt-name">Atty. Ivan John Enrile Uy</div>
-                <div class="govt-title">Secretary, Department of Information & Communications Technology, Philippines</div>
-                <div class="govt-event">2022 AIBP C&E Philippines</div>
+            <div class="govt-block">
+                <img src="https://images.squarespace-cdn.com/content/v1/6316ec4bc3127239ee7b0786/1662446705204-MY6KP22CR0LCW8GGX3HV/img225.jpg?format=500w" alt="Atty. Ivan John Enrile Uy at AIBP 2022">
+                <div class="govt-block-text">
+                    <div class="govt-block-name">Atty. Ivan John Enrile Uy</div>
+                    <div class="govt-block-title">Secretary, Department of Information & Communications Technology, Philippines</div>
+                    <div class="govt-block-desc">Spoke on the Philippines' digital infrastructure vision and how public-private partnerships are accelerating enterprise transformation.</div>
+                    <div><span class="govt-block-event">2022 AIBP C&E Philippines</span></div>
+                </div>
             </div>
-            <div class="govt-card">
+        </div>
+
+        <!-- More Government Speakers -->
+        <div class="govt-compact">
+            <div class="govt-compact-card">
                 <div class="govt-flag">&#x1F1F9;&#x1F1ED;</div>
                 <div class="govt-name">Ajarin Pattanapanchai</div>
                 <div class="govt-title">Permanent Secretary, Ministry of Digital Economy & Society, Thailand</div>
                 <div class="govt-event">2019 AIBP C&E Thailand</div>
             </div>
-            <div class="govt-card">
+            <div class="govt-compact-card">
                 <div class="govt-flag">&#x1F1EE;&#x1F1E9;</div>
                 <div class="govt-name">Semuel Abrijani Pangerapan</div>
                 <div class="govt-title">Director-General of Application & Informatics, Ministry of Communications & IT, Indonesia</div>
                 <div class="govt-event">2018 AIBP C&E Indonesia</div>
             </div>
-            <div class="govt-card">
+            <div class="govt-compact-card">
                 <div class="govt-flag">&#x1F1F2;&#x1F1FE;</div>
                 <div class="govt-name">YBhg. Datuk Seri Panglima Wilfred Madius Tangau</div>
                 <div class="govt-title">Minister of Science, Technology & Innovation, Malaysia</div>
                 <div class="govt-event">2016 AIBP C&E Malaysia</div>
             </div>
-            <div class="govt-card">
+            <div class="govt-compact-card">
                 <div class="govt-flag">&#x1F1EE;&#x1F1E9;</div>
                 <div class="govt-name">Dr. Ir Ismail</div>
-                <div class="govt-title">Director General of Spectrum Management & Standardization, Ministry of Communications & IT, Indonesia</div>
+                <div class="govt-title">Director General, Ministry of Communications & IT, Indonesia</div>
                 <div class="govt-event">2019 AIBP C&E Indonesia</div>
             </div>
-            <div class="govt-card">
-                <div class="govt-flag">&#x1F1EE;&#x1F1E9;</div>
-                <div class="govt-name">Mulyadi</div>
-                <div class="govt-title">Director of Resource & Equipment, Kementerian Komunikasi dan Informatika (KOMINFO), Indonesia</div>
-                <div class="govt-event">AIBP C&E Indonesia</div>
+            <div class="govt-compact-card">
+                <div class="govt-flag">&#x1F1F2;&#x1F1FE;</div>
+                <div class="govt-name">Shamsul Izhan Abdul Majid</div>
+                <div class="govt-title">Chief Executive Officer, National AI Office Malaysia (NAIO)</div>
+                <div class="govt-event">2025 AIBP C&E Malaysia</div>
+            </div>
+            <div class="govt-compact-card">
+                <div class="govt-flag">&#x1F1F2;&#x1F1FE;</div>
+                <div class="govt-name">Dato' Ts. Dr. Haji Amirudin Abdul Wahab</div>
+                <div class="govt-title">Chief Executive Officer, CyberSecurity Malaysia</div>
+                <div class="govt-event">2025 AIBP C&E Malaysia</div>
             </div>
         </div>
     </div>

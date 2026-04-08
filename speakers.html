@@ -44,6 +44,16 @@
     .footer-links a{color:#666!important}
     .footer p{color:#666}
     @media(max-width:768px){.nav-menu{background:rgba(255,255,255,0.98)!important}}
+    /* Government Cards */
+    .govt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .govt-card{background:var(--color-bg);border-radius:var(--radius-lg);padding:28px 20px;text-align:center;box-shadow:var(--shadow-sm);transition:all .25s ease;border-left:3px solid var(--color-accent)}
+    .govt-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .govt-flag{font-size:2rem;margin-bottom:8px}
+    .govt-name{font-size:1rem;font-weight:700;margin-bottom:4px;color:#000}
+    .govt-title{font-size:.82rem;color:var(--color-text-light);line-height:1.5;margin-bottom:8px}
+    .govt-event{font-size:.72rem;color:var(--color-accent);font-weight:600;background:rgba(180,32,36,.08);display:inline-block;padding:3px 10px;border-radius:50px}
+    @media(max-width:768px){.govt-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.govt-grid{grid-template-columns:1fr}}
     /* === PAGE-SPECIFIC STYLES === */
     .speakers-hero{position:relative;background:linear-gradient(135deg,#faf6f2 0%,#f5ece4 60%,#faf6f2 100%);color:var(--color-text);padding:140px 0 80px;text-align:center;overflow:hidden}
     .speakers-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(180,32,36,.06) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(180,32,36,.04) 0%,transparent 50%);pointer-events:none}
@@ -152,7 +162,6 @@
             <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/1716539968465-AG33I78VY2N3EPY2H12P/AIBP+Conference+%26+Exhibition+Logo.png?content-type=image%2Fpng" alt="AIBP C&E Malaysia" class="nav-logo-img">
         </a>
         <ul class="nav-menu" id="navMenu">
-            <li><a href="#about">About</a></li>
             <li><a href="#past-speakers">Speakers</a></li>
             <li><a href="#podcast">Podcast</a></li>
             <li><a href="#nominate" class="nav-cta">Apply to Speak</a></li>
@@ -185,17 +194,66 @@
     </div>
 </section>
 
-<!-- Speak Across ASEAN -->
+<!-- Government Endorsement -->
 <section class="section" style="background:var(--color-bg-alt)">
     <div class="container">
-        <h2 class="section-title centered">Speak Across ASEAN</h2>
-        <p class="section-subtitle centered">Your message reaches the entire region</p>
-        <div class="asean-grid">
-            <div class="asean-card"><div class="country-flag">&#x1F1F2;&#x1F1FE;</div><h4>Malaysia</h4><p class="date">2026</p></div>
-            <div class="asean-card"><div class="country-flag">&#x1F1F9;&#x1F1ED;</div><h4>Thailand</h4><p class="date">2026</p></div>
-            <div class="asean-card"><div class="country-flag">&#x1F1EE;&#x1F1E9;</div><h4>Indonesia</h4><p class="date">2026</p></div>
-            <div class="asean-card"><div class="country-flag">&#x1F1FB;&#x1F1F3;</div><h4>Vietnam</h4><p class="date">2026</p></div>
-            <div class="asean-card"><div class="country-flag">&#x1F1F5;&#x1F1ED;</div><h4>Philippines</h4><p class="date">2026</p></div>
+        <h2 class="section-title centered">Endorsed by Government Leaders</h2>
+        <p class="section-subtitle centered">Presidents, ministers, and senior government officials who have spoken at AIBP</p>
+        <div class="govt-grid">
+            <div class="govt-card">
+                <div class="govt-flag">&#x1F1F9;&#x1F1FC;</div>
+                <div class="govt-name">Tsai Ying Wen</div>
+                <div class="govt-title">President, Taiwan</div>
+                <div class="govt-event">2017 WCIT, Taipei</div>
+            </div>
+            <div class="govt-card">
+                <div class="govt-flag">&#x1F1EE;&#x1F1E9;</div>
+                <div class="govt-name">Sandiaga Uno</div>
+                <div class="govt-title">Minister of Tourism & Creative Economy, Republic of Indonesia</div>
+                <div class="govt-event">2018 AIBP C&E Indonesia</div>
+            </div>
+            <div class="govt-card">
+                <div class="govt-flag">&#x1F1F2;&#x1F1FE;</div>
+                <div class="govt-name">YB Dato' Sri Dr. Adham Bin Baba</div>
+                <div class="govt-title">Minister of Science, Technology & Innovation, Malaysia</div>
+                <div class="govt-event">2022 AIBP C&E Malaysia</div>
+            </div>
+            <div class="govt-card">
+                <div class="govt-flag">&#x1F1F5;&#x1F1ED;</div>
+                <div class="govt-name">Atty. Ivan John Enrile Uy</div>
+                <div class="govt-title">Secretary, Department of Information & Communications Technology, Philippines</div>
+                <div class="govt-event">2022 AIBP C&E Philippines</div>
+            </div>
+            <div class="govt-card">
+                <div class="govt-flag">&#x1F1F9;&#x1F1ED;</div>
+                <div class="govt-name">Ajarin Pattanapanchai</div>
+                <div class="govt-title">Permanent Secretary, Ministry of Digital Economy & Society, Thailand</div>
+                <div class="govt-event">2019 AIBP C&E Thailand</div>
+            </div>
+            <div class="govt-card">
+                <div class="govt-flag">&#x1F1EE;&#x1F1E9;</div>
+                <div class="govt-name">Semuel Abrijani Pangerapan</div>
+                <div class="govt-title">Director-General of Application & Informatics, Ministry of Communications & IT, Indonesia</div>
+                <div class="govt-event">2018 AIBP C&E Indonesia</div>
+            </div>
+            <div class="govt-card">
+                <div class="govt-flag">&#x1F1F2;&#x1F1FE;</div>
+                <div class="govt-name">YBhg. Datuk Seri Panglima Wilfred Madius Tangau</div>
+                <div class="govt-title">Minister of Science, Technology & Innovation, Malaysia</div>
+                <div class="govt-event">2016 AIBP C&E Malaysia</div>
+            </div>
+            <div class="govt-card">
+                <div class="govt-flag">&#x1F1EE;&#x1F1E9;</div>
+                <div class="govt-name">Dr. Ir Ismail</div>
+                <div class="govt-title">Director General of Spectrum Management & Standardization, Ministry of Communications & IT, Indonesia</div>
+                <div class="govt-event">2019 AIBP C&E Indonesia</div>
+            </div>
+            <div class="govt-card">
+                <div class="govt-flag">&#x1F1EE;&#x1F1E9;</div>
+                <div class="govt-name">Mulyadi</div>
+                <div class="govt-title">Director of Resource & Equipment, Kementerian Komunikasi dan Informatika (KOMINFO), Indonesia</div>
+                <div class="govt-event">AIBP C&E Indonesia</div>
+            </div>
         </div>
     </div>
 </section>

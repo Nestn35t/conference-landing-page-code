@@ -4,20 +4,20 @@
 
 /* ---------- CSS Variables ---------- */
 :root {
-    --color-primary: #3a2a1a;
+    --color-primary: #2d2d2d;
     --color-accent: #b42024;
-    --color-accent-hover: #931a1c;
-    --color-secondary: #c37c41;
+    --color-accent-hover: #931a1d;
+    --color-secondary: #b42024;
     --color-gold: #c9a84c;
     --color-silver: #8e8e93;
-    --color-platinum: #3a2a1a;
+    --color-platinum: #2d2d2d;
     --color-bg: #ffffff;
-    --color-bg-alt: #faf5f0;
-    --color-bg-dark: #3a2a1a;
-    --color-text: #3a2a1a;
-    --color-text-light: #6b5b4a;
+    --color-bg-alt: #faf6f2;
+    --color-bg-dark: #b42024;
+    --color-text: #2d2d2d;
+    --color-text-light: #666;
     --color-text-inverse: #ffffff;
-    --color-border: #e0d6cc;
+    --color-border: #e8e0d8;
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --container-max: 1200px;
     --nav-height: 72px;
@@ -151,8 +151,9 @@ a:hover {
     left: 0;
     right: 0;
     height: var(--nav-height);
-    background: rgba(58, 42, 26, 0.95);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
     z-index: 1000;
     transition: background var(--transition);
 }
@@ -197,7 +198,7 @@ a:hover {
 }
 
 .nav-menu a {
-    color: rgba(255,255,255,0.85);
+    color: var(--color-text);
     font-size: 0.9rem;
     font-weight: 500;
     text-decoration: none;
@@ -205,7 +206,7 @@ a:hover {
 }
 
 .nav-menu a:hover {
-    color: var(--color-text-inverse);
+    color: var(--color-accent);
 }
 
 .nav-cta {
@@ -232,7 +233,7 @@ a:hover {
 .nav-toggle span {
     width: 24px;
     height: 2px;
-    background: var(--color-text-inverse);
+    background: var(--color-text);
     transition: all var(--transition);
 }
 
@@ -250,7 +251,7 @@ a:hover {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(58,42,26,0.88) 0%, rgba(195,124,65,0.7) 50%, rgba(58,42,26,0.88) 100%);
+    background: linear-gradient(135deg, rgba(180,32,36,0.92) 0%, rgba(140,20,24,0.88) 50%, rgba(180,32,36,0.92) 100%);
     z-index: 2;
 }
 
@@ -260,7 +261,7 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #3a2a1a 0%, #c37c41 50%, #3a2a1a 100%);
+    background: linear-gradient(135deg, #b42024 0%, #8c1418 50%, #b42024 100%);
     z-index: 1;
 }
 
@@ -551,14 +552,14 @@ a:hover {
 }
 
 .agenda-tab.active {
-    background: var(--color-primary);
-    border-color: var(--color-primary);
+    background: var(--color-accent);
+    border-color: var(--color-accent);
     color: var(--color-text-inverse);
 }
 
 .agenda-tab:hover:not(.active) {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
 }
 
 .agenda-timeline {
@@ -658,12 +659,12 @@ a:hover {
 }
 
 .agenda-download .btn-outline {
-    color: var(--color-primary);
-    border-color: var(--color-primary);
+    color: var(--color-accent);
+    border-color: var(--color-accent);
 }
 
 .agenda-download .btn-outline:hover {
-    background: var(--color-primary);
+    background: var(--color-accent);
     color: var(--color-text-inverse);
 }
 
@@ -825,18 +826,18 @@ a:hover {
 }
 
 .sponsor-cta .btn-outline {
-    color: var(--color-primary);
-    border-color: var(--color-primary);
+    color: var(--color-accent);
+    border-color: var(--color-accent);
 }
 
 .sponsor-cta .btn-outline:hover {
-    background: var(--color-primary);
+    background: var(--color-accent);
     color: var(--color-text-inverse);
 }
 
 /* ---------- Registration ---------- */
 .registration {
-    background: var(--color-primary);
+    background: var(--color-bg-dark);
     color: var(--color-text-inverse);
 }
 
@@ -1300,7 +1301,7 @@ a:hover {
 .why-image-placeholder {
     width: 100%;
     height: 200px;
-    background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1318,7 +1319,7 @@ a:hover {
 .why-card h3 {
     font-size: 1.125rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-text);
     padding: 20px 24px 8px;
 }
 
@@ -1344,7 +1345,7 @@ a:hover {
 .who-image-placeholder {
     width: 100%;
     height: 480px;
-    background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
     border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
@@ -1406,7 +1407,7 @@ a:hover {
 
 /* ---------- Stats Bar ---------- */
 .stats-bar {
-    background: var(--color-primary);
+    background: var(--color-bg-dark);
     padding: 56px 0;
 }
 
@@ -1422,11 +1423,11 @@ a:hover {
 }
 
 .stats-bar .stat-number {
-    color: var(--color-accent);
+    color: #ffffff;
 }
 
 .stats-bar .stat-label {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.85);
 }
 
 /* ---------- Local Government Section ---------- */
@@ -1559,9 +1560,10 @@ a:hover {
 
 /* ---------- Footer ---------- */
 .footer {
-    background: var(--color-bg-dark);
+    background: var(--color-bg);
     padding: 48px 0;
-    color: rgba(255,255,255,0.6);
+    color: var(--color-text-light);
+    border-top: 1px solid var(--color-border);
 }
 
 .footer-grid {
@@ -1594,7 +1596,7 @@ a:hover {
 }
 
 .footer-links a {
-    color: rgba(255,255,255,0.6);
+    color: var(--color-text-light);
     font-size: 0.85rem;
     font-weight: 500;
 }
@@ -1675,7 +1677,7 @@ a:hover {
         top: var(--nav-height);
         left: 0;
         right: 0;
-        background: var(--color-primary);
+        background: rgba(255, 255, 255, 0.98);
         flex-direction: column;
         padding: 24px;
         gap: 0;

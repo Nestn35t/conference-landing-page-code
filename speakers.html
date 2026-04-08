@@ -11,13 +11,15 @@
     <link rel="stylesheet" href="css/styles.css">
     <style>
     /* === PAGE-SPECIFIC STYLES === */
-    .speakers-hero{position:relative;background:linear-gradient(135deg,var(--color-bg-dark) 0%,#1a1008 60%,#2a1a0a 100%);color:var(--color-text-inverse);padding:140px 0 80px;text-align:center;overflow:hidden}
-    .speakers-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(195,124,65,.15) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(180,32,36,.1) 0%,transparent 50%);pointer-events:none}
+    .speakers-hero{position:relative;background:linear-gradient(135deg,#faf6f2 0%,#f5ece4 60%,#faf6f2 100%);color:var(--color-text);padding:140px 0 80px;text-align:center;overflow:hidden}
+    .speakers-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(180,32,36,.06) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(180,32,36,.04) 0%,transparent 50%);pointer-events:none}
     .speakers-hero .container{position:relative;z-index:1}
-    .speakers-hero h1{font-size:3.5rem;font-weight:900;margin-bottom:12px}
-    .speakers-hero .hero-subtitle{font-size:1.25rem;color:var(--color-secondary);font-weight:600;margin-bottom:16px;text-transform:uppercase;letter-spacing:2px}
-    .speakers-hero .hero-desc{font-size:1.1rem;max-width:720px;margin:0 auto 32px;color:rgba(255,255,255,.85);line-height:1.7}
+    .speakers-hero h1{font-size:3.5rem;font-weight:900;margin-bottom:12px;color:var(--color-text)}
+    .speakers-hero .hero-subtitle{font-size:1.25rem;color:var(--color-accent);font-weight:600;margin-bottom:16px;text-transform:uppercase;letter-spacing:2px}
+    .speakers-hero .hero-desc{font-size:1.1rem;max-width:720px;margin:0 auto 32px;color:var(--color-text-light);line-height:1.7}
     .speakers-hero .hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .speakers-hero .btn-outline{color:var(--color-accent);border-color:var(--color-accent)}
+    .speakers-hero .btn-outline:hover{background:var(--color-accent);color:#fff}
     /* ASEAN Countries */
     .asean-grid{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
     .asean-card{background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:28px 24px;text-align:center;min-width:180px;flex:1;max-width:220px;transition:all var(--transition)}
@@ -56,7 +58,7 @@
     .sp-badges{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:6px}
     .sp-badge{display:inline-block;font-size:.65rem;font-weight:600;padding:3px 8px;border-radius:50px;text-transform:uppercase;letter-spacing:.5px}
     .sp-badge.keynote{background:rgba(180,32,36,.1);color:var(--color-accent)}
-    .sp-badge.panel{background:rgba(195,124,65,.1);color:var(--color-secondary)}
+    .sp-badge.panel{background:rgba(180,32,36,.1);color:var(--color-secondary)}
     .sp-badge.presenter{background:rgba(42,138,74,.1);color:#2a8a4a}
     .sp-badge.panelist{background:rgba(15,52,96,.1);color:#1a5276}
     .sp-badge.sector-badge{background:rgba(100,100,100,.08);color:var(--color-text-light);font-size:.6rem}
@@ -66,7 +68,7 @@
     .sess-card.day1{border-left:3px solid var(--color-accent)}
     .sess-card.day2{border-left:3px solid var(--color-secondary)}
     .sess-header{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;cursor:pointer;transition:background var(--transition)}
-    .sess-header:hover{background:rgba(195,124,65,.05)}
+    .sess-header:hover{background:rgba(180,32,36,.05)}
     .sess-header h3{font-size:1.05rem;font-weight:700;color:var(--color-primary);margin:0}
     .sess-header .sess-meta{font-size:.8rem;color:var(--color-text-light)}
     .sess-header .sess-toggle{font-size:1.5rem;color:var(--color-accent);font-weight:300;transition:transform .3s}
@@ -87,7 +89,7 @@
     .sess-panelist img{width:70px;height:70px;border-radius:50%;object-fit:cover;margin-bottom:4px}
     .sess-panelist .sp-name{font-size:.72rem;font-weight:600}
     .sess-panelist .sp-title{font-size:.65rem;color:var(--color-text-light)}
-    .sess-moderator{background:rgba(195,124,65,.08);border-radius:var(--radius);padding:10px 14px;font-size:.82rem;color:var(--color-text);margin-bottom:16px}
+    .sess-moderator{background:rgba(180,32,36,.08);border-radius:var(--radius);padding:10px 14px;font-size:.82rem;color:var(--color-text);margin-bottom:16px}
     /* Formats */
     .formats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
     .format-card{background:var(--color-bg-alt);border-radius:var(--radius-lg);padding:28px 20px;text-align:center}
@@ -95,7 +97,7 @@
     .format-card .format-dur{font-size:.85rem;color:var(--color-accent);font-weight:600;margin-bottom:8px}
     .format-card p{font-size:.82rem;color:var(--color-text-light);line-height:1.5}
     /* Nomination */
-    .nominate-section{background:var(--color-primary);color:var(--color-text-inverse);padding:80px 0}
+    .nominate-section{background:var(--color-bg-dark);color:var(--color-text-inverse);padding:80px 0}
     .nominate-section .section-title{color:var(--color-text-inverse)}
     .nominate-section p{color:rgba(255,255,255,.8)}
     .nominate-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
@@ -113,7 +115,7 @@
 <nav class="navbar" id="navbar">
     <div class="container nav-container">
         <a href="malaysia.html" class="nav-logo">
-            <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/c89591f7-af5c-443b-9ce8-36f027609cf9/Secondary+Logo+-+AIBP+C%26E+Malaysia.png?content-type=image%2Fpng" alt="AIBP C&E Malaysia" class="nav-logo-img">
+            <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/1716539968465-AG33I78VY2N3EPY2H12P/AIBP+Conference+%26+Exhibition+Logo.png?content-type=image%2Fpng" alt="AIBP C&E Malaysia" class="nav-logo-img">
         </a>
         <ul class="nav-menu" id="navMenu">
             <li><a href="#about">About</a></li>
@@ -154,13 +156,13 @@
 <section class="section" style="background:var(--color-bg-alt)">
     <div class="container">
         <h2 class="section-title centered">Speak Across ASEAN</h2>
-        <p class="section-subtitle centered">Our conferences span 5 countries — your message reaches the entire region</p>
+        <p class="section-subtitle centered">Your message reaches the entire region</p>
         <div class="asean-grid">
-            <div class="asean-card"><div class="country-flag">&#x1F1F2;&#x1F1FE;</div><h4>Malaysia</h4><p class="date">8 – 9 July 2026</p><p class="city">Kuala Lumpur</p></div>
-            <div class="asean-card"><div class="country-flag">&#x1F1F9;&#x1F1ED;</div><h4>Thailand</h4><p class="date">TBA 2026</p><p class="city">Bangkok</p></div>
-            <div class="asean-card"><div class="country-flag">&#x1F1EE;&#x1F1E9;</div><h4>Indonesia</h4><p class="date">TBA 2026</p><p class="city">Jakarta</p></div>
-            <div class="asean-card"><div class="country-flag">&#x1F1FB;&#x1F1F3;</div><h4>Vietnam</h4><p class="date">15 – 16 Sep 2026</p><p class="city">Ho Chi Minh City</p></div>
-            <div class="asean-card"><div class="country-flag">&#x1F1F5;&#x1F1ED;</div><h4>Philippines</h4><p class="date">TBA 2026</p><p class="city">Manila</p></div>
+            <div class="asean-card"><div class="country-flag">&#x1F1F2;&#x1F1FE;</div><h4>Malaysia</h4><p class="date">2026</p></div>
+            <div class="asean-card"><div class="country-flag">&#x1F1F9;&#x1F1ED;</div><h4>Thailand</h4><p class="date">2026</p></div>
+            <div class="asean-card"><div class="country-flag">&#x1F1EE;&#x1F1E9;</div><h4>Indonesia</h4><p class="date">2026</p></div>
+            <div class="asean-card"><div class="country-flag">&#x1F1FB;&#x1F1F3;</div><h4>Vietnam</h4><p class="date">2026</p></div>
+            <div class="asean-card"><div class="country-flag">&#x1F1F5;&#x1F1ED;</div><h4>Philippines</h4><p class="date">2026</p></div>
         </div>
     </div>
 </section>
@@ -174,53 +176,7 @@
             <div class="benefit-card"><div class="benefit-icon">&#x1F3AF;</div><h3>Address ASEAN's Top Decision Makers</h3><p>Present to 600 senior executives, ministers, and enterprise leaders per event. 75% of attendees are from local enterprises and government agencies.</p></div>
             <div class="benefit-card"><div class="benefit-icon">&#x1F3DB;</div><h3>Government-Endorsed Platform</h3><p>Our events are endorsed by local ministries including MITI (Malaysia), ensuring high-calibre, invitation-only audiences of real decision makers.</p></div>
             <div class="benefit-card"><div class="benefit-icon">&#x2708;</div><h3>Complimentary Speaker Package</h3><p>Selected speakers receive complimentary airfare, hotel accommodation, 2 delegate passes, and exclusive access to the Innovation Retreat.</p></div>
-            <div class="benefit-card">
-                <div class="benefit-icon">&#x1F3D6;</div>
-                <h3>Exclusive Innovation Retreat</h3>
-                <p>Join fellow speakers for a private retreat experience — network with advisory board members and C-suite peers in an intimate setting.</p>
-                <div class="cleverstory-wrap">
-                    <div id="recap">
-                        <div class="cleverstory__live_element" data-live-element="https://aibp.iotbusiness-platform.com/embedded/6971c6021e548b1afba6850f" data-id="6971c6021e548b1afba6850f" data-width="100%" data-height="815px">
-                            <div id="page-6971c6021e548b1afba6850f" style="display: none;"></div>
-                        </div>
-                        <script>!function(){var t=window,e=t.Cleverstory;if("function"==typeof e)e();else{var a=document,n=function(){var t=a.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://editor.cleverstory.io/scripts/embed_page.min.js";var e=a.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)};t.attachEvent?t.attachEvent("onload",n):t.addEventListener("load",n,!1)}}();// === RENDER SPEAKERS ===
-function renderSpeakers(){
-var t=document.getElementById("filterType").value;
-var s=document.getElementById("filterSession").value;
-var sc=document.getElementById("filterSector").value;
-var f=speakers.filter(function(sp){
-var ok=true;
-if(t)ok=ok&&sp.type===t;
-if(s)ok=ok&&sp.session===s;
-if(sc)ok=ok&&sp.sector===sc;
-return ok;
-});
-document.getElementById("filterCount").textContent="Showing "+f.length+" of "+speakers.length+" speakers";
-var g=document.getElementById("speakersGallery");
-g.innerHTML=f.map(function(sp){
-var tc=sp.type==="Keynote"?"keynote":"panel";
-var rc=sp.role==="Presenter"?"presenter":"panelist";
-return '<div class="sp-card">'+
-'<img src="'+sp.photo+'" alt="'+sp.name+'" loading="lazy">'+
-'<div class="sp-name">'+sp.name+'</div>'+
-'<div class="sp-title">'+sp.title+", "+sp.company+'</div>'+
-'<div class="sp-badges">'+
-'<span class="sp-badge '+tc+'">'+sp.type+'</span>'+
-'<span class="sp-badge '+rc+'">'+sp.role+'</span>'+
-'<span class="sp-badge sector-badge">'+sp.sector+'</span>'+
-'</div>'+
-'<div class="sp-topic">'+sp.panelTopic+'</div>'+
-'</div>';
-}).join("");
-}
-document.getElementById("filterType").addEventListener("change",renderSpeakers);
-document.getElementById("filterSession").addEventListener("change",renderSpeakers);
-document.getElementById("filterSector").addEventListener("change",renderSpeakers);
-renderSpeakers();
-</script>
-                    </div>
-                </div>
-            </div>
+            <div class="benefit-card"><div class="benefit-icon">&#x1F3D6;</div><h3>Exclusive Innovation Retreat</h3><p>Join fellow speakers for a private retreat experience — network with advisory board members and C-suite peers in an intimate setting.</p></div>
             <div class="benefit-card"><div class="benefit-icon">&#x1F399;</div><h3>Feature on AIBP ASEAN Podcast</h3><p>Selected speakers are invited to feature on the AIBP ASEAN Podcast, reaching thousands of enterprise leaders across the region.</p></div>
             <div class="benefit-card"><div class="benefit-icon">&#x1F30F;</div><h3>Speak Across Multiple Countries</h3><p>Distinguished speakers may be invited to present across multiple AIBP editions in different ASEAN countries, expanding your regional influence.</p></div>
         </div>
@@ -259,8 +215,8 @@ renderSpeakers();
         <h2 class="section-title centered">Our Past Speakers</h2>
         <p class="section-subtitle centered">300+ C-suite leaders, government officials, and industry pioneers across 52 editions</p>
         <div class="filter-bar">
+            <select id="filterCountry"><option value="">All Countries</option><option value="MY">Malaysia</option><option value="TH">Thailand</option><option value="ID">Indonesia</option><option value="VN">Vietnam</option><option value="PH">Philippines</option></select>
             <select id="filterType"><option value="">All Types</option><option value="Keynote">Keynote</option><option value="Panel">Panel</option></select>
-            <select id="filterSession"><option value="">All Sessions</option><option value="Keynote">Keynote</option><option value="AI Applications and ROI">AI Applications and ROI</option><option value="Data Governance">Data Governance</option><option value="AI-Driven Cyber Security for BFSI">Cyber Security for BFSI</option><option value="ESG & Digital Innovation">ESG & Digital Innovation</option><option value="Securing Critical Infrastructure">Securing Critical Infrastructure</option><option value="Upskilling for Digital Future">Upskilling for Digital Future</option></select>
             <select id="filterSector"><option value="">All Sectors</option><option value="BFSI">BFSI</option><option value="Public Services">Public Services</option><option value="Energy and Utilities">Energy and Utilities</option><option value="Manufacturing">Manufacturing</option><option value="DTLF">DTLF</option><option value="Technology">Technology</option><option value="Telecommunications">Telecommunications</option><option value="Retail">Retail</option><option value="Real Estate">Real Estate</option></select>
         </div>
         <p class="filter-count" id="filterCount">Showing 35 of 35 speakers</p>
@@ -291,6 +247,20 @@ renderSpeakers();
     </div>
 </section>
 
+<!-- Innovation Retreat Recap -->
+<section class="section" style="background:var(--color-bg-alt)">
+    <div class="container">
+        <h2 class="section-title centered">Innovation Retreat</h2>
+        <p class="section-subtitle centered">See highlights from our exclusive speaker retreat experience</p>
+        <div id="recap">
+            <div class="cleverstory__live_element" data-live-element="https://aibp.iotbusiness-platform.com/embedded/6971c6021e548b1afba6850f" data-id="6971c6021e548b1afba6850f" data-width="100%" data-height="815px">
+                <div id="page-6971c6021e548b1afba6850f" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>!function(){var t=window,e=t.Cleverstory;if("function"==typeof e)e();else{var a=document,n=function(){var t=a.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://editor.cleverstory.io/scripts/embed_page.min.js";var e=a.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)};t.attachEvent?t.attachEvent("onload",n):t.addEventListener("load",n,!1)}}();</script>
+
 <!-- Apply to Speak -->
 <section class="nominate-section" id="nominate">
     <div class="container">
@@ -311,7 +281,7 @@ renderSpeakers();
 <footer class="footer">
     <div class="container footer-grid">
         <div>
-            <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/c89591f7-af5c-443b-9ce8-36f027609cf9/Secondary+Logo+-+AIBP+C%26E+Malaysia.png?content-type=image%2Fpng" alt="AIBP" class="footer-logo-img">
+            <img src="https://images.squarespace-cdn.com/content/6316ec4bc3127239ee7b0786/1716539968465-AG33I78VY2N3EPY2H12P/AIBP+Conference+%26+Exhibition+Logo.png?content-type=image%2Fpng" alt="AIBP" class="footer-logo-img">
             <p>&copy; 2026 AIBP — Industry Platform Pte Ltd. All rights reserved.</p>
         </div>
         <div class="footer-links">
@@ -363,13 +333,13 @@ var speakers = [
 ];
 // === RENDER SPEAKERS ===
 function renderSpeakers(){
+var co=document.getElementById("filterCountry").value;
 var t=document.getElementById("filterType").value;
-var s=document.getElementById("filterSession").value;
 var sc=document.getElementById("filterSector").value;
 var f=speakers.filter(function(sp){
 var ok=true;
+if(co)ok=ok&&sp.country===co;
 if(t)ok=ok&&sp.type===t;
-if(s)ok=ok&&sp.session===s;
 if(sc)ok=ok&&sp.sector===sc;
 return ok;
 });
@@ -378,6 +348,7 @@ var g=document.getElementById("speakersGallery");
 g.innerHTML=f.map(function(sp){
 var tc=sp.type==="Keynote"?"keynote":"panel";
 var rc=sp.role==="Presenter"?"presenter":"panelist";
+var countryNames={MY:"Malaysia",TH:"Thailand",ID:"Indonesia",VN:"Vietnam",PH:"Philippines"};
 return '<div class="sp-card">'+
 '<img src="'+sp.photo+'" alt="'+sp.name+'" loading="lazy">'+
 '<div class="sp-name">'+sp.name+'</div>'+
@@ -391,8 +362,8 @@ return '<div class="sp-card">'+
 '</div>';
 }).join("");
 }
+document.getElementById("filterCountry").addEventListener("change",renderSpeakers);
 document.getElementById("filterType").addEventListener("change",renderSpeakers);
-document.getElementById("filterSession").addEventListener("change",renderSpeakers);
 document.getElementById("filterSector").addEventListener("change",renderSpeakers);
 renderSpeakers();
 // === SESSION ACCORDION ===

@@ -154,7 +154,6 @@
         <ul class="nav-menu" id="navMenu">
             <li><a href="#about">About</a></li>
             <li><a href="#past-speakers">Speakers</a></li>
-            <li><a href="#sessions">Sessions</a></li>
             <li><a href="#podcast">Podcast</a></li>
             <li><a href="#nominate" class="nav-cta">Apply to Speak</a></li>
         </ul>
@@ -256,15 +255,6 @@
         <div style="text-align:center;margin-top:32px" id="viewAllWrap">
             <a href="#" class="btn btn-outline" id="viewAllBtn" style="color:#b42024;border-color:#b42024">View All Speakers</a>
         </div>
-    </div>
-</section>
-
-<!-- Sessions Accordion -->
-<section class="section" id="sessions">
-    <div class="container">
-        <h2 class="section-title centered">Past Conference Sessions</h2>
-        <p class="section-subtitle centered">Click a session to see the full panel lineup and discussion topics</p>
-        <div id="sessionAccordion"></div>
     </div>
 </section>
 
@@ -402,31 +392,6 @@ document.getElementById("filterCountry").addEventListener("change",function(){sh
 document.getElementById("filterSector").addEventListener("change",function(){showAll=false;renderSpeakers();});
 document.getElementById("viewAllBtn").addEventListener("click",function(e){e.preventDefault();showAll=true;renderSpeakers();});
 renderSpeakers();
-// === SESSION ACCORDION ===
-var sessions=[
-{num:1,title:"Scaling AI Transformation",date:"9 July 2025",day:1,desc:"Malaysia’s future lies in its ability to scale AI for transformative outcomes. This keynote explores strategies to optimise operations, create new revenue streams, and position Malaysia as a leader in global digital innovation.",moderator:"Sue Yuin Ho, Vice President, AIBP",panelTitle:"Scaling AI for Global Competitiveness",presenters:[],panelists:["Pedro Uria-Recio","Dr. Siew Chan Cheong","Shamsul Izhan Abdul Majid","Datuk Ir. Megat Jalaluddin Megat Hassan"]},
-{num:2,title:"AI Applications and ROI",date:"9 July 2025",day:1,desc:"As AI tools become more accessible, enterprises must ensure that their adoption translates into measurable business value. Topics include strategies for integrating these tools, overcoming workforce resistance, and calculating ROI.",moderator:"Mustafa Sabuwala, HCLTech",panelTitle:"From Tools to Transformation: Leveraging AI to Drive Productivity and ROI",presenters:["Colin Tan","Mustafa Sabuwala"],panelists:["Rangam Bir","Maz Mirza","Aditya Ranjit Tuli"]},
-{num:3,title:"Data Governance for AI Enterprises",date:"9 July 2025",day:1,desc:"As AI systems grow more powerful, they rely on vast amounts of data often collected with minimal oversight. This panel explores how enterprises can strengthen data governance to mitigate AI risks and navigate evolving regulatory landscapes.",moderator:"Joseph See, Progress Software",panelTitle:"AI Knows Too Much \u2014 Why Data Governance Matters",presenters:["Arfah Aridz","Chris Farrelly"],panelists:["Dr. Hon Hock Woon","Nili Shayrina Saat","Dr. Jun-E Tan"]},
-{num:4,title:"AI-Driven Cyber Security for BFSI",date:"9 July 2025",day:1,desc:"As financial institutions accelerate digital transformation, the sector faces heightened cybersecurity challenges. Institutions must adopt advanced technologies to ensure operational resilience and customer trust.",moderator:"Tyler Tang, Softscheck",panelTitle:"Leveraging AI to Strengthen Cybersecurity and Regulatory Compliance",presenters:["Tyler Tang"],panelists:["Dominic Yew","Dr. Toh Shang Yee","Ruban Bala","Er Chiang Kai"]},
-{num:5,title:"ESG and Digital Innovation",date:"10 July 2025",day:2,desc:"With increasing pressure from regulators, investors, and consumers, organisations must go beyond ESG reporting and drive real impact using AI, big data, and digital tools.",moderator:"",panelTitle:"ESG and Digital Transformation \u2014 Leveraging Data and AI",presenters:["Jed Llanes"],panelists:["Rushdi Abdul Rahim","Ts. Shaharuddin Hamid Mustapha","Azleena Idris","Joseph Fernandez"]},
-{num:6,title:"Securing Critical Infrastructure",date:"10 July 2025",day:2,desc:"As critical infrastructure becomes increasingly digitalised, safeguarding against cyber threats is a national priority. This panel discusses how organisations managing essential services can leverage AI-driven solutions.",moderator:"",panelTitle:"Protecting Malaysia\u2019s Critical Infrastructure",presenters:["Dato\u2019 Ts. Dr. Haji Amirudin Abdul Wahab","Kannan Velayutham"],panelists:["Ts. Suraya Hani Binti Ahmad Zaki","Aishah Farha Mohd Raih","Dr. Amir Abdul Samad","Nasrin Abg Omar","G Saravanan"]},
-{num:7,title:"Upskilling for Digital Future",date:"10 July 2025",day:2,desc:"Building a future-ready workforce goes hand-in-hand with adopting the right technologies. Discover how to equip employees with skills to harness AI tools and foster innovation.",moderator:"",panelTitle:"Building the Future Workforce",presenters:["Grace Zhang"],panelists:["Ben-Jie Lim","Najmie Noordin","Natalia Navin"]}
-];
-function findSp(name){for(var i=0;i<speakers.length;i++){if(speakers[i].name===name)return speakers[i];}return null;}
-function renderSessions(){
-var c=document.getElementById("sessionAccordion");if(!c)return;
-c.innerHTML=sessions.map(function(s){
-var dc=s.day===1?"day1":"day2";
-var total=s.presenters.length+s.panelists.length;
-var presHtml=s.presenters.map(function(n){var sp=findSp(n);if(!sp)return"";return '<div class="sess-presenter"><img src="'+sp.photo+'" alt="'+sp.name+'" loading="lazy"><div class="sp-info"><div class="sp-name">'+sp.name+'</div><div class="sp-title">'+sp.title+", "+sp.company+'</div><div class="sp-pres-topic">'+sp.panelTopic+'</div></div></div>';}).join("");
-var panHtml=s.panelists.map(function(n){var sp=findSp(n);if(!sp)return"";return '<div class="sess-panelist"><img src="'+sp.photo+'" alt="'+sp.name+'" loading="lazy"><div class="sp-name">'+sp.name+'</div><div class="sp-title">'+sp.company+'</div></div>';}).join("");
-return '<div class="sess-card '+dc+'"><div class="sess-header"><div><h3>Session '+s.num+": "+s.title+'</h3><div class="sess-meta">'+s.date+" \u2022 "+total+' speakers</div></div><span class="sess-toggle">+</span></div><div class="sess-body"><div class="sess-inner"><div class="sess-desc">'+s.desc+'</div>'+(s.moderator?'<div class="sess-moderator"><strong>Moderator:</strong> '+s.moderator+'</div>':"")+
-(presHtml?'<div class="sess-sub"><h4>Presenters</h4>'+presHtml+'</div>':"")+
-'<div class="sess-sub"><h4>'+s.panelTitle+'</h4><div class="sess-panelist-grid">'+panHtml+'</div></div></div></div></div>';
-}).join("");
-document.querySelectorAll(".sess-header").forEach(function(h){h.addEventListener("click",function(){var card=this.parentElement;var wasOpen=card.classList.contains("open");document.querySelectorAll(".sess-card").forEach(function(c){c.classList.remove("open");});if(!wasOpen)card.classList.add("open");});});
-}
-renderSessions();
 
 </script>
 </body>
